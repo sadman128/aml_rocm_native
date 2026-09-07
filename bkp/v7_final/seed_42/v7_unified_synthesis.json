@@ -1,0 +1,17 @@
+{
+  "defended_fgsm_pgd_deepfool_mean_accuracy_pct": 91.01666666666667,
+  "unseen_gradient_defended_mean_accuracy_pct": 91.425,
+  "decision_search_defended_accuracy_pct": 91.4,
+  "gradient_vs_decision_gap_pp": 0.024999999999991473,
+  "gradient_masking_alert_threshold_pp": 15.0,
+  "gradient_masking_suspected": false,
+  "three_seed_clean_accuracy_mean_pct": 91.51666666666667,
+  "three_seed_clean_accuracy_std_pct": 0.05773502691895929,
+  "three_seed_mifgsm_accuracy_mean_pct": 91.43333333333334,
+  "three_seed_boundary_accuracy_mean_pct": 91.45,
+  "nn_transfer_asr_baseline_pct": 19.17,
+  "nn_transfer_asr_defended_pct": 0.11,
+  "rf_transfer_asr_baseline_pct": 4.74,
+  "rf_transfer_asr_defended_pct": 0.0,
+  "claim_scope": "within-dataset adversarial attack-algorithm generalization only"
+}

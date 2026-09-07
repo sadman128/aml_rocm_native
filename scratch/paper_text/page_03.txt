@@ -1,0 +1,108 @@
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+against adversarial threats to prevent patient data
+breaches and unauthorized access [18].
+• Finance: AI-driven fraud detection mechanisms in
+financial institutions are vulnerable to adversarial
+exploitation, leading to identity theft and fraudulent
+transactions.
+• Industrial Control Systems (ICS) and Smart Manu-
+facturing: Cyber-physical systems and critical infras-
+tructure networks are increasingly adopting cloud-
+based IDS solutions. Adversarial threats to these
+systems could lead to catastrophic disruptions.
+• Enterprise Cloud Services: Organizations migrating to
+cloud-based security models must ensure that their IDS
+solutions remain robust againstadversarial threats that
+could compromise business-critical applications and
+regulatory compliance.
+D. PROPOSED DEFENSE APPROACH
+To mitigate adversarial threats, this study proposes a two-
+pronged defense strategy that enhances ML-based IDS
+resilience:
+• Adversarial Training: Incorporating adversarially gen-
+erated samples into IDS training to improve the model’s
+ability to detect adversarially manipulated network
+traffic.
+• Robust Feature Selection: Identifying and prioritizing
+network traffic features that are less susceptible to
+adversarial perturbations, thereby improving IDS
+stability.
+• SHAP-Based Feature Analysis: Leveraging SHapley
+Additive exPlanations (SHAP) to quantify feature
+importance and assess how adversarial attacks manip-
+ulate critical attributes.
+By integrating adversarial training and SHAP-based
+feature selection, our approach strengthens IDS models
+against evasion attacks while maintaining interpretability
+and computational efficiency.
+E. CONTRIBUTIONS OF THIS RESEARCH
+This paper presents a novel adversarial defense framework
+for enhancing ML-based IDS robustness in cloud environ-
+ments. The key contributions include:
+• A comprehensive evaluation of adversarial attack
+effectiveness on ML-based IDS using FGSM, PGD,
+and DeepFool.
+• A dual-defense strategy incorporating adversarial
+training and robust feature selection to improve IDS
+resilience while maintaining computational
+efficiency.
+• SHAP-based feature importance analysis to interpret
+how adversarial perturbations impact IDS decision-
+making and guide feature selection strategies.
+• Experimental validation on the CSE-CIC-IDS2018
+dataset, demonstrating significant reductions in attack
+success rates and improved detection accuracy [28].
+F. PAPER ORGANIZATION
+The remainder of this paper is structured as follows:
+Section II reviews related work on adversarial attacks and
+defense mechanisms in ML-based IDS, highlighting existing
+adversarial robustness approaches and their limitations.
+Section III details the proposed methodology, including
+adversarial attack implementation, adversarial train-
+ing, robust feature selection, and SHAP-based feature
+importance analysis. Section IV presents experimental
+results and analysis, evaluating the impact of adversar-
+ial attacks, defense performance, and feature importance
+insights. Section V discusses the broader implications of
+our findings, including federated learning for decentralized
+IDS training, adversarial adaptation challenges, and hybrid
+adversarial defense strategies. Section VI concludes the
+paper with final remarks, recommendations for improv-
+ing cloud IDS security, and future research directions in
+explainable adversarial defenses and adaptive intrusion
+detection.
+II. RELATED WORK AND LITERATURE REVIEW
+A. EVOLUTION OF INTRUSION DETECTION SYSTEMS
+Intrusion Detection Systems (IDS) have undergone signifi-
+cant evolution from traditional signature-based methods to
+modern AI-driven solutions. Early IDS frameworks relied
+on signature-based detection, which involved maintaining a
+database of known attack patterns and comparing incoming
+traffic against these signatures. While effective against known
+threats, these systems struggled to detect novel attacks or
+zero-day exploits [19].
+Anomaly-based IDS emerged as an alternative, leverag-
+ing statistical models and rule-based approaches to detect
+deviations from normal behavior. However, these methods
+suffered from high false positive rates and the inability to
+adapt to evolving cyber threats [20]. With advancements
+in machine learning and deep learning, AI-driven IDS
+frameworks have gained prominence due to their capability
+to learn complex attack patterns and generalize to previously
+unseen threats [21].
+B. ADVERSARIAL ATTACKS ON ML-BASED IDS
+Despite the success of ML-based IDS, adversarial attacks
+have been identified as a major vulnerability. Several studies
+have demonstrated that attackers can generate adversarial
+examples—perturbed versions of legitimate traffic—to fool
+IDS models into misclassifying malicious activities as
+benign [4].
+Goodfellow et al. introduced the Fast Gradient Sign
+Method (FGSM), a single-step attack that perturbs input
+samples along the gradient direction to deceive ML mod-
+els [22]. Madry et al. extended this approach with the
+Projected Gradient Descent (PGD) attack, which iteratively
+refines adversarial examples for increased effectiveness [23].
+Moosavi-Dezfooli et al. proposed DeepFool, an attack that
+finds the minimal perturbation required to alter classification.
+84994 VOLUME 13, 2025

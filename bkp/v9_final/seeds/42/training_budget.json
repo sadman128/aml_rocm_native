@@ -1,0 +1,14 @@
+{
+  "seed": 42,
+  "baseline_epochs": 50,
+  "paper_epochs": 50,
+  "v9_clean_epochs": 10,
+  "v9_online_epochs": 40,
+  "batch_size": 2048,
+  "pgd_steps_eval": 100,
+  "pgd_steps_online": 5,
+  "online_adv_weight": 0.5,
+  "device": "cuda",
+  "total_seconds": 9.636678200000006,
+  "note": "V9 computational overhead includes dynamic per-batch PGD online gradient generation"
+}

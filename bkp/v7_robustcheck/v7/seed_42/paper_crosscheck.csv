@@ -1,0 +1,9 @@
+Metric,Paper,This run,Delta
+Baseline clean accuracy,85.0,96.92369120905575,11.92
+Baseline under FGSM,60.0,74.3,14.3
+Baseline under PGD,55.0,52.5,-2.5
+Baseline under DeepFool,50.0,73.5,23.5
+Baseline under Square,63.0,33.800000000000004,-29.2
+Defended under gradient attacks (mean),88.0,92.61666666666667,4.62
+Defended under Square,84.0,91.3,7.3
+Training overhead %,25.0,71.94939160938587,46.95

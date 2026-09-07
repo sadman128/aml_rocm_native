@@ -1,0 +1,11 @@
+{
+  "gradient_masking_gap_pp_v5_mean": 65.32,
+  "gradient_masking_gap_pp_v5_std": 3.04,
+  "cw_defended_acc_pct": 94.2,
+  "cw_defended_sr_pct": 2.48,
+  "transfer_sur1_to_defended_sr_pct": 7.56,
+  "transfer_sur2_to_defended_sr_pct": 3.55,
+  "transfer_sur1_gap_pp": 20.89,
+  "transfer_sur2_gap_pp": 26.95,
+  "interpretation": "Gradient masking (v5): ~65 pp gap between gradient-based and gradient-free attacks. Transferability: low-to-moderate gap between surrogate white-box SR and real-target transfer SR. Combined: decision-based direct-query attacker (Boundary-Walk) is more dangerous than surrogate-based transfer attacker."
+}

@@ -1,0 +1,3 @@
+Surrogate,Attack,Source-model ASR%,Baseline Clean Acc%,Baseline Transfer Acc%,Baseline Transfer ASR%,Defended Clean Acc%,Defended Transfer Acc%,Defended Transfer ASR%
+IDSNet (independent seed),PGD (gradient-based),46.38,96.0,77.6,19.17,91.45,91.35,0.11
+Random Forest,Square-style search (gradient-free),99.69,96.0,93.2,4.74,91.45,91.45,0.0

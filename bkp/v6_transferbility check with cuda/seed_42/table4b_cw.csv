@@ -1,0 +1,4 @@
+Model,Accuracy,F1,Precision,Recall,Attack_SR,Samples,Note
+Baseline | C&W (capped),63.6,28.91,25.0,34.26,33.19,500,eps-capped to 0.05 L_inf for Table-4 comparability
+Baseline | C&W (uncapped),2.6,â€”,â€”,â€”,97.27,500,natural C&W perturbation | mean_Linf=135.913
+Defended | C&W (capped),94.2,86.12,89.11,83.33,2.48,500,eps-capped to 0.05 L_inf

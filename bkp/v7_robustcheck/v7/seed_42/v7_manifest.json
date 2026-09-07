@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-08-13T21:54:01.186443",
+  "version": "v7_unified",
+  "seed": 42,
+  "data_seed": 42,
+  "output_dir": "./output/v7/seed_42",
+  "table_artifacts": [
+    "table4.csv",
+    "table5.csv",
+    "table6.csv",
+    "table_minperturb.csv",
+    "zeroday_table.csv",
+    "trades_comparison.csv",
+    "table10_adaptive.csv",
+    "table11_transferability.csv"
+  ]
+}

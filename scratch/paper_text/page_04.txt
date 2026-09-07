@@ -1,0 +1,111 @@
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+These attacks pose significant threats to IDS models,
+reducing their reliability in real-world deployments [7].
+Recent research quantifies the severe impact of these attacks
+on IDS performance.
+Although adversarial training [3] has been widely studied
+as a robust defense method, it primarily addresses known
+adversarial perturbations encountered during model training
+and does not explicitly consider feature-level robustness.
+Similarly, robust feature selection methods [4] often neglect
+adversarial perturbations explicitly during model training,
+focusing instead on static feature selection criteria. Recent
+works of ours PRIVFED [5] emphasize federated learning
+strategies with differential privacy, but we did not directly
+integrate robust feature selection or address feature-level
+susceptibility under adversarial conditions during initital
+research. Consequently, these isolated approaches leave
+critical gaps regarding comprehensive adversarial resilience
+and interpretability. Our research explicitly addresses this
+gap by proposing an integrated approach that synergistically
+combines adversarial training and SHAP-based robust feature
+selection. This integration uniquely strengthens IDS models
+by simultaneously improving their resistance to adversarial
+manipulation and enhancing their interpretability, setting our
+approach apart from existing standalone and hybrid defenses.
+C. EXISTING DEFENSE MECHANISMS
+To counter adversarial attacks, several defense mechanisms
+have been explored. Adversarial training, one of the most
+effective strategies, involves incorporating adversarial exam-
+ples into the training dataset to improve model robustness.
+However, adversarial training often comes at the cost of
+increased computational complexity and reduced model
+generalization [3].
+Feature selection has also been studied as a potential
+defense against adversarial threats. Researchers have demon-
+strated that adversarial attacks exploit certain weak features
+within IDS models, making feature selection an essential
+step in improving resilience [4]. In addition, ensemble
+learning, where multiple models work collectively to enhance
+robustness, has been explored as a defense strategy. While
+ensemble approaches improve attack resistance, they intro-
+duce additional computational overhead and deployment
+complexity. We also proposed PRIVFED, a framework
+combining Federated Learning with differential privacy
+that achieves strong privacy guarantees while maintaining
+high model performance. This approach demonstrated that
+even with strong privacy protection, the system maintained
+88.7% accuracy with only 15.3% computational overhead.
+This suggests that privacy-preserving distributed learning
+could be effectively applied to IDS systems, particularly in
+scenarios where data sensitivity and privacy requirements are
+paramount [5].
+Recent research has explored hybrid defense approaches
+combining adversarial training with anomaly detection
+techniques to provide robust protection against known and
+unknown threats [25]. Such integrated approaches leverage
+adversarial training’s capability to mitigate specific adver-
+sarial attacks and anomaly detection’s potential to recognize
+deviations from normal patterns, thereby effectively address-
+ing zero-day and unknown adversarial threats. However,
+explicit evaluations of these hybrid frameworks in practical
+cloud-based IDS scenarios remain limited, indicating a
+significant research gap.
+V arious alternative defense methods have also been
+explored in literature, including randomized smoothing,
+ensemble defenses, and input transformations. Randomized
+smoothing methods introduce noise during inference to
+reduce the sensitivity of models to adversarial perturbations;
+however, they can degrade detection accuracy and incur sub-
+stantial computational costs. Ensemble defenses, combining
+multiple classifiers trained independently, typically achieve
+better robustness through diversity but significantly increase
+computational and operational complexity. Input transforma-
+tion techniques (e.g., feature squeezing or denoising) aim to
+remove adversarial perturbations before classification but can
+introduce unwanted data distortion that negatively impacts
+legitimate traffic classification accuracy [26].
+In contrast, our selected approach—adversarial train-
+ing combined explicitly with SHAP-based robust feature
+selection—offers a balanced and practical solution explicitly
+addressing adversarial robustness while preserving inter-
+pretability, computational efficiency, and maintaining high
+accuracy. SHAP integration explicitly ensures interpretability
+and robustness at a feature-level, making our method highly
+suitable explicitly for deployment in realistic cloud-based
+IDS scenarios.
+D. GAPS IN EXISTING RESEARCH
+Despite extensive research in adversarial attacks and defense
+mechanisms, several gaps remain unaddressed:
+• Many existing studies focus on static IDS environments,
+whereas real-world cloud environments are highly
+dynamic and require adaptable defenses.
+• Adversarial training methods often degrade model
+performance on clean (non-adversarial) samples, neces-
+sitating hybrid defense mechanisms.
+• There is limited research on the impact of adversarial
+attacks in specific industry sectors such as telecommu-
+nications, finance, and manufacturing.
+• Feature selection techniques need further refinement to
+balance interpretability, robustness, and computational
+efficiency in IDS models.
+This paper aims to bridge these gaps by proposing an
+integrated adversarial defense framework that combines
+adversarial training with robust feature selection. Our
+approach is evaluated on real-world cloud IDS datasets,
+demonstrating its effectiveness in mitigating adversarial
+threats while preserving model accuracy.
+III. METHODOLOGY AND PROPOSED SOLUTION
+This section outlines our approach to enhancing the robust-
+ness of ML-based IDS models against adversarial attacks.
+VOLUME 13, 2025 84995

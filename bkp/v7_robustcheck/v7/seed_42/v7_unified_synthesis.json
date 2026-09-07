@@ -1,0 +1,8 @@
+{
+  "gradient_attacks_defended_acc_mean": 92.9625,
+  "boundary_search_defended_acc": 94.15,
+  "gradient_vs_decision_gap_pp": -1.1875,
+  "surrogate1_transfer_gap_pp": 33.45,
+  "surrogate2_transfer_gap_pp": 99.53,
+  "interpretation": "A large gradient-versus-decision attack gap is evidence consistent with attack-dependent or obfuscated-gradient robustness, subject to the documented tabular-validity limitation."
+}

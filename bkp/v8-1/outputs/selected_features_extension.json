@@ -1,0 +1,17 @@
+{
+  "method": "adaptive cumulative robust SHAP score",
+  "features": [
+    "Fwd Packet Length Max",
+    "Bwd Packet Length Std",
+    "Packet Length Mean",
+    "Packet Length Std",
+    "Init Fwd Win Bytes",
+    "Bwd Packet Length Max",
+    "Avg Packet Size",
+    "Init Bwd Win Bytes",
+    "Fwd Packet Length Std",
+    "Avg Bwd Segment Size",
+    "Avg Fwd Segment Size",
+    "Bwd Packet Length Mean"
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "elbow_comparison": [
+    {
+      "Stage": "MI feature selection",
+      "Threshold method (90%)": 42,
+      "Elbow method": 44,
+      "Delta": 2
+    },
+    {
+      "Stage": "SHAP robust selection",
+      "Threshold method (90%)": 24,
+      "Elbow method": 28,
+      "Delta": 4
+    }
+  ],
+  "sweep_table": [
+    {
+      "mi_threshold": 0.7,
+      "n_mi_features": 29,
+      "n_shap_features": 18,
+      "baseline_clean_acc%": 96.74,
+      "defended_clean_acc%": 95.5,
+      "defended_pgd_acc%": 89.5,
+      "defended_bw_acc%": 28.0,
+      "masking_gap_pp": 62.0
+    },
+    {
+      "mi_threshold": 0.8,
+      "n_mi_features": 35,
+      "n_shap_features": 21,
+      "baseline_clean_acc%": 78.21,
+      "defended_clean_acc%": 96.75,
+      "defended_pgd_acc%": 90.5,
+      "defended_bw_acc%": 49.5,
+      "masking_gap_pp": 42.0
+    },
+    {
+      "mi_threshold": 0.9,
+      "n_mi_features": 42,
+      "n_shap_features": 24,
+      "baseline_clean_acc%": 96.42,
+      "defended_clean_acc%": 96.75,
+      "defended_pgd_acc%": 90.5,
+      "defended_bw_acc%": 33.5,
+      "masking_gap_pp": 58.0
+    }
+  ],
+  "trades_comparison": [
+    {
+      "Method": "PGD augmentation (v4/v5 default)",
+      "Defended Clean%": 95.97,
+      "MI-FGSM Acc%": 91.9,
+      "BW Acc%": 34.85,
+      "Masking Gap pp": 58.68
+    },
+    {
+      "Method": "TRADES (beta=6.0)",
+      "Defended Clean%": 95.93,
+      "MI-FGSM Acc%": 92.15,
+      "BW Acc%": 29.1,
+      "Masking Gap pp": 63.05
+    }
+  ],
+  "table10_adaptive": [
+    {
+      "PGD iters": 20,
+      "Restarts": 5,
+      "Defended Acc%": 91.8,
+      "Success Rate%": 4.38
+    },
+    {
+      "PGD iters": 50,
+      "Restarts": 5,
+      "Defended Acc%": 91.4,
+      "Success Rate%": 4.79
+    },
+    {
+      "PGD iters": 100,
+      "Restarts": 5,
+      "Defended Acc%": 91.8,
+      "Success Rate%": 4.38
+    },
+    {
+      "PGD iters": 200,
+      "Restarts": 5,
+      "Defended Acc%": 91.6,
+      "Success Rate%": 4.58
+    }
+  ],
+  "stability_table": [
+    {
+      "Seed": 42,
+      "Clean Acc%": 95.25,
+      "MI-FGSM Acc%": 91.75,
+      "BW Acc%": 28.95,
+      "Masking Gap pp": 62.8,
+      "Masking Suspected": true
+    },
+    {
+      "Seed": 123,
+      "Clean Acc%": 96.55,
+      "MI-FGSM Acc%": 92.65,
+      "BW Acc%": 28.2,
+      "Masking Gap pp": 64.45,
+      "Masking Suspected": true
+    },
+    {
+      "Seed": 2024,
+      "Clean Acc%": 96.25,
+      "MI-FGSM Acc%": 92.15,
+      "BW Acc%": 23.45,
+      "Masking Gap pp": 68.7,
+      "Masking Suspected": true
+    }
+  ],
+  "stability_gap_summary": {
+    "mean_pp": 65.31666666666666,
+    "std_pp": 3.043983136177556,
+    "min_pp": 62.8,
+    "max_pp": 68.7,
+    "n_suspected": 3
+  },
+  "trades_masking_gap_pp": 63.05000000000001,
+  "pgd_aug_masking_gap_pp": 58.67500000000001
+}

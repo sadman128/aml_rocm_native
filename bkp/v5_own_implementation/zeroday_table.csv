@@ -1,0 +1,5 @@
+Attack,Baseline Acc%,Baseline SR%,Defended Acc%,Defended SR%,Delta Acc%,Type
+MI-FGSM,38.25,60.6,91.9,3.67,53.65,gradient
+Random,80.5,18.15,93.65,1.89,13.15,random
+Sparse,91.4,5.93,95.15,0.26,3.75,gradient
+Boundary-Walk,0.1,99.9,34.85,63.47,34.75,gradient-free

@@ -1,0 +1,77 @@
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+In our adversarial training approach, adversarial samples
+explicitly generated using all three attack techniques (FGSM,
+PGD, and DeepFool) were included clearly in the train-
+ing dataset. This explicit inclusion of diverse adversarial
+perturbations enhances model robustness comprehensively,
+enabling the IDS to generalize more effectively against both
+seen and unseen adversarial attack methods.
+E. ROBUST ADVERSARIAL TRAINING FRAMEWORK
+Adversarial training has emerged as one of the most effective
+techniques to enhance the robustness of ML-based IDS
+against adversarial attacks. The core idea behind adversarial
+training is to expose the IDS model to adversarially generated
+samples during training, enabling it to learn patterns that
+distinguish between genuine and manipulated network traffic.
+This iterative process improves the model’s ability to gener-
+alize under adversarial conditions, making it less susceptible
+to evasion techniques.
+TABLE 1. Robust adversarial training framework.
+F. ROBUST FEATURE SELECTION ALGORITHM
+Selecting the right set of features plays a crucial role in
+improving the resilience of IDS models against adversarial
+attacks. Traditional feature selection techniques primarily
+focus on selecting features that maximize classification
+accuracy. However, adversarially robust feature selection
+must prioritize stability, ensuring that the selected features
+remain effective even under adversarial perturbations.
+TABLE 2. Robust feature selection algorithm.
+G. SHAP-BASED ROBUST FEATURE SELECTION
+ALGORITHM
+To further enhance the resilience of our IDS framework,
+we incorporate SHAP-based feature selection, which prior-
+itizes features that remain stable under adversarial pertur-
+bations. Unlike conventional feature selection methods that
+focus solely on feature importance, our approach evaluates
+feature stability by comparing SHAP values computed on
+clean and adversarial datasets.
+TABLE 3. SHAP-based robust feature selection algorithm.
+H. SIGNIFICANCE OF SHAP-BASED FEATURE SELECTION
+SHAP analysis enables us to measure the consistency of
+feature contributions across clean and adversarial datasets.
+By filtering out features that experience high SHAP score
+variations due to adversarial perturbations, we ensure that
+only stable and robust features are retained. This approach
+improves IDS resilience by:
+• Identifying features that remain consistent under attack
+conditions, reducing adversarial susceptibility.
+• Enhancing model interpretability by providing insights
+into feature stability.
+• Improving generalization by selecting features that
+retain predictive power across different attack scenarios.
+By integrating adversarial training and robust feature selec-
+tion, our proposed IDS framework significantly enhances
+security against adversarial threats, ensuring improved
+resilience in detecting and mitigating cyberattacks in cloud
+environments.
+IV. EXPERIMENTAL RESULTS
+In this section, we present an in-depth evaluation of our
+proposed adversarial training and robust feature selection
+methods. We perform multiple experiments to assess model
+performance against various adversarial attack strategies,
+measuring key metrics such as accuracy, attack success
+rate, F1-score, precision, and recall. Our evaluation involves
+training and testing on the CSE-CIC-IDS2018 dataset, which
+is widely used for intrusion detection research.
+A. EXPERIMENT SETUP
+The experiments were conducted on a high-performance
+computing system with the following specifications:
+• Processor: Intel Xeon 2.8GHz, 16 cores
+• RAM: 128GB
+• GPU: NVIDIA A100 with 40GB VRAM
+• Framework: TensorFlow and PyTorch
+• Dataset: CSE-CIC-IDS2018, preprocessed for ML-based
+IDS training
+The IDS model was trained using a deep neural network
+(DNN) with three hidden layers, batch normalization, and
+VOLUME 13, 2025 84997

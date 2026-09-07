@@ -1,0 +1,101 @@
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+of combining adversarial training with SHAP-driven robust
+feature selection.
+F. COMPUTATIONAL OVERHEAD ANAL YSIS
+Evaluating computational efficiency is critical for practical
+IDS deployments in cloud environments. To explicitly
+quantify the computational overhead introduced by our
+proposed dual-layered defense strategy, we measured training
+and inference times for both the baseline IDS model and
+our proposed defended model (adversarial training combined
+with SHAP-based robust feature selection). All experiments
+were conducted on a server equipped with an Intel Xeon
+2.8 GHz processor (16 cores), 128 GB RAM, and an NVIDIA
+A100 GPU (40 GB VRAM).
+Table 6 summarizes the training and inference times
+clearly. While our proposed method introduced a modest
+training overhead of approximately 25% compared to
+the baseline model, inference times remained practically
+unchanged, maintaining suitability for real-time IDS deploy-
+ments.
+TABLE 6. Computational overhead comparison.
+Compared explicitly to PRIVFED [5], which reported a
+15.3% computational overhead primarily due to federated
+learning and privacy computations, our approach incurs
+slightly higher overhead due to adversarial training processes.
+Nevertheless, the overhead remains modest and accept-
+able for real-time deployment, especially considering the
+enhanced robustness and interpretability benefits achieved.
+Furthermore, adopting federated learning in future imple-
+mentations could distribute computational workloads, further
+reducing centralized training overhead.
+While our evaluation explicitly focuses on adversarial
+training combined with SHAP-based feature selection,
+we acknowledge explicitly the complementary role of
+detection-based defenses, such as MagNet [27]. Detection-
+based methods explicitly identify adversarial examples at
+inference time, providing an additional layer of defense.
+Explicitly evaluating these methods alongside adversar-
+ial training frameworks remains an important future
+research direction for comprehensive adversarial defense
+coverage.
+V. FEATURE IMPORTANCE ANALYSIS USING SHAP
+One of the critical aspects of improving adversarial robust-
+ness in ML-based IDS is understanding the role of individual
+features in classification decisions. Feature importance anal-
+ysis helps identify which network traffic attributes contribute
+most to the IDS model’s predictions and how adversarial
+attacks manipulate these features to evade detection. In this
+study, we employ SHAP (SHapley Additive exPlanations)
+to quantify feature importance and analyze how adversarial
+perturbations affect IDS decision boundaries.
+A. METHODOLOGY
+SHAP provides an interpretable way to assess the influence of
+each feature on model predictions by computing the average
+marginal contribution of a feature across different subsets of
+input data. The key steps in our feature importance analysis
+are:
+• Train an ML-based IDS model on the CSE-CIC-
+IDS2018 dataset.
+• Generate adversarial samples using FGSM, PGD, and
+DeepFool.
+• Compute SHAP values for both benign and adversarial
+samples.
+• Compare SHAP values before and after attack perturba-
+tions to determine which features are most affected.
+B. FEATURE DESCRIPTIONS AND IMPORTANCE
+The SHAP analysis focuses on key network traffic
+attributes, evaluating how adversarial perturbations impact
+their relative importance in IDS decision-making. Below is a
+description of the most influential features:
+• Protocol - Indicates the network protocol (e.g., TCP ,
+UDP , ICMP). Different protocols exhibit distinct traffic
+behaviors, making this a crucial feature for attack
+detection.
+• Src Port (Source Port)- Represents the originating port
+number in network communication, often manipulated
+in port-scanning and flooding attacks.
+• Dst Port (Destination Port) - The target port for
+network traffic, where attacks frequently target known
+service vulnerabilities.
+• Flow Duration - Measures the duration of a connection.
+Adversaries often manipulate connection timing to
+evade detection.
+• Packet Length - Represents the size of network packets.
+V ariations in packet length distribution can indicate
+malicious activity.
+• Flow Bytes/s - The rate of data transmission within a
+connection. Attackers may throttle or amplify this metric
+to evade detection.
+• Flow Packets/s - The number of packets transmit-
+ted per second. High-frequency, short-duration traf-
+fic patterns are common in DDoS and brute-force
+attacks.
+• Fwd Packet Length - The length of packets sent in the
+forward direction. Attackers may use inconsistencies in
+packet length to disguise malicious activity.
+These features play a critical role in IDS classification,
+and adversarial attacks attempt to exploit their vulnerabilities
+by either perturbing high-contribution features or amplifying
+irrelevant attributes.
+VOLUME 13, 2025 84999

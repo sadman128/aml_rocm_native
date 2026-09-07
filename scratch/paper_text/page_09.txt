@@ -1,0 +1,95 @@
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+C. RESUL TS AND OBSERVATIONS
+The SHAP analysis reveals that certain features, such as
+flow duration, packet length, and byte distribution per
+packet, are disproportionately influenced by adversarial
+attacks. Specifically:
+• DeepFool and PGD attacks tend to manipulate low-
+variance statistical features such as packet inter-arrival
+time and flow duration, ensuring stealthy evasions.
+• FGSM primarily alters high-magnitude features,
+such as flow bytes/s and packet counts, forcing misclas-
+sification through amplified perturbations.
+FIGURE 3. SHAP feature importance analysis before and after adversarial
+attacks.
+Figure 3 illustrates the SHAP feature importance rank-
+ings before and after adversarial perturbations. The results
+indicate that adversarial attacks significantly reduce the
+contribution of key distinguishing features while amplifying
+the importance of less relevant attributes, leading to misclas-
+sification by the IDS model.
+D. SIGNIFICANCE OF SHAP-BASED FEATURE SELECTION
+Our feature importance analysis highlights the need for
+adaptive feature selection techniques that prioritize stable,
+high-contribution attributes resistant to adversarial manipula-
+tions. By integrating SHAP-based feature selection into IDS
+training, future models can:
+• Identify features that remain consistent under attack
+conditions, reducing adversarial susceptibility.
+• Improve model interpretability by providing insights
+into feature stability.
+• Enhance generalization by selecting features that retain
+predictive power across different attack scenarios.
+By leveraging SHAP-based feature selection alongside
+adversarial training, our proposed IDS framework signifi-
+cantly enhances security, interpretability, and robustness,
+ensuring improved resilience in detecting and mitigating
+adversarial cyber threats in cloud environments.
+VI. DISCUSSION AND ANALYSIS
+Our experimental findings demonstrate that adversarial
+attacks significantly degrade the performance of ML-based
+IDS models. FGSM, PGD, and DeepFool attacks reduced
+classification accuracy by up to 40%, underscoring the
+vulnerability of IDS frameworks deployed in cloud environ-
+ments. However, our proposed adversarial training and robust
+feature selection strategies effectively mitigated these threats,
+restoring model accuracy and reducing attack success rates.
+The evaluation against the Square Attack further con-
+firms our framework’s generalization capability, highlighting
+that the integrated defense strategy not only mitigates
+gradient-based adversarial threats but also provides meaning-
+ful robustness against black-box adversarial scenarios. This
+broader robustness is crucial for real-world IDS deployments,
+where attackers typically have limited knowledge of IDS
+internal workings.
+Our computational overhead analysis explicitly demon-
+strates that while the dual-layered defense strategy intro-
+duces additional training complexity (approximately 25%),
+inference speed remains suitable for real-time operations
+(11 ms/sample). This modest overhead, comparable to
+existing methods like PRIVFED [5], confirms the practical
+viability of our framework. Furthermore, potential adoption
+of federated learning architectures could distribute computa-
+tional overhead across edge devices, significantly enhancing
+scalability and computational efficiency for large-scale IDS
+deployments.
+A. EFFECTIVENESS OF DEFENSE MECHANISMS
+Adversarial training proved to be a highly effective counter-
+measure, as it exposed the model to adversarial examples
+during training, enhancing its resilience against attacks.
+Nonetheless, adversarial training increased computational
+overhead, highlighting the trade-off between security and
+efficiency. Robust feature selection further bolstered model
+security by eliminating redundant or easily exploitable
+features, thereby improving robustness without sacrificing
+computational efficiency.
+B. FEATURE IMPORTANCE INSIGHTS FROM SHAP
+To gain deeper insights into how adversarial perturba-
+tions affect IDS decision-making, we conducted a feature
+importance analysis using SHAP . This analysis provided
+valuable information regarding the features most impacted
+by adversarial attacks and the effectiveness of defense
+mechanisms.
+• SHAP analysis revealed that protocol-based features and
+statistical attributes (e.g., packet rate, duration, and flow
+bytes) had the highest SHAP values, indicating their
+significance in classification decisions.
+• Adversarial attacks primarily targeted high-importance
+features such as source/destination IP entropy and con-
+nection duration, which are critical for distinguishing
+normal and malicious traffic.
+• After applying robust feature selection, SHAP values
+indicated that selected features exhibited greater sta-
+bility under adversarial conditions, improving model
+robustness.
+85000 VOLUME 13, 2025

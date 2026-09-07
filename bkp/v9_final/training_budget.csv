@@ -1,0 +1,4 @@
+seed,baseline_epochs,paper_epochs,v9_clean_epochs,v9_online_epochs,batch_size,pgd_steps_eval,pgd_steps_online,online_adv_weight,device,total_seconds,note
+42,50,50,10,40,2048,100,5,0.5,cuda,9.636678200000006,V9 computational overhead includes dynamic per-batch PGD online gradient generation
+123,50,50,10,40,2048,100,5,0.5,cuda,9.41765200000009,V9 computational overhead includes dynamic per-batch PGD online gradient generation
+2024,50,50,10,40,2048,100,5,0.5,cuda,4160.5289824,V9 computational overhead includes dynamic per-batch PGD online gradient generation

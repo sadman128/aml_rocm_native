@@ -1,0 +1,13 @@
+method,epsilon,seed,accuracy
+Baseline,0.01,2024,0.878
+Paper Defense,0.01,2024,0.8795
+V9 Defense,0.01,2024,0.932
+Baseline,0.03,2024,0.8035
+Paper Defense,0.03,2024,0.8295
+V9 Defense,0.03,2024,0.925
+Baseline,0.05,2024,0.7235
+Paper Defense,0.05,2024,0.759
+V9 Defense,0.05,2024,0.8875
+Baseline,0.1,2024,0.654
+Paper Defense,0.1,2024,0.674
+V9 Defense,0.1,2024,0.725

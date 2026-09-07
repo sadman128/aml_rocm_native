@@ -1,0 +1,20 @@
+{
+  "paper_fixed_top_t": 15,
+  "features": [
+    "Fwd IAT Min",
+    "Fwd Packets/s",
+    "Flow IAT Mean",
+    "Bwd Packet Length Max",
+    "Bwd IAT Min",
+    "Fwd Packets Length Total",
+    "Subflow Fwd Bytes",
+    "Subflow Bwd Packets",
+    "Total Backward Packets",
+    "Avg Fwd Segment Size",
+    "Flow Packets/s",
+    "Bwd Header Length",
+    "Total Fwd Packets",
+    "Bwd IAT Max",
+    "Subflow Fwd Packets"
+  ]
+}

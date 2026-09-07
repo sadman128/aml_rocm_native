@@ -1,0 +1,3 @@
+Model,Accuracy (%),F1-score (%),Precision (%),Recall (%),Attack Success Rate (%)
+Baseline,79.8,30.82,78.95,19.15,20.2
+Defended,81.8,63.89,59.85,68.51,18.2

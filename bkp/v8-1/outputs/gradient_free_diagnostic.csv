@@ -1,0 +1,2 @@
+attack,generated,changed_n,changed_pct,mean_l0,mean_l2,mean_linf,max_linf,within_epsilon_pct,attack_success_rate,clean_accuracy_subset,adversarial_accuracy,mean_queries,method,seed,phase
+Diagnostic_Square-style_same_rows,500,448,89.60000000000001,9.298,0.1424927496896167,0.04480001275241375,0.05000019073486328,100.0,0.02391304347826087,0.92,0.898,270.862,V8 Diagnostics,42,same_row_gradient_free

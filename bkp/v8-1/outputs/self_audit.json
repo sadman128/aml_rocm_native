@@ -1,0 +1,14 @@
+{
+  "no_test_leakage_by_construction": true,
+  "scaler_encoder_mi_smote_fit_on_train_only": true,
+  "shap_uses_development_not_test": true,
+  "online_attacks_generated_inside_each_batch": true,
+  "online_attacks_regenerated_each_epoch": true,
+  "no_missing_seed_method_attack_rows": true,
+  "bounded_attacks_within_epsilon": true,
+  "raw_deepfool_separately_named": true,
+  "custom_square_separately_named": true,
+  "boundary_failures_reported": true,
+  "three_declared_seeds_evaluated": true,
+  "gradient_masking_is_result_derived": true
+}

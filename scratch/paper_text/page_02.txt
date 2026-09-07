@@ -1,0 +1,110 @@
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+security defenses while maintaining seemingly legitimate
+traffic patterns. Research has shown that even state-of-the-art
+deep learning models, despite their high accuracy, remain vul-
+nerable to adversarial manipulations, raising serious concerns
+about their deployment in real-world cloud environments [2].
+Given that cloud infrastructures rely on shared resources and
+interconnected services, a single compromised IDS model
+could have cascading effects across multiple organizations
+or tenants, making adversarial robustness a critical security
+challenge.
+A critical consideration regarding adversarial attacks on
+network traffic is practical feasibility. Adversarial perturba-
+tions in network-based IDS must explicitly adhere to realistic
+constraints—such as preserving packet structures, protocol
+compliance, timing consistency, and avoiding detectable
+anomalies—to remain undetected and functional in real-
+world scenarios. Thus, attackers must carefully balance per-
+turbation magnitude to evade IDS detection while ensuring
+that manipulated traffic maintains its malicious functionality
+and network-level plausibility.
+A critical aspect of evaluating adversarial threats to IDS
+models is understanding whether adversarially perturbed
+network traffic retains its functional integrity—specifically,
+whether it remains capable of executing the originally
+intended malicious activities. In our evaluation, adversarial
+attacks (FGSM, PGD, and DeepFool) introduce subtle
+feature perturbations that do not alter fundamental traffic
+functionality. These perturbations specifically target features
+used by IDS classifiers without disrupting packet structure
+or network-level semantics, thereby preserving the feasi-
+bility of executing functional attacks. Explicit validation
+of functional integrity is assumed in our adversarial threat
+modeling to reflect realistic adversarial scenarios where
+attackers aim to evade detection without sacrificing malicious
+effectiveness.
+While previous studies have explored adversarial train-
+ing [3] and robust feature selection techniques indepen-
+dently [4], the integration of these methods into a unified
+defense framework has received limited attention. Specifi-
+cally, our approach leverages SHAP-based feature analysis
+not merely for interpretability but as a critical tool to
+systematically identify robust features that remain stable
+under adversarial perturbations. Unlike PRIVFED [5], which
+primarily focuses on federated learning and privacy enhance-
+ments, our framework directly enhances adversarial robust-
+ness by combining adversarial training with SHAP-driven
+robust feature selection. This dual-layered defense strat-
+egy thus provides a unique contribution by simultane-
+ously addressing adversarial vulnerabilities and maintain-
+ing interpretability—attributes essential for real-world IDS
+deployments in cloud environments.
+A. ADVERSARIAL THREATS TO CLOUD SECURITY
+Recent advancements in adversarial machine learning (AML)
+have enabled attackers to craft highly effective evasion
+attacks against ML-based IDS. Attackers utilize techniques
+such as Fast Gradient Sign Method (FGSM), Projected
+Gradient Descent (PGD), and DeepFool to identify decision
+boundaries within IDS models and perturb network traffic
+in ways that remain undetectable to conventional security
+mechanisms [6], [7], [8]. These attacks pose a significant risk
+in cloud environments, where IDS models must continuously
+adapt to dynamic traffic patterns and evolving attack
+methodologies.
+The distributed nature of cloud security amplifies the risk
+of adversarial threats, as attackers can target centralized IDS
+models, federated security frameworks, or even distributed
+edge-based intrusion detection systems [5], [11]. Without
+effective countermeasures, adversarial vulnerabilities can
+lead to data breaches, financial fraud, service disruptions, and
+compromised industrial control systems [9]. This necessitates
+the development of robust adversarial defense mechanisms
+that enhance IDS resilience without significantly increasing
+computational overhead [10].
+B. CHALLENGES IN ML-BASED CLOUD IDS
+Despite their potential, ML-based IDS solutions face several
+key challenges in adversarial settings:
+• Susceptibility to Adversarial Perturbations: Even
+small perturbations in network traffic features can cause
+ML models to misclassify benign traffic as malicious or
+vice versa, reducing IDS effectiveness [12].
+• High False Positive Rates: Anomaly-based IDS
+often generate excessive false alarms, leading to alert
+fatigue and reduced trust in automated security mech-
+anisms [13].
+• Computational Overhead: Adversarial training and
+other defense techniques impose significant computa-
+tional costs, making real-time IDS operation in cloud
+environments challenging [14].
+• Adaptive Attack Strategies: Adversaries continuously
+refine evasion techniques, necessitating dynamic and
+adaptive IDS models that can learn from evolving threat
+landscapes [15].
+• Scalability and Generalization: IDS models trained
+on specific datasets may struggle to generalize across
+diverse cloud infrastructures and attack scenarios, lim-
+iting their real-world effectiveness [16].
+Addressing these challenges requires a multi-faceted
+approach, combining adversarial training, robust feature
+selection, and explainability-driven defense mechanisms.
+C. INDUSTRY IMPACT OF ADVERSARIALL Y RESILIENT IDS
+The security of cloud-based IDS solutions is paramount
+across multiple industries, including:
+• Telecommunications: 5G networks and IoT-connected
+devices introduce vast real-time traffic volumes, neces-
+sitating IDS solutions that can detect adversarial
+manipulations without degrading performance [17].
+• Healthcare: Cloud-hosted electronic health records
+(EHR) and telemedicine platforms must be secured
+VOLUME 13, 2025 84993

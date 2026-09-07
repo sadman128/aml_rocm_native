@@ -1,0 +1,20 @@
+{
+  "indicators": [
+    [
+      "PGD_sweep",
+      "POSSIBLE MASKING SIGNAL",
+      "drop=0.0065"
+    ],
+    [
+      "Epsilon_sweep",
+      "NO CLEAR EVIDENCE",
+      "drop=0.2065"
+    ],
+    [
+      "Transfer_vs_whitebox",
+      "EVIDENCE CONSISTENT WITH ROBUSTNESS",
+      "whitebox=0.054 >> transfer=0.013"
+    ]
+  ],
+  "verdict": "WEAK MASKING SIGNAL (some indicators)"
+}

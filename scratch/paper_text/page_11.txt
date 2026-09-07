@@ -1,0 +1,128 @@
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+high-importance features and highlighting the effectiveness
+of robust feature selection in stabilizing IDS performance.
+Additionally, extending our evaluation to the Square
+Attack explicitly confirmed that our defense mechanisms
+generalize effectively beyond gradient-based attacks, sub-
+stantially increasing their practical robustness against real-
+istic black-box adversarial scenarios. Explicit computa-
+tional overhead analysis further confirmed that our defense
+approach remains practical for real-time IDS deployment,
+introducing a modest training overhead (approximately 25%)
+without significantly affecting inference speed.
+Future research explicitly aims to address several impor-
+tant directions: (i) Integrating Federated Learning (FL)
+into our adversarial defense framework to leverage diverse,
+decentralized data, enhancing adaptive robustness and scal-
+ability; (ii) Conducting explicit validation of functional
+integrity of adversarially perturbed traffic to ensure realistic
+threat modeling; (iii) Exploring hybrid defense strategies
+explicitly combining adversarial training with anomaly
+detection methods to effectively handle both known adver-
+sarial threats and novel zero-day attacks; (iv) Extending
+evaluation explicitly to multi-class classification scenarios,
+enhancing the practical applicability and detailed robustness
+insights of IDS models across diverse attack types; and
+(v) Investigating detection-based adversarial defenses (e.g.,
+MagNet) explicitly alongside our proposed framework to
+achieve comprehensive defensive coverage against adversar-
+ial threats. By addressing these explicit limitations and pur-
+suing advanced learning paradigms, our research contributes
+substantially to developing more secure, interpretable, and
+intelligent IDS frameworks tailored explicitly for robust
+deployment in dynamic cloud environments.
+ACKNOWLEDGMENT
+The authors acknowledges the CSE-CIC-IDS2018 dataset,
+which played a crucial role in evaluating adversarial attack
+and defense strategies for ML-based intrusion detection
+systems. This dataset provides a realistic representation
+of modern network traffic and attack scenarios, enabling
+rigorous experimentation and performance validation of the
+proposed methodologies. They have contributed equally to
+this work in terms of conceptualization, methodology devel-
+opment, experimentation, formal analysis, and manuscript
+preparation. Their collective efforts have been instrumental
+in the successful completion of this research.
+REFERENCES
+[1] J. Malik, R. Muthalagu, and P . M. Pawar, ‘‘A systematic review of adversar-
+ial machine learning attacks, defensive controls, and technologies,’’ IEEE
+Access, vol. 12, pp. 99382–99421, 2024.
+[2] S. Ahmad, I. Shakeel, S. Mehfuz, and J. Ahmad, ‘‘Deep learning models
+for cloud, edge, fog, and IoT computing paradigms: Survey, recent
+advances, and future directions,’’ Comput. Sci. Rev., vol. 49, Aug. 2023,
+Art. no. 100568.
+[3] J. Xiao, Y . Fan, R. Sun, J. Wang, and Z. Q. Luo, ‘‘Stability analysis and
+generalization bounds of adversarial training,’’ in Proc. Adv. Neural Inf.
+Process. Syst., vol. 35, 2022, pp. 15446–15459.
+[4] K. He, D. D. Kim, and M. R. Asghar, ‘‘Adversarial machine learning
+for network intrusion detection systems: A comprehensive survey,’’ IEEE
+Commun. Surveys Tuts., vol. 25, no. 1, pp. 538–566, 1st Quart., 2023.
+[5] K. Thumula, H. Holla, C. Gutti, A. A. Sasikumar, and H. Gogineni,
+‘‘PrivFED: Protecting user privacy in federated learning systems through
+differential privacy,’’ in Proc. 8th Int. Conf. Electron., Mater . Eng. Nano-
+Technol. (IEMENTech), Kolkata, India, Jan. 2025, pp. 1–6.
+[6] W. Villegas-Ch, A. Jaramillo-Alcázar, and S. Luján-Mora, ‘‘Evaluating the
+robustness of deep learning models against adversarial attacks: An analysis
+with FGSM, PGD and CW,’’ Big Data Cogn. Comput., vol. 8, no. 1, p. 8,
+Jan. 2024.
+[7] S.-M. Moosavi-Dezfooli, A. Fawzi, and P . Frossard, ‘‘DeepFool: A simple
+and accurate method to fool deep neural networks,’’ in Proc. IEEE Conf.
+Comput. Vis. Pattern Recognit. (CVPR) , Las V egas, NV , USA, Jun. 2016,
+pp. 2574–2582, doi: 10.1109/CVPR.2016.282.
+[8] M. Yin, Y . Zhang, X. Li, and S. Wang, ‘‘When deep fool meets deep prior:
+Adversarial attack on super-resolution network,’’ in Proc. 26th ACM Int.
+Conf. Multimedia, Oct. 2018, pp. 1930–1938.
+[9] A. Blika, S. Palmos, G. Doukas, V . Lamprou, S. Pelekis, M. Kontoulis,
+C. Ntanos, and D. Askounis, ‘‘Federated learning for enhanced cyber-
+security and trustworthiness in 5G and 6G networks: A comprehensive
+survey,’’IEEE Open J. Commun. Soc. , vol. 6, pp. 3094–3130, 2025, doi:
+10.1109/OJCOMS.2024.3449563.
+[10] A. M. Abdallah, A. S. R. O. Alkaabi, G. B. N. D. Alameri, S. H. Rafique,
+N. S. Musa, and T. Murugan, ‘‘Cloud network anomaly detection using
+machine and deep learning techniques—Recent research advancements,’’
+IEEE Access, vol. 12, pp. 56749–56773, 2024.
+[11] P . Thantharate and T. Anurag, ‘‘CYBRIA—Pioneering federated learning
+for privacy-aware cybersecurity with brilliance,’’ in Proc. IEEE 20th
+Int. Conf. Smart Communities, Improving Quality Life AI, Robot.
+IoT (HONET), Boca Raton, FL, USA, Dec. 2023, pp. 56–61, doi:
+10.1109/HONET59747.2023.10374608.
+[12] A. McCarthy, E. Ghadafi, P . Andriotis, and P . Legg, ‘‘Functionality-
+preserving adversarial machine learning for robust classification in
+cybersecurity and intrusion detection domains: A survey,’’J. Cybersecurity
+Privacy, vol. 2, no. 1, pp. 154–190, Mar. 2022.
+[13] M. Zipperle, F. Gottwalt, E. Chang, and T. S. Dillon, ‘‘Provenance-based
+intrusion detection systems: A survey,’’ACM Comput. Surv., vol. 55, no. 7,
+pp. 1–36, Jun. 2022.
+[14] L. Y ang, S. X. Y ang, Y . Li, Y . Lu, and T. Guo, ‘‘Generative adversarial
+learning for trusted and secure clustering in industrial wireless sensor
+networks,’’ IEEE Trans. Ind. Electron., vol. 70, no. 8, pp. 8377–8387,
+Aug. 2023.
+[15] J. Ferdous, R. Islam, A. Mahboubi, and M. Z. Islam, ‘‘A review of state-
+of-the-art malware attack trends and defense mechanisms,’’ IEEE Access,
+vol. 11, pp. 121118–121141, 2023.
+[16] J. Zhang, J. D. Peter, A. Shankar, and W. Viriyasitavat, ‘‘Public cloud
+networks oriented deep neural networks for effective intrusion detection
+in online music education,’’ Comput. Electr . Eng., vol. 115, Apr. 2024,
+Art. no. 109095.
+[17] S. R. Polepalli and P . Chechani, ‘‘Management of cellular data usage during
+denial of service (DoS) attacks,’’ U.S. Patent 10 237 301, Mar. 19, 2019.
+[18] V . Akashe, R. L. Neupane, M. L. Alarcon, S. Wang, and
+P . Calyam, ‘‘Network-based active defense for securing cloud-based
+healthcare data processing pipelines,’’ in Proc. Int. Conf. Comput.
+Commun. Netw. (ICCCN), Athens, Greece, Jul. 2021, pp. 1–9, doi:
+10.1109/ICCCN52240.2021.9522267.
+[19] H.-Y . Kwon, T. Kim, and M.-K. Lee, ‘‘Advanced intrusion detection
+combining signature-based and behavior-based detection methods,’’
+Electronics, vol. 11, no. 6, p. 867, Mar. 2022, doi: 10.3390/electron-
+ics11060867.
+[20] Z. K. Maseer, R. Y usof, N. Bahaman, S. A. Mostafa, and C. F. M. Foozy,
+‘‘Benchmarking of machine learning for anomaly based intrusion
+detection systems in the CICIDS2017 dataset,’’ IEEE Access, vol. 9,
+pp. 22351–22370, 2021.
+[21] S. K. R. Mallidi and R. R. Ramisetty, ‘‘Advancements in training and
+deployment strategies for AI-based intrusion detection systems in IoT:
+A systematic literature review,’’ Discover Internet Things, vol. 5, no. 1,
+p. 8, Jan. 2025.
+[22] I. J. Goodfellow, J. Shlens, and C. Szegedy, ‘‘Explaining and harnessing
+adversarial examples,’’ 2014, arXiv:1412.6572.
+85002 VOLUME 13, 2025

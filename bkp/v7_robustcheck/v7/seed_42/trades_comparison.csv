@@ -1,0 +1,3 @@
+Method,Defended Clean%,MI-FGSM Acc%,BW Acc%,Masking Gap pp
+PGD augmentation (v4/v5 default),95.73,93.65,94.15,0.27
+TRADES (beta=6.0),95.7,94.3,94.4,-0.1

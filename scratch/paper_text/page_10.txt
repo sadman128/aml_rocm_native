@@ -1,0 +1,108 @@
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+• Certain features showed high variance in SHAP values
+across different attack strategies, suggesting that adver-
+saries may adapt their perturbations to target unstable
+feature sets over time.
+These findings confirm that adversarial training and
+feature selection not only enhance IDS resilience but also
+improve interpretability by highlighting how specific network
+attributes influence model decisions.
+C. LIMITATIONS AND CHALLENGES
+While our proposed defense mechanisms enhance adversarial
+robustness, certain challenges remain:
+• Computational Overhead: The inclusion of adversar-
+ial training increases training time and computational
+cost, which may not be feasible for resource-constrained
+cloud environments.
+• Adaptive Adversarial Strategies: Attackers can
+develop adaptive techniques that bypass adversarially
+trained models, necessitating continuous updates and
+retraining.
+• Feature Importance Variability: SHAP analysis
+revealed that some features have high variance in
+importance scores across different attacks, making them
+potential targets for adversarial exploitation.
+• Generalization Across Cloud Platforms: Our frame-
+work was evaluated on CSE-CIC-IDS2018; however,
+further validation on diverse cloud infrastructures is
+required.
+Our adversarial evaluation assumes functional integrity
+of the adversarially perturbed traffic; however, explicit
+validation of this functionality was beyond the scope of this
+research. It remains important to validate in practice that
+adversarial perturbations do not unintentionally compromise
+the execution of malicious activities, as this may otherwise
+lead to an overestimation of threat impact. Future research
+should explicitly evaluate and validate the functional integrity
+of adversarial examples, further enhancing the practical
+relevance and threat accuracy assessment of adversarial
+robustness studies. Our explicit use of binary classification
+provides valuable foundational insights into IDS robustness
+but lacks the granularity of multi-class detection necessary
+for distinguishing between specific attack types. Future work
+should explicitly evaluate the proposed defense methods
+using multi-class classification scenarios, providing deeper
+insights into the effectiveness of adversarial defenses across
+varied attack classes, thereby significantly enhancing their
+practical relevance and deployment value.
+Detection-based defenses, such as MagNet [27], explicitly
+complement our adversarial training and robust feature selec-
+tion approaches by providing explicit detection capabilities
+at inference time. While our current approach emphasizes
+robustness through model training and interpretability-driven
+feature selection, explicitly integrating detection-based meth-
+ods represents an important and complementary direction for
+future research. Our evaluations were explicitly performed
+using the CSE-CIC-IDS2018 dataset. While this dataset is
+comprehensive, explicitly validating our defense framework
+on additional datasets such as UNSW-NB15 or NSL-KDD
+would provide stronger evidence of generalizability. Explic-
+itly extending evaluations to additional benchmark datasets
+remains an essential and explicit future research direction.
+D. FEDERATED LEARNING FOR FUTURE RESEARCH
+Federated Learning (FL) represents a compelling paradigm
+to further enhance adversarial robustness and adaptability in
+IDS frameworks. By leveraging decentralized training across
+multiple edge nodes, FL can aggregate diverse adversarial
+examples collected from various network environments,
+providing richer and more representative datasets for training
+adaptive defenses. This decentralized approach can dynam-
+ically adapt IDS models to emerging threats in real-time,
+effectively addressing adaptive adversarial strategies by con-
+tinuously incorporating novel attack patterns encountered in
+different cloud infrastructures or edge devices. Furthermore,
+FL’s distributed computation paradigm inherently reduces
+centralized computational overhead, improving scalability
+and practical feasibility for large-scale deployments.
+By leveraging decentralized training, FL can also
+explicitly:
+• Reduce data exposure, mitigating privacy concerns
+associated with cloud-based IDS.
+• Improve model adaptability across heterogeneous cloud
+infrastructures.
+• Enhance IDS robustness by training on diverse attack
+patterns from distributed sources.
+• Utilize SHAP-driven feature selection to dynamically
+adjust IDS models based on shifting adversarial strate-
+gies.
+Integrating FL with adversarial defense mechanisms can
+further fortify cloud IDS solutions against evolving cyber
+threats, making it a compelling avenue for future research.
+VII. CONCLUSION
+In this study, we examined the adversarial robustness of
+ML-based IDS in cloud environments and proposed an inte-
+grated defense strategy combining adversarial training and
+robust feature selection. Our experimental results explicitly
+demonstrated that adversarial attacks significantly compro-
+mise IDS accuracy; however, our proposed dual-layered
+defense techniques significantly mitigate these threats, restor-
+ing and even enhancing model accuracy.
+Our findings have critical implications for industries reliant
+on cloud security, including telecommunications, finance,
+healthcare, and critical infrastructure. By enhancing IDS
+resilience, organizations can better safeguard cloud-based
+systems against evolving adversarial threats. Moreover, our
+SHAP-based feature importance analysis explicitly provided
+deeper insights into how adversarial perturbations manipulate
+IDS decision-making, identifying critical vulnerabilities in
+VOLUME 13, 2025 85001

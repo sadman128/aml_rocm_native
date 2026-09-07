@@ -1,0 +1,326 @@
+Total slides: 14
+Slide dimensions: 10.00 x 5.62 inches
+
+
+============================== SLIDE 1 ==============================
+Title: (None or custom shape)
+  [Group 1 | Google Shape;57;p15]:
+  [Text 2 | Google Shape;60;p15]:
+    Adversarial Robustness in Network Intrusion Detection Systems
+    via Attribution-Guided Feature Selection and Dynamic Multi-Stage Adversarial Training
+  [Text 5 | Google Shape;63;p15]:
+    CANDIDATES
+    Sadman Hossain Sajid
+    ID: 2023200000062
+    Redoan Islam
+    ID: 2023200000689
+    
+    SUPERVISOR
+    Mahjabin Sultana
+    Lecturer, Department of CSE
+    
+    DATE
+    September 10, 2026
+
+============================== SLIDE 2 ==============================
+Title: (None or custom shape)
+  [Group 1 | Google Shape;69;p16]:
+      sub_1: Presentation Outline Overview of the research structure and milestones.
+  [Group 2 | Google Shape;74;p16]:
+        sub_0_3: 01
+        sub_0_4: Problem Statement
+        sub_1_3: 02
+        sub_1_4: Motivation & Objectives
+        sub_2_3: 03
+        sub_2_4: Literature Review
+        sub_3_3: 04
+        sub_3_4: Comparative Analysis
+        sub_4_3: 05
+        sub_4_4: Proposed Methodology
+        sub_5_3: 06
+        sub_5_4: Dataset & Environment
+        sub_6_3: 07
+        sub_6_4: Target Architecture
+        sub_7_3: 08
+        sub_7_4: Research Timeline
+        sub_8_3: 09
+        sub_8_4: Expected Results
+        sub_9_3: 10
+        sub_9_4: Conclusion
+
+============================== SLIDE 3 ==============================
+Title: (None or custom shape)
+  [Group 2 | Google Shape;141;p17]:
+      sub_1: Problem Statement The Vulnerability of Machine Learning NIDS: Modern Deep Neural Networks achieve >95% accuracy on nominal benchmark traffic. However, studies frequently report vulnerability to small, worst-case adversarial perturbations.
+  [Group 3 | Google Shape;146;p17]:
+      sub_2: SYSTEM PERFORMANCE Clean vs. Robust
+      sub_3: 95% CLEAN ACC
+      sub_5: ~30% ROBUST ACC
+      sub_7: The Adversarial Evasion Mechanism Attackers introduce bounded perturbations (ℓ∞ ≤ 0.05)  to continuous flow features. Consequence: Malicious flows are pushed across the decision boundary and classified as Benign (Y=0).
+  [Group 4 | Google Shape;155;p17]:
+      sub_3: Gradient-Volatile Features Classifiers rely on gradient-volatile features whose attributions fluctuate under small inputs.
+  [Group 5 | Google Shape;166;p17]:
+      sub_3: Transient Socket Shortcuts Models memorize transient socket shortcuts (e.g., port numbers, IP addresses) rather than generalizable behavioral traffic dynamics.
+  [Group 6 | Google Shape;175;p17]:
+      sub_3: Defensive Hardening Trade-Offs Current hardening methods either degrade benign traffic accuracy or impose high runtime latency.
+
+============================== SLIDE 4 ==============================
+Title: (None or custom shape)
+  [Group 1 | Google Shape;187;p18]:
+  [Group 2 | Google Shape;194;p18]:
+  [Group 3 | Google Shape;201;p18]:
+      sub_1: Motivation & Objectives Balancing accuracy and robustness for real-time cloud deployment.
+  [Group 4 | Google Shape;206;p18]:
+      sub_3: 01
+      sub_4: Real-Time Speed
+      sub_6: High-speed networks process high volumes of concurrent flows. Defenses must maintain sub-0.05 ms per-flow inference without computationally expensive runtime ensembles or inference-time explainers.
+  [Group 5 | Google Shape;214;p18]:
+      sub_3: 02
+      sub_4: Acc vs Robustness
+      sub_6: Adversarial training inherently degrades benign traffic classification accuracy. Objective: Investigate whether isolating a stable feature subspace mitigates this penalty, maintaining clean accuracy with robust defenses.
+  [Group 6 | Google Shape;222;p18]:
+      sub_3: 03
+      sub_4: Benchmark Hygiene
+      sub_6: Enforce guidelines (Arp et al. 2022; Engelen et al. 2021): Permanently excise socket identifiers (IP/Ports) to eliminate shortcut learning. Enforce strict zero-leakage partitioning prior to scaling.
+
+============================== SLIDE 5 ==============================
+Title: (None or custom shape)
+  [Group 1 | Google Shape;235;p19]:
+      sub_2: Scope of Survey 40 Peer-Reviewed Publications (2021–2026) Comprehensive analysis spanning deep learning NIDS, adversarial hardening, and Explainable AI (SHAP).
+  [Text 2 | Google Shape;239;p19]:
+    Macro Empirical Findings Across the Literature
+  [Group 3 | Google Shape;240;p19]:
+      sub_2: 01
+      sub_3: Clean Accuracy Trade-Off Adversarial training on unpruned feature spaces leads to a clean accuracy drop of 2% to 6%, reflecting Tsipras' trade-off.
+  [Group 4 | Google Shape;245;p19]:
+      sub_2: 02
+      sub_3: Vulnerability of Tree Ensembles Tree-based ensembles suffer severe degradation under iterative gradient perturbations (>80% Attack Success Rate).
+  [Group 5 | Google Shape;250;p19]:
+      sub_2: 03
+      sub_3: Static Perturbation Staleness Offline data augmentation exhibits reduced effectiveness against adaptive attacks (16% to 20% evasion reported).
+  [Group 6 | Google Shape;255;p19]:
+      sub_2: 04
+      sub_3: Inference Latency Overhead Runtime XAI verification (85–220 ms/flow) introduces substantial latency overhead relative to real-time line-rate constraints.
+  [Group 7 | Google Shape;260;p19]:
+      sub_2: 05
+      sub_3: Shortcut Memorization & Clean-Only Bias Conventional feature selection methods evaluate features solely on nominal traffic, frequently retaining port numbers that act as fragile back doors under perturbation.
+  [Text 8 | Google Shape;265;p19]:
+    Literature Review
+    Survey of 40 peer-reviewed defenses spanning 2021–2026.
+  [Group 9 | Google Shape;266;p19]:
+
+============================== SLIDE 6 ==============================
+Title: (None or custom shape)
+  [Group 1 | Google Shape;274;p20]:
+  [Text 2 | Google Shape;300;p20]:
+    Literature Review (Part 2)
+    Landmark Peer Benchmarks & Defense Paradigms
+  [Group 3 | Google Shape;301;p20]:
+      sub_2: 1. Static Adversarial Holla et al., IEEE Access 2025 METHOD 3-layer MLP; clean SHAP top 8; static triad augmentation. RESULTS Clean 85% drops to 55% under PGD; defense restores to 88% / 84% Square. LIMITATION Static attack staleness & explicit port retention issues.
+  [Group 4 | Google Shape;305;p20]:
+      sub_2: 2. Dynamic Hardening Olukola & Rahimi, TIFS 2026 METHOD 4-layer MLP; clean warmup + dynamic PGD with adaptive loss scheduling. RESULTS 94.8% clean accuracy and 89.4% robust accuracy (0.08 ms latency). LIMITATION Operates across all 78 dimensions (+140% overhead); limited explainability.
+  [Group 5 | Google Shape;309;p20]:
+      sub_2: 3. Explainable AI Gate Güvenç Paltun et al., 2025 METHOD DNN with runtime SHAP cosine similarity vs. clean centroids. RESULTS 95.1% clean accuracy; detects 88.5% of FGSM/PGD perturbations. LIMITATION High runtime latency (85–220 ms per flow); susceptible to scaffolding.
+  [Group 6 | Google Shape;313;p20]:
+      sub_2: 4. Graph Attention IDS Zeng et al., IEEE IoTJ 2025 METHOD Dual-module channel-spatial attention over dynamic host communication graphs. RESULTS 97.4% clean accuracy; 76.2% robust accuracy under topology evasion. LIMITATION Window batch delay (>2.4 ms/flow); vulnerable to dummy-edge spoofing.
+  [Group 7 | Google Shape;317;p20]:
+
+============================== SLIDE 7 ==============================
+Title: (None or custom shape)
+  [Group 1 | Google Shape;325;p21]:
+  [Group 2 | Google Shape;332;p21]:
+  [Group 3 | Google Shape;339;p21]:
+      sub_1: Comparative Analysis & Identified Research Gaps The literature presents an unresolved trade-off between static staleness, computational burden, and latency. Our pipeline bridges all three.
+  [Group 4 | Google Shape;344;p21]:
+      sub_1: Work / Reference
+      sub_2: Feature Selection
+      sub_3: Adversarial Defense
+      sub_4: Primary Limitation
+      sub_5: Research Gap Addressed
+  [Group 5 | Google Shape;351;p21]:
+      sub_1: Holla et al. (2025) (Base Paper)
+      sub_2: Clean SHAP (Top 8, keeps Ports)
+      sub_3: Static Triad Augmentation
+      sub_4: Static attack staleness; retained port shortcuts
+      sub_5: Dynamic online PGD tracks shifting boundary; socket ports purged
+  [Group 6 | Google Shape;358;p21]:
+      sub_1: Olukola & Rahimi (2026)
+      sub_2: None (All 78 dimensions)
+      sub_3: Two-Stage Dynamic AT
+      sub_4: Full-dimensional burden; no adversarial feature selection
+      sub_5: Subspace dimensionality reduction via Stability SHAP (27 features)
+  [Group 7 | Google Shape;365;p21]:
+      sub_1: Güvenç Paltun et al. (2025)
+      sub_2: Clean SHAP Centroids
+      sub_3: Runtime Attribution Gate
+      sub_4: Prohibitive runtime latency (85–220 ms/flow)
+      sub_5: Offline attribution auditing with O(1) runtime feed-forward inference
+  [Group 8 | Google Shape;372;p21]:
+      sub_1: Zeng et al. (2025)
+      sub_2: Spatial-Temporal Attention
+      sub_3: Graph Regularization
+      sub_4: Window buffering delay; topology evasion vulnerability
+      sub_5: Per-flow independent evaluation without graph batch buffering
+  [Group 9 | Google Shape;379;p21]:
+      sub_1: Our Proposed Pipeline
+      sub_2: Adversarial Stability SHAP
+      sub_3: Two-Phase Dynamic PGD
+      sub_4: —
+      sub_5: Reduces staleness, isolates stable features, maintains line-rate speed
+
+============================== SLIDE 8 ==============================
+Title: (None or custom shape)
+  [Group 2 | Google Shape;392;p22]:
+      sub_2: Proposed Methodology Data Sanitization and Screening
+  [Group 3 | Google Shape;396;p22]:
+      sub_2: 01
+      sub_3: Sanitization Feature Drop
+  [Group 5 | Google Shape;402;p22]:
+      sub_2: Data Sanitization Permanently remove non-generalizable shortcuts: Src/Dst IP, Ports, Timestamp, Flow ID. Result: 69 continuous features remain.
+  [Group 6 | Google Shape;406;p22]:
+      sub_2: 02
+      sub_3: Partitioning Train/Val/Test
+  [Group 8 | Google Shape;412;p22]:
+      sub_2: Strict Partitioning 80% Dev Set (5M flows) / 20% Test Set (1.2M flows) locked Day 0. Dev split: 72% Train / 8% Val. Parameters fitted strictly on 72% Train.
+  [Group 9 | Google Shape;416;p22]:
+      sub_2: 03
+      sub_3: MI Screening Shannon MI
+  [Group 11 | Google Shape;422;p22]:
+      sub_2: Feature Selection Mutual Information filters 69 down to top 40 candidates. Preserves semantics (unlike PCA). Accelerates Shapley computation by >60%.
+  [Group 12 | Google Shape;426;p22]:
+      sub_2: 04
+      sub_3: SMOTE Balancing
+  [Group 13 | Google Shape;431;p22]:
+      sub_2: Oversampling Continuous-Only SMOTE applied strictly within Dtrain (72% Train). Balances minority attacks without interpolating discrete flags.
+
+============================== SLIDE 9 ==============================
+Title: (None or custom shape)
+  [Group 4 | Google Shape;444;p23]:
+  [Group 5 | Google Shape;447;p23]:
+      sub_2: 01 Clean-Only Vulnerability Evaluating feature importance solely on nominal data creates extreme vulnerability. Features with high clean attribution often possess steep local gradient slopes, enabling attackers to manipulate model outputs with minimal adversarial perturbation.
+  [Text 6 | Google Shape;451;p23]:
+    Proposed Methodology : SHAP
+     Adversarial Stability SHAP. Mathematical procedure for isolating the 27 perturbation-invariant features.
+  [Group 7 | Google Shape;452;p23]:
+      sub_2: 02 Dual-State Attribution Auditing Train baseline canary MLP on clean data using 40 candidates. Subject model to 20-step PGD (PGD₂₀, ε = 0.05). Compute mean absolute Shapley values on clean flows (φ̄^clean_j) and adversarial flows (φ̄^adv_j).
+  [Group 8 | Google Shape;456;p23]:
+      sub_2: 03 Exact Mathematical Stability Score (S_j) Quantifying individual feature robustness under perturbation:
+  [Group 9 | Google Shape;460;p23]:
+      sub_2: 04 80% Cumulative Stability-Mass Selection Rank features descending and select minimal subset m satisfying:
+  [Group 10 | Google Shape;464;p23]:
+      sub_1: 27 STABLE FEATURES SELECTED
+  [Group 11 | Google Shape;467;p23]:
+      sub_1: 13 VOLATILE FEATURES PRUNED
+
+============================== SLIDE 10 ==============================
+Title: (None or custom shape)
+  [Group 3 | Google Shape;479;p24]:
+      sub_2: Proposed Methodology : Two-Phase Dynamic Training Curriculum training to mitigate static attack staleness.
+  [Group 4 | Google Shape;483;p24]:
+      sub_2: Curriculum Optimization Rationale: Injecting strong perturbations from Epoch 1 into randomly initialized weights creates chaotic loss gradients, destabilizing representation formation and leading to clean accuracy degradation.
+  [Group 5 | Google Shape;487;p24]:
+      sub_2: PHASE 1 Representation Warmup (Epochs 1-10) Train exclusively on clean data using standard cross-entropy loss. Settle network weights into a well-conditioned local loss basin where benign and attack classes form distinct geometric clusters.
+  [Group 6 | Google Shape;491;p24]:
+      sub_2: PHASE 2 Dynamic Online Training (Epochs 11-50) For every mini-batch, generate fresh 5-step online PGD perturbations using current weights. Updates model parameters via a balanced joint objective.
+  [Group 7 | Google Shape;495;p24]:
+      sub_1: Joint Objective: L_total = 0.5 * L_clean(f_θ(x), y) + 0.5 * L_adv(f_θ(x_adv), y) Result: Mitigates static attack staleness while preserving benign representation anchors.
+
+============================== SLIDE 11 ==============================
+Title: (None or custom shape)
+  [Group 3 | Google Shape;505;p25]:
+  [Text 4 | Google Shape;508;p25]:
+    Dataset & Environment
+    Experimental configuration and technical architecture parameters
+  [Group 5 | Google Shape;509;p25]:
+      sub_2: 1. Benchmark Dataset CSE-CIC-IDS2018: Industry-standard collaborative benchmark (AWS environment, 7 attack profiles). Total Valid Flow Volume: 6,320,003 flows (post-sanitization). Partition Breakdown: 72% Core Train: 4.55M flows 8% Validation: 505K flows 20% Frozen Test: 1.26M flows
+  [Group 6 | Google Shape;513;p25]:
+      sub_2: 2. Platform & Stack GPU Platform:AMD Radeon RX 7600 (8 GB VRAM, RDNA 3 architecture). Software Stack:Python 3.10, PyTorch, ROCm Windows, Adversarial Robustness Toolbox. Batch Optimization:Vectorized GPU tensor operations (Batch Size = 2048), mixed-precision (~70 min for 50 epochs).
+  [Group 7 | Google Shape;517;p25]:
+      sub_2: 3. Target Architecture Topology:4-Layer Multi-Layer Perceptron (MLP). Layer Design:Linear → Batch Normalization → ReLU Activation → Dropout (p = 0.30). Complexity:Compact feed-forward pass (~14,000 parameters) ensuring high GPU throughput.
+        sub_3_1: 27
+        sub_3_2: →
+        sub_3_4: 128
+        sub_3_5: →
+        sub_3_7: 64
+        sub_3_8: →
+        sub_3_10: 32
+        sub_3_11: →
+        sub_3_13: 2
+
+============================== SLIDE 12 ==============================
+Title: (None or custom shape)
+  [Group 2 | Google Shape;542;p26]:
+      sub_1: Weekly Research Timeline & Gantt Chart Project Execution Timeline (Weeks 1-14)
+  [Group 3 | Google Shape;547;p26]:
+        sub_0_2: Current Status (September 10, 2026) Tasks 1 through 7 are complete (Theoretical formulation, literature audit, data ingestion pipeline, and GPU environment verified). The Pre-Defense Milestone has been successfully achieved.
+        sub_1_2: Immediate Transitions & Next Steps Immediately transitioning to multi-threat evaluation (Weeks 11–12) and final manuscript submission (Weeks 13–14).
+  [Group 4 | Google Shape;556;p26]:
+      sub_15: W1
+      sub_16: W2
+      sub_17: W3
+      sub_18: W4
+      sub_19: W5
+      sub_20: W6
+      sub_21: W7
+      sub_22: W8
+      sub_23: W9
+      sub_24: W10
+      sub_25: W11
+      sub_26: W12
+      sub_27: W13
+      sub_28: W14
+      sub_31: ★ PRE-DEFENSE (SEP 10)
+      sub_33: ★ FINAL DEFENSE (OCT 11)
+      sub_34: 1. Topic Selection
+      sub_36: 2. Literature Review
+      sub_38: 3. Base Paper Selection
+      sub_40: 4. Methodology Study
+      sub_42: 5. Limitation Identify
+      sub_44: 6. Environment Setup
+      sub_46: 7. Pre-Defense Prep
+      sub_48: 8. Implementation
+      sub_50: 9. Empirical Evaluation
+      sub_52: 10. Result Analysis & Comparison
+      sub_54: 11. Thesis Manuscript Drafting
+      sub_56: 12. Supervisor Review & Revisions
+      sub_58: 13. Final Thesis Defense
+
+============================== SLIDE 13 ==============================
+Title: (None or custom shape)
+  [Group 1 | Google Shape;623;p27]:
+      sub_1: Expected Results & Research Hypotheses Comprehensive multi-threat evaluation protocol and performance targets.
+  [Group 2 | Google Shape;628;p27]:
+      sub_1: Clean Accuracy ≥ 95.5% Pruning 13 unstable features mitigates degradation.
+  [Group 3 | Google Shape;631;p27]:
+      sub_1: Robust Accuracy 88.0%–90.5% PGD-100 (ε=0.05) vs. undefended baselines.
+  [Group 4 | Google Shape;634;p27]:
+      sub_1: Attack Success Rate < 12.0% Under iterative white-box gradient attacks.
+  [Group 5 | Google Shape;637;p27]:
+      sub_1: Inference Speed < 0.05 ms Amortized per flow (preliminary: <0.02 ms).
+  [Group 6 | Google Shape;640;p27]:
+      sub_2: Multi-Threat Evaluation Suite First-Order Gradient Attacks FGSM, PGD20, PGD100, BIM Parameter-Free & Optimization Attacks Auto-PGD (APGD-CE), Carlini-Wagner (l∞) Decision-Based & Black-Box Attacks Square Attack (query-based), Surrogate Model Transferability
+  [Group 7 | Google Shape;644;p27]:
+        sub_1_1: VERIFICATION
+      sub_2: Gradient Obfuscation Safeguards Validate that robustness is genuine and not caused by gradient masking (verifying non-zero input gradients and evaluating black-box transferability).
+
+============================== SLIDE 14 ==============================
+Title: (None or custom shape)
+  [Group 3 | Google Shape;657;p28]:
+  [Text 4 | Google Shape;660;p28]:
+    Conclusion & Immediate Next Steps
+    Summary of proposed contributions and immediate project execution roadmap
+  [Group 5 | Google Shape;661;p28]:
+      sub_2: PROPOSED CONTRIBUTIONS
+      sub_3: Summary of Key Innovations
+        sub_4_1: Theoretical Contribution Formulates Adversarial Stability SHAP with an 80% cumulative stability-mass selection rule, isolating a 27-dimensional perturbation-invariant subspace.
+        sub_5_1: Architectural Contribution Proposes a two-phase dynamic training curriculum (clean warmup + 5-step online PGD, α = 0.005) to reduce the effect of static attack staleness while preserving benign representation geometry.
+        sub_6_1: Methodological Hygiene Permanently removes socket shortcut leakage and enforces strict zero-leakage 72/8/20 partitioning on 6.32M valid flows.
+  [Group 6 | Google Shape;675;p28]:
+      sub_2: SEPT 11 – OCT 11
+      sub_3: Immediate Next Milestones
+        sub_4_1: 01
+        sub_4_2: Execute 3-seed experimental runs across all 9 adversarial threat models.
+        sub_5_1: 02
+        sub_5_2: Conduct ablation studies: (1) Full 69D vs. 40D MI vs. 27D Stable; (2) Static Triad vs. Dynamic PGD.
+        sub_6_1: 03
+        sub_6_2: Complete and submit the final master's thesis manuscript for October defense.

@@ -1,0 +1,3 @@
+Model,Train hrs,Infer ms/sample,Overhead(retrain),Overhead(full)
+Baseline,1.1896958911418916,0.0004174376476666339,-,-
+Defended,1.6286466341548496,0.0004953620189101667,36.4%,136.9%

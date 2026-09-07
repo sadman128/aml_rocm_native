@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "checks": {
+    "train_dev_disjoint": true,
+    "train_test_disjoint": true,
+    "dev_test_disjoint": true,
+    "arrays_finite": true,
+    "epsilon_consistent": true,
+    "known_attacks_complete": true,
+    "no_uncapped_cw_reported": true,
+    "unseen_attacks_complete": true,
+    "adaptive_grid_complete": true,
+    "stability_seeds_complete": true,
+    "transfer_rows_complete": true,
+    "all_bounded_known_attacks_valid": true,
+    "featurewise_bounds_valid": true,
+    "robust_features_valid": true,
+    "attack_constraints_recorded": true,
+    "figures_created": true,
+    "summary_metrics_finite": true
+  }
+}

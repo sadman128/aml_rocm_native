@@ -1,0 +1,61 @@
+Received 17 April 2025, accepted 26 April 2025, date of publication 5 May 2025, date of current version 21 May 2025.
+Digital Object Identifier 10.1 109/ACCESS.2025.3567038
+Adversarial Threats to Cloud IDS: Robust Defense
+With Adversarial Training and Feature Selection
+HARIPRASAD HOLLA
+ 1, (Senior Member, IEEE),
+SHASHIDHAR REDDY POLEPALLI
+ 1, (Senior Member, IEEE),
+AND ARUN AMBIKA SASIKUMAR
+ 2, (Senior Member, IEEE)
+1Independent Researcher, Fremont, CA 94539, USA
+2Independent Researcher, Parker, CO 80134, USA
+Corresponding author: Hariprasad Holla (hariholla@ieee.org)
+ABSTRACT The increasing adoption of cloud-based infrastructures necessitates robust cybersecurity
+measures, particularly in Intrusion Detection Systems (IDS). While Machine Learning (ML)-based IDS
+solutions improve attack detection, they remain highly vulnerable to adversarial attacks, where subtle
+perturbations deceive the model and evade detection. This paper explicitly evaluates the impact of Fast
+Gradient Sign Method (FGSM), Projected Gradient Descent (PGD), and DeepFool attacks on ML-based
+IDS models trained on the CSE-CIC-IDS2018 dataset. Our findings clearly indicate that these attacks
+significantly degrade detection accuracy, with FGSM explicitly reducing accuracy from 85% to 60%, PGD
+explicitly to 55%, and DeepFool explicitly to 50%. Additionally, our explicit evaluation using the black-box
+Square Attack demonstrates a significant accuracy reduction to 63%, clearly underscoring IDS susceptibility
+to practical adversarial threats. To mitigate these vulnerabilities, we explicitly propose a dual-layered defense
+strategy: (i) adversarial training, explicitly incorporating adversarial examples into model training to improve
+robustness, and (ii) SHAP-based robust feature selection, explicitly enhancing interpretability and resilience
+by identifying stable, attack-resistant features. SHAP analysis explicitly reveals that protocol-based and
+statistical traffic attributes are particularly susceptible to adversarial manipulations. Explicit computational
+overhead analysis demonstrates that our proposed defense approach introduces modest additional training
+complexity (approximately 25% overhead) without significantly impacting inference speed, explicitly
+confirming practical feasibility for real-time deployment. Our defense mechanisms explicitly restore
+detection accuracy to 88% against gradient-based attacks and 84% against black-box attacks, explicitly
+reducing adversarial success rates by up to 40%. By explicitly integrating adversarial defenses with SHAP-
+based interpretability, this research explicitly strengthens IDS frameworks against diverse evasion attacks
+while explicitly enhancing model transparency and practical applicability.
+INDEX TERMS Intrusion detection system, adversarial attacks, cloud security, machine learning, evasion
+techniques, computer networking, zero trust security.
+I. INTRODUCTION
+The rapid adoption of cloud computing and artificial
+intelligence (AI) in cybersecurity has significantly enhanced
+the capabilities of IDS to identify and mitigate malicious
+activities. Cloud platforms are increasingly leveraged to host
+critical applications and store vast amounts of sensitive data,
+making them prime targets for cyberattacks. The shift toward
+distributed and on-demand computing has introduced new
+The associate editor coordinating the review of this manuscript and
+approving it for publication was P . K. Gupta.
+attack vectors that traditional security measures struggle to
+address. While ML-based IDS have demonstrated remarkable
+adaptability and accuracy, they remain highly susceptible to
+adversarial attacks, wherein carefully crafted perturbations
+deceive models into misclassification [1].
+Adversarial attacks exploit weaknesses in ML-based
+IDS by subtly manipulating network traffic features—such
+as packet size distributions, flow durations, and protocol
+metadata—to evade detection. This enables sophisticated
+cyber threats, including zero-day exploits, advanced per-
+sistent threats (APTs), and botnet intrusions, to bypass
+84992
+
+ 2025 The Authors. This work is licensed under a Creative Commons Attribution 4.0 License.
+For more information, see https://creativecommons.org/licenses/by/4.0/ VOLUME 13, 2025

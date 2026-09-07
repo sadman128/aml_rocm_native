@@ -1,0 +1,20 @@
+{
+  "indicators": [
+    [
+      "PGD_sweep",
+      "NO CLEAR EVIDENCE",
+      "drop=0.0185"
+    ],
+    [
+      "Epsilon_sweep",
+      "NO CLEAR EVIDENCE",
+      "drop=0.2070"
+    ],
+    [
+      "Transfer_vs_whitebox",
+      "NO CLEAR EVIDENCE",
+      "whitebox=0.072 transfer=0.039"
+    ]
+  ],
+  "verdict": "NO CLEAR EVIDENCE OF GRADIENT MASKING"
+}

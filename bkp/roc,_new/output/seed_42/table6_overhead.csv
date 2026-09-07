@@ -1,0 +1,3 @@
+Model,Training Time (hrs),Inference Time (ms/sample),Overhead (retrain only),Overhead (full pipeline)
+Baseline,1.0861369254191717,0.0003207968460950103,-,-
+Defended,1.4180273642804888,0.0003493164306405344,29.1%,30.6%

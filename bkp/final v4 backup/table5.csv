@@ -1,0 +1,3 @@
+Model,Accuracy%,F1%,Precision%,Recall%,Success Rate%
+Baseline,24.2,10.4,6.94,20.75,75.31
+Defended,92.6,83.98,77.6,91.51,3.64

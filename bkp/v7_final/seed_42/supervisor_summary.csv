@@ -1,0 +1,17 @@
+Metric,Value,Unit
+Baseline clean accuracy,96.5053,%
+Defended clean accuracy,91.895,%
+Clean-accuracy change,-4.6103,percentage points
+Defended clean balanced accuracy,92.034,%
+Defended clean F1,83.2239,%
+Defended clean MCC,0.7861,coefficient
+Defended clean false-positive rate,8.2124,%
+Defended FGSM/PGD/DeepFool mean,91.0167,%
+Worst adaptive-PGD accuracy,91.6,%
+Three-seed MI-FGSM mean,91.4333,%
+Three-seed MI-FGSM standard deviation,0.0289,percentage points
+NN transfer ASR: baseline,19.17,%
+NN transfer ASR: defended,0.11,%
+Median minimum perturbation: baseline,0.05,scaled L_inf
+Median minimum perturbation: defended,0.1,scaled L_inf
+Defense training overhead,253.1102,%

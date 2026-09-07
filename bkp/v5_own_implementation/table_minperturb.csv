@@ -1,0 +1,3 @@
+Model,n_total,n_fooled_within_grid,pct_fooled_within_grid,eps_grid_max,mean_min_eps,median_min_eps,p10_min_eps,p90_min_eps
+Baseline,2000,1915,95.75,0.1,0.033073107049608357,0.02,0.005,0.08
+Defended,2000,476,23.8,0.1,0.05861344537815126,0.08,0.005,0.1

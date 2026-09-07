@@ -1,0 +1,13 @@
+method,pgd_steps,seed,accuracy
+Baseline,20,2024,0.7295
+Paper Defense,20,2024,0.7815
+V9 Defense,20,2024,0.906
+Baseline,50,2024,0.7235
+Paper Defense,50,2024,0.761
+V9 Defense,50,2024,0.8875
+Baseline,100,2024,0.7235
+Paper Defense,100,2024,0.759
+V9 Defense,100,2024,0.8875
+Baseline,200,2024,0.7235
+Paper Defense,200,2024,0.759
+V9 Defense,200,2024,0.8875

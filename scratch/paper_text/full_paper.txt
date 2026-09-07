@@ -1,0 +1,1176 @@
+=== PAGE 1 ===
+Received 17 April 2025, accepted 26 April 2025, date of publication 5 May 2025, date of current version 21 May 2025.
+Digital Object Identifier 10.1 109/ACCESS.2025.3567038
+Adversarial Threats to Cloud IDS: Robust Defense
+With Adversarial Training and Feature Selection
+HARIPRASAD HOLLA
+ 1, (Senior Member, IEEE),
+SHASHIDHAR REDDY POLEPALLI
+ 1, (Senior Member, IEEE),
+AND ARUN AMBIKA SASIKUMAR
+ 2, (Senior Member, IEEE)
+1Independent Researcher, Fremont, CA 94539, USA
+2Independent Researcher, Parker, CO 80134, USA
+Corresponding author: Hariprasad Holla (hariholla@ieee.org)
+ABSTRACT The increasing adoption of cloud-based infrastructures necessitates robust cybersecurity
+measures, particularly in Intrusion Detection Systems (IDS). While Machine Learning (ML)-based IDS
+solutions improve attack detection, they remain highly vulnerable to adversarial attacks, where subtle
+perturbations deceive the model and evade detection. This paper explicitly evaluates the impact of Fast
+Gradient Sign Method (FGSM), Projected Gradient Descent (PGD), and DeepFool attacks on ML-based
+IDS models trained on the CSE-CIC-IDS2018 dataset. Our findings clearly indicate that these attacks
+significantly degrade detection accuracy, with FGSM explicitly reducing accuracy from 85% to 60%, PGD
+explicitly to 55%, and DeepFool explicitly to 50%. Additionally, our explicit evaluation using the black-box
+Square Attack demonstrates a significant accuracy reduction to 63%, clearly underscoring IDS susceptibility
+to practical adversarial threats. To mitigate these vulnerabilities, we explicitly propose a dual-layered defense
+strategy: (i) adversarial training, explicitly incorporating adversarial examples into model training to improve
+robustness, and (ii) SHAP-based robust feature selection, explicitly enhancing interpretability and resilience
+by identifying stable, attack-resistant features. SHAP analysis explicitly reveals that protocol-based and
+statistical traffic attributes are particularly susceptible to adversarial manipulations. Explicit computational
+overhead analysis demonstrates that our proposed defense approach introduces modest additional training
+complexity (approximately 25% overhead) without significantly impacting inference speed, explicitly
+confirming practical feasibility for real-time deployment. Our defense mechanisms explicitly restore
+detection accuracy to 88% against gradient-based attacks and 84% against black-box attacks, explicitly
+reducing adversarial success rates by up to 40%. By explicitly integrating adversarial defenses with SHAP-
+based interpretability, this research explicitly strengthens IDS frameworks against diverse evasion attacks
+while explicitly enhancing model transparency and practical applicability.
+INDEX TERMS Intrusion detection system, adversarial attacks, cloud security, machine learning, evasion
+techniques, computer networking, zero trust security.
+I. INTRODUCTION
+The rapid adoption of cloud computing and artificial
+intelligence (AI) in cybersecurity has significantly enhanced
+the capabilities of IDS to identify and mitigate malicious
+activities. Cloud platforms are increasingly leveraged to host
+critical applications and store vast amounts of sensitive data,
+making them prime targets for cyberattacks. The shift toward
+distributed and on-demand computing has introduced new
+The associate editor coordinating the review of this manuscript and
+approving it for publication was P . K. Gupta.
+attack vectors that traditional security measures struggle to
+address. While ML-based IDS have demonstrated remarkable
+adaptability and accuracy, they remain highly susceptible to
+adversarial attacks, wherein carefully crafted perturbations
+deceive models into misclassification [1].
+Adversarial attacks exploit weaknesses in ML-based
+IDS by subtly manipulating network traffic features—such
+as packet size distributions, flow durations, and protocol
+metadata—to evade detection. This enables sophisticated
+cyber threats, including zero-day exploits, advanced per-
+sistent threats (APTs), and botnet intrusions, to bypass
+84992
+
+ 2025 The Authors. This work is licensed under a Creative Commons Attribution 4.0 License.
+For more information, see https://creativecommons.org/licenses/by/4.0/ VOLUME 13, 2025
+
+=== PAGE 2 ===
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+security defenses while maintaining seemingly legitimate
+traffic patterns. Research has shown that even state-of-the-art
+deep learning models, despite their high accuracy, remain vul-
+nerable to adversarial manipulations, raising serious concerns
+about their deployment in real-world cloud environments [2].
+Given that cloud infrastructures rely on shared resources and
+interconnected services, a single compromised IDS model
+could have cascading effects across multiple organizations
+or tenants, making adversarial robustness a critical security
+challenge.
+A critical consideration regarding adversarial attacks on
+network traffic is practical feasibility. Adversarial perturba-
+tions in network-based IDS must explicitly adhere to realistic
+constraints—such as preserving packet structures, protocol
+compliance, timing consistency, and avoiding detectable
+anomalies—to remain undetected and functional in real-
+world scenarios. Thus, attackers must carefully balance per-
+turbation magnitude to evade IDS detection while ensuring
+that manipulated traffic maintains its malicious functionality
+and network-level plausibility.
+A critical aspect of evaluating adversarial threats to IDS
+models is understanding whether adversarially perturbed
+network traffic retains its functional integrity—specifically,
+whether it remains capable of executing the originally
+intended malicious activities. In our evaluation, adversarial
+attacks (FGSM, PGD, and DeepFool) introduce subtle
+feature perturbations that do not alter fundamental traffic
+functionality. These perturbations specifically target features
+used by IDS classifiers without disrupting packet structure
+or network-level semantics, thereby preserving the feasi-
+bility of executing functional attacks. Explicit validation
+of functional integrity is assumed in our adversarial threat
+modeling to reflect realistic adversarial scenarios where
+attackers aim to evade detection without sacrificing malicious
+effectiveness.
+While previous studies have explored adversarial train-
+ing [3] and robust feature selection techniques indepen-
+dently [4], the integration of these methods into a unified
+defense framework has received limited attention. Specifi-
+cally, our approach leverages SHAP-based feature analysis
+not merely for interpretability but as a critical tool to
+systematically identify robust features that remain stable
+under adversarial perturbations. Unlike PRIVFED [5], which
+primarily focuses on federated learning and privacy enhance-
+ments, our framework directly enhances adversarial robust-
+ness by combining adversarial training with SHAP-driven
+robust feature selection. This dual-layered defense strat-
+egy thus provides a unique contribution by simultane-
+ously addressing adversarial vulnerabilities and maintain-
+ing interpretability—attributes essential for real-world IDS
+deployments in cloud environments.
+A. ADVERSARIAL THREATS TO CLOUD SECURITY
+Recent advancements in adversarial machine learning (AML)
+have enabled attackers to craft highly effective evasion
+attacks against ML-based IDS. Attackers utilize techniques
+such as Fast Gradient Sign Method (FGSM), Projected
+Gradient Descent (PGD), and DeepFool to identify decision
+boundaries within IDS models and perturb network traffic
+in ways that remain undetectable to conventional security
+mechanisms [6], [7], [8]. These attacks pose a significant risk
+in cloud environments, where IDS models must continuously
+adapt to dynamic traffic patterns and evolving attack
+methodologies.
+The distributed nature of cloud security amplifies the risk
+of adversarial threats, as attackers can target centralized IDS
+models, federated security frameworks, or even distributed
+edge-based intrusion detection systems [5], [11]. Without
+effective countermeasures, adversarial vulnerabilities can
+lead to data breaches, financial fraud, service disruptions, and
+compromised industrial control systems [9]. This necessitates
+the development of robust adversarial defense mechanisms
+that enhance IDS resilience without significantly increasing
+computational overhead [10].
+B. CHALLENGES IN ML-BASED CLOUD IDS
+Despite their potential, ML-based IDS solutions face several
+key challenges in adversarial settings:
+• Susceptibility to Adversarial Perturbations: Even
+small perturbations in network traffic features can cause
+ML models to misclassify benign traffic as malicious or
+vice versa, reducing IDS effectiveness [12].
+• High False Positive Rates: Anomaly-based IDS
+often generate excessive false alarms, leading to alert
+fatigue and reduced trust in automated security mech-
+anisms [13].
+• Computational Overhead: Adversarial training and
+other defense techniques impose significant computa-
+tional costs, making real-time IDS operation in cloud
+environments challenging [14].
+• Adaptive Attack Strategies: Adversaries continuously
+refine evasion techniques, necessitating dynamic and
+adaptive IDS models that can learn from evolving threat
+landscapes [15].
+• Scalability and Generalization: IDS models trained
+on specific datasets may struggle to generalize across
+diverse cloud infrastructures and attack scenarios, lim-
+iting their real-world effectiveness [16].
+Addressing these challenges requires a multi-faceted
+approach, combining adversarial training, robust feature
+selection, and explainability-driven defense mechanisms.
+C. INDUSTRY IMPACT OF ADVERSARIALL Y RESILIENT IDS
+The security of cloud-based IDS solutions is paramount
+across multiple industries, including:
+• Telecommunications: 5G networks and IoT-connected
+devices introduce vast real-time traffic volumes, neces-
+sitating IDS solutions that can detect adversarial
+manipulations without degrading performance [17].
+• Healthcare: Cloud-hosted electronic health records
+(EHR) and telemedicine platforms must be secured
+VOLUME 13, 2025 84993
+
+=== PAGE 3 ===
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+against adversarial threats to prevent patient data
+breaches and unauthorized access [18].
+• Finance: AI-driven fraud detection mechanisms in
+financial institutions are vulnerable to adversarial
+exploitation, leading to identity theft and fraudulent
+transactions.
+• Industrial Control Systems (ICS) and Smart Manu-
+facturing: Cyber-physical systems and critical infras-
+tructure networks are increasingly adopting cloud-
+based IDS solutions. Adversarial threats to these
+systems could lead to catastrophic disruptions.
+• Enterprise Cloud Services: Organizations migrating to
+cloud-based security models must ensure that their IDS
+solutions remain robust againstadversarial threats that
+could compromise business-critical applications and
+regulatory compliance.
+D. PROPOSED DEFENSE APPROACH
+To mitigate adversarial threats, this study proposes a two-
+pronged defense strategy that enhances ML-based IDS
+resilience:
+• Adversarial Training: Incorporating adversarially gen-
+erated samples into IDS training to improve the model’s
+ability to detect adversarially manipulated network
+traffic.
+• Robust Feature Selection: Identifying and prioritizing
+network traffic features that are less susceptible to
+adversarial perturbations, thereby improving IDS
+stability.
+• SHAP-Based Feature Analysis: Leveraging SHapley
+Additive exPlanations (SHAP) to quantify feature
+importance and assess how adversarial attacks manip-
+ulate critical attributes.
+By integrating adversarial training and SHAP-based
+feature selection, our approach strengthens IDS models
+against evasion attacks while maintaining interpretability
+and computational efficiency.
+E. CONTRIBUTIONS OF THIS RESEARCH
+This paper presents a novel adversarial defense framework
+for enhancing ML-based IDS robustness in cloud environ-
+ments. The key contributions include:
+• A comprehensive evaluation of adversarial attack
+effectiveness on ML-based IDS using FGSM, PGD,
+and DeepFool.
+• A dual-defense strategy incorporating adversarial
+training and robust feature selection to improve IDS
+resilience while maintaining computational
+efficiency.
+• SHAP-based feature importance analysis to interpret
+how adversarial perturbations impact IDS decision-
+making and guide feature selection strategies.
+• Experimental validation on the CSE-CIC-IDS2018
+dataset, demonstrating significant reductions in attack
+success rates and improved detection accuracy [28].
+F. PAPER ORGANIZATION
+The remainder of this paper is structured as follows:
+Section II reviews related work on adversarial attacks and
+defense mechanisms in ML-based IDS, highlighting existing
+adversarial robustness approaches and their limitations.
+Section III details the proposed methodology, including
+adversarial attack implementation, adversarial train-
+ing, robust feature selection, and SHAP-based feature
+importance analysis. Section IV presents experimental
+results and analysis, evaluating the impact of adversar-
+ial attacks, defense performance, and feature importance
+insights. Section V discusses the broader implications of
+our findings, including federated learning for decentralized
+IDS training, adversarial adaptation challenges, and hybrid
+adversarial defense strategies. Section VI concludes the
+paper with final remarks, recommendations for improv-
+ing cloud IDS security, and future research directions in
+explainable adversarial defenses and adaptive intrusion
+detection.
+II. RELATED WORK AND LITERATURE REVIEW
+A. EVOLUTION OF INTRUSION DETECTION SYSTEMS
+Intrusion Detection Systems (IDS) have undergone signifi-
+cant evolution from traditional signature-based methods to
+modern AI-driven solutions. Early IDS frameworks relied
+on signature-based detection, which involved maintaining a
+database of known attack patterns and comparing incoming
+traffic against these signatures. While effective against known
+threats, these systems struggled to detect novel attacks or
+zero-day exploits [19].
+Anomaly-based IDS emerged as an alternative, leverag-
+ing statistical models and rule-based approaches to detect
+deviations from normal behavior. However, these methods
+suffered from high false positive rates and the inability to
+adapt to evolving cyber threats [20]. With advancements
+in machine learning and deep learning, AI-driven IDS
+frameworks have gained prominence due to their capability
+to learn complex attack patterns and generalize to previously
+unseen threats [21].
+B. ADVERSARIAL ATTACKS ON ML-BASED IDS
+Despite the success of ML-based IDS, adversarial attacks
+have been identified as a major vulnerability. Several studies
+have demonstrated that attackers can generate adversarial
+examples—perturbed versions of legitimate traffic—to fool
+IDS models into misclassifying malicious activities as
+benign [4].
+Goodfellow et al. introduced the Fast Gradient Sign
+Method (FGSM), a single-step attack that perturbs input
+samples along the gradient direction to deceive ML mod-
+els [22]. Madry et al. extended this approach with the
+Projected Gradient Descent (PGD) attack, which iteratively
+refines adversarial examples for increased effectiveness [23].
+Moosavi-Dezfooli et al. proposed DeepFool, an attack that
+finds the minimal perturbation required to alter classification.
+84994 VOLUME 13, 2025
+
+=== PAGE 4 ===
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+These attacks pose significant threats to IDS models,
+reducing their reliability in real-world deployments [7].
+Recent research quantifies the severe impact of these attacks
+on IDS performance.
+Although adversarial training [3] has been widely studied
+as a robust defense method, it primarily addresses known
+adversarial perturbations encountered during model training
+and does not explicitly consider feature-level robustness.
+Similarly, robust feature selection methods [4] often neglect
+adversarial perturbations explicitly during model training,
+focusing instead on static feature selection criteria. Recent
+works of ours PRIVFED [5] emphasize federated learning
+strategies with differential privacy, but we did not directly
+integrate robust feature selection or address feature-level
+susceptibility under adversarial conditions during initital
+research. Consequently, these isolated approaches leave
+critical gaps regarding comprehensive adversarial resilience
+and interpretability. Our research explicitly addresses this
+gap by proposing an integrated approach that synergistically
+combines adversarial training and SHAP-based robust feature
+selection. This integration uniquely strengthens IDS models
+by simultaneously improving their resistance to adversarial
+manipulation and enhancing their interpretability, setting our
+approach apart from existing standalone and hybrid defenses.
+C. EXISTING DEFENSE MECHANISMS
+To counter adversarial attacks, several defense mechanisms
+have been explored. Adversarial training, one of the most
+effective strategies, involves incorporating adversarial exam-
+ples into the training dataset to improve model robustness.
+However, adversarial training often comes at the cost of
+increased computational complexity and reduced model
+generalization [3].
+Feature selection has also been studied as a potential
+defense against adversarial threats. Researchers have demon-
+strated that adversarial attacks exploit certain weak features
+within IDS models, making feature selection an essential
+step in improving resilience [4]. In addition, ensemble
+learning, where multiple models work collectively to enhance
+robustness, has been explored as a defense strategy. While
+ensemble approaches improve attack resistance, they intro-
+duce additional computational overhead and deployment
+complexity. We also proposed PRIVFED, a framework
+combining Federated Learning with differential privacy
+that achieves strong privacy guarantees while maintaining
+high model performance. This approach demonstrated that
+even with strong privacy protection, the system maintained
+88.7% accuracy with only 15.3% computational overhead.
+This suggests that privacy-preserving distributed learning
+could be effectively applied to IDS systems, particularly in
+scenarios where data sensitivity and privacy requirements are
+paramount [5].
+Recent research has explored hybrid defense approaches
+combining adversarial training with anomaly detection
+techniques to provide robust protection against known and
+unknown threats [25]. Such integrated approaches leverage
+adversarial training’s capability to mitigate specific adver-
+sarial attacks and anomaly detection’s potential to recognize
+deviations from normal patterns, thereby effectively address-
+ing zero-day and unknown adversarial threats. However,
+explicit evaluations of these hybrid frameworks in practical
+cloud-based IDS scenarios remain limited, indicating a
+significant research gap.
+V arious alternative defense methods have also been
+explored in literature, including randomized smoothing,
+ensemble defenses, and input transformations. Randomized
+smoothing methods introduce noise during inference to
+reduce the sensitivity of models to adversarial perturbations;
+however, they can degrade detection accuracy and incur sub-
+stantial computational costs. Ensemble defenses, combining
+multiple classifiers trained independently, typically achieve
+better robustness through diversity but significantly increase
+computational and operational complexity. Input transforma-
+tion techniques (e.g., feature squeezing or denoising) aim to
+remove adversarial perturbations before classification but can
+introduce unwanted data distortion that negatively impacts
+legitimate traffic classification accuracy [26].
+In contrast, our selected approach—adversarial train-
+ing combined explicitly with SHAP-based robust feature
+selection—offers a balanced and practical solution explicitly
+addressing adversarial robustness while preserving inter-
+pretability, computational efficiency, and maintaining high
+accuracy. SHAP integration explicitly ensures interpretability
+and robustness at a feature-level, making our method highly
+suitable explicitly for deployment in realistic cloud-based
+IDS scenarios.
+D. GAPS IN EXISTING RESEARCH
+Despite extensive research in adversarial attacks and defense
+mechanisms, several gaps remain unaddressed:
+• Many existing studies focus on static IDS environments,
+whereas real-world cloud environments are highly
+dynamic and require adaptable defenses.
+• Adversarial training methods often degrade model
+performance on clean (non-adversarial) samples, neces-
+sitating hybrid defense mechanisms.
+• There is limited research on the impact of adversarial
+attacks in specific industry sectors such as telecommu-
+nications, finance, and manufacturing.
+• Feature selection techniques need further refinement to
+balance interpretability, robustness, and computational
+efficiency in IDS models.
+This paper aims to bridge these gaps by proposing an
+integrated adversarial defense framework that combines
+adversarial training with robust feature selection. Our
+approach is evaluated on real-world cloud IDS datasets,
+demonstrating its effectiveness in mitigating adversarial
+threats while preserving model accuracy.
+III. METHODOLOGY AND PROPOSED SOLUTION
+This section outlines our approach to enhancing the robust-
+ness of ML-based IDS models against adversarial attacks.
+VOLUME 13, 2025 84995
+
+=== PAGE 5 ===
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+We propose a two-pronged solution: adversarial training to
+expose the model to crafted adversarial examples and robust
+feature selection to improve resilience.
+In this research, we explicitly focus on binary clas-
+sification, distinguishing malicious traffic (attacks) from
+benign traffic. The choice of binary classification facili-
+tates the fundamental evaluation of adversarial robustness,
+establishing a clear baseline for assessing the efficacy of
+defense strategies against adversarial perturbations. Although
+binary classification provides a robust initial assessment
+framework, we acknowledge explicitly that multi-class
+classification, capable of differentiating among specific types
+of attacks (e.g., DDoS, SQL injection, botnet attacks),
+would yield more granular insights. Evaluating adversarial
+robustness in multi-class scenarios remains an important
+direction for future research to improve IDS practical
+applicability.
+A. DATASET SELECTION AND IMPORTANCE
+For this study, we utilize the CSE-CIC-IDS2018 dataset,
+which is one of the most comprehensive and widely recog-
+nized benchmark datasets for evaluating intrusion detection
+models. This dataset was chosen due to several key factors
+that make it particularly well-suited for adversarial robustness
+research:
+• Realistic Network Traffic: The dataset is generated
+from real-world network traffic, encompassing both
+benign and malicious activities that mirror real-world
+attack scenarios.
+• Wide Range of Attacks: It includes various modern
+cyberattacks such as brute force, botnet activity, dis-
+tributed denial-of-service (DDoS), SQL injection, and
+infiltration attacks, providing a diverse attack landscape
+for IDS training and evaluation.
+• Feature Richness: The dataset consists of over 80 net-
+work flow features, including packet-level statistics,
+connection duration, protocol information, and payload
+characteristics, allowing for deep analysis of adversarial
+vulnerabilities.
+• Well-Labeled and Structured: CSE-CIC-IDS2018
+provides well-labeled instances of both normal and
+attack traffic, facilitating the supervised learning
+approach necessary for training ML-based IDS models.
+• Cloud Suitability: Given that cloud environments are
+highly dynamic and prone to evolving cyber threats, the
+dataset captures the complexity of network interactions,
+making it a suitable benchmark for cloud IDS evalua-
+tion.
+By using this dataset, we ensure that our study closely
+aligns with real-world IDS deployment scenarios, partic-
+ularly in cloud environments where intrusion patterns are
+highly dynamic. The dataset’s rich feature set and diverse
+attack classes allow us to rigorously test adversarial attack
+strategies and validate the effectiveness of our proposed
+defense mechanisms.
+B. PREPROCESSING AND FEATURE ENGINEERING
+Before training our IDS models, we apply extensive data
+preprocessing and feature engineering techniques to enhance
+learning efficiency and adversarial robustness. The following
+steps are undertaken:
+• Data Cleaning: Removal of duplicate records, handling
+missing values, and normalization of numeric features.
+• Feature Selection: Identification and retention of the
+most relevant features using mutual information ranking
+and variance thresholding.
+• Categorical Encoding: One-hot encoding of cate-
+gorical variables to ensure compatibility with ML
+algorithms.
+• Balancing Class Distribution: The dataset is balanced
+using synthetic data generation techniques such as
+SMOTE (Synthetic Minority Over-sampling Technique)
+to prevent bias toward majority classes.
+These preprocessing steps ensure that our models receive
+high-quality input, reducing the likelihood of bias and
+improving the resilience of IDS frameworks against adver-
+sarial attacks.
+C. ADVERSARIAL ATTACK IMPLEMENTATION
+To evaluate the vulnerability of ML-based IDS, we imple-
+ment three widely used adversarial attack techniques:
+• FGSM (Fast Gradient Sign Method): Generates
+adversarial perturbations by computing the gradient of
+the loss function and applying a single-step modification
+to the input data. This is a fast and computationally
+efficient attack that exploits linearity in ML models.
+• PGD (Projected Gradient Descent): An iterative
+attack that refines adversarial examples by applying
+multiple gradient updates, making it more effective in
+generating adversarial samples that deceive the IDS.
+• DeepFool: A minimal perturbation attack that iteratively
+shifts input features until they cross the decision
+boundary of the IDS, ensuring high attack success rates
+with subtle modifications to the input data.
+These attacks are applied to the IDS model to evaluate its
+robustness and inform the development of stronger defensive
+mechanisms.
+D. DEFENSE STRATEGIES
+To counteract the impact of adversarial attacks, we incorpo-
+rate two primary defense mechanisms:
+• Adversarial Training: By integrating adversarially
+generated samples into the training process, we enhance
+the model’s ability to recognize and withstand adversar-
+ial inputs, improving its overall robustness.
+• Robust Feature Selection: Certain features in network
+traffic data are more susceptible to adversarial manip-
+ulations. By selecting and prioritizing features that are
+stable and less prone to perturbations, we improve the
+resilience of the IDS model.
+84996 VOLUME 13, 2025
+
+=== PAGE 6 ===
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+In our adversarial training approach, adversarial samples
+explicitly generated using all three attack techniques (FGSM,
+PGD, and DeepFool) were included clearly in the train-
+ing dataset. This explicit inclusion of diverse adversarial
+perturbations enhances model robustness comprehensively,
+enabling the IDS to generalize more effectively against both
+seen and unseen adversarial attack methods.
+E. ROBUST ADVERSARIAL TRAINING FRAMEWORK
+Adversarial training has emerged as one of the most effective
+techniques to enhance the robustness of ML-based IDS
+against adversarial attacks. The core idea behind adversarial
+training is to expose the IDS model to adversarially generated
+samples during training, enabling it to learn patterns that
+distinguish between genuine and manipulated network traffic.
+This iterative process improves the model’s ability to gener-
+alize under adversarial conditions, making it less susceptible
+to evasion techniques.
+TABLE 1. Robust adversarial training framework.
+F. ROBUST FEATURE SELECTION ALGORITHM
+Selecting the right set of features plays a crucial role in
+improving the resilience of IDS models against adversarial
+attacks. Traditional feature selection techniques primarily
+focus on selecting features that maximize classification
+accuracy. However, adversarially robust feature selection
+must prioritize stability, ensuring that the selected features
+remain effective even under adversarial perturbations.
+TABLE 2. Robust feature selection algorithm.
+G. SHAP-BASED ROBUST FEATURE SELECTION
+ALGORITHM
+To further enhance the resilience of our IDS framework,
+we incorporate SHAP-based feature selection, which prior-
+itizes features that remain stable under adversarial pertur-
+bations. Unlike conventional feature selection methods that
+focus solely on feature importance, our approach evaluates
+feature stability by comparing SHAP values computed on
+clean and adversarial datasets.
+TABLE 3. SHAP-based robust feature selection algorithm.
+H. SIGNIFICANCE OF SHAP-BASED FEATURE SELECTION
+SHAP analysis enables us to measure the consistency of
+feature contributions across clean and adversarial datasets.
+By filtering out features that experience high SHAP score
+variations due to adversarial perturbations, we ensure that
+only stable and robust features are retained. This approach
+improves IDS resilience by:
+• Identifying features that remain consistent under attack
+conditions, reducing adversarial susceptibility.
+• Enhancing model interpretability by providing insights
+into feature stability.
+• Improving generalization by selecting features that
+retain predictive power across different attack scenarios.
+By integrating adversarial training and robust feature selec-
+tion, our proposed IDS framework significantly enhances
+security against adversarial threats, ensuring improved
+resilience in detecting and mitigating cyberattacks in cloud
+environments.
+IV. EXPERIMENTAL RESULTS
+In this section, we present an in-depth evaluation of our
+proposed adversarial training and robust feature selection
+methods. We perform multiple experiments to assess model
+performance against various adversarial attack strategies,
+measuring key metrics such as accuracy, attack success
+rate, F1-score, precision, and recall. Our evaluation involves
+training and testing on the CSE-CIC-IDS2018 dataset, which
+is widely used for intrusion detection research.
+A. EXPERIMENT SETUP
+The experiments were conducted on a high-performance
+computing system with the following specifications:
+• Processor: Intel Xeon 2.8GHz, 16 cores
+• RAM: 128GB
+• GPU: NVIDIA A100 with 40GB VRAM
+• Framework: TensorFlow and PyTorch
+• Dataset: CSE-CIC-IDS2018, preprocessed for ML-based
+IDS training
+The IDS model was trained using a deep neural network
+(DNN) with three hidden layers, batch normalization, and
+VOLUME 13, 2025 84997
+
+=== PAGE 7 ===
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+dropout regularization. We trained the model for 50 epochs
+using the Adam optimizer with an initial learning rate of
+0.001.
+B. ATTACK STRATEGIES AND DEFENSE MECHANISMS
+To evaluate the vulnerability of IDS models, we implemented
+three adversarial attack techniques:
+• FGSM (Fast Gradient Sign Method): Generates
+adversarial samples by perturbing input features along
+the gradient direction.
+• PGD (Projected Gradient Descent): An iterative
+variant of FGSM that applies multiple gradient updates
+to maximize attack effectiveness.
+• DeepFool: A sophisticated attack that iteratively per-
+turbs samples until they cross the decision boundary of
+the classifier.
+To counter these attacks, we employed two defense
+mechanisms:
+• Adversarial Training: Incorporates adversarial exam-
+ples into training to improve robustness.
+• Robust Feature Selection: Identifies and prioritizes
+stable features that contribute to model resilience against
+adversarial manipulations.
+C. PERFORMANCE EVALUATION
+We conducted experiments to assess the impact of adversarial
+attacks and the effectiveness of our defense mechanisms. The
+following table presents classification performance before
+and after applying our defenses.
+TABLE 4. Model performance against adversarial attacks.
+As seen in Table 4, adversarial attacks significantly
+degrade the model’s performance. FGSM, PGD, and Deep-
+Fool reduce accuracy to 60%, 55%, and 50%, respec-
+tively. However, applying adversarial training and fea-
+ture selection improves robustness, restoring accuracy
+to 88%.
+D. VISUALIZATION OF ATTACK IMPACT
+To further illustrate the impact of adversarial attacks,
+we provide visual comparisons in Figure 1 and Figure 2.
+The first plot highlights how adversarial defenses signifi-
+cantly reduce the attack success rate, making the IDS model
+more resilient. The second plot compares model accuracy
+under different conditions, confirming the effectiveness of
+our defense strategies.
+FIGURE 1. Comparison of attack success rates with and without defense
+mechanisms.
+FIGURE 2. Model accuracy before and after defense.
+E. ROBUSTNESS AGAINST BLACK-BOX ATTACKS (SQUARE
+ATTACK)
+To evaluate the generalizability of our defense mechanism
+beyond gradient-based adversarial attacks, we conducted
+experiments using the Square Attack [24], a popular black-
+box adversarial method. The Square Attack does not rely
+on gradient information and instead perturbs inputs using
+randomized search patterns, simulating realistic adversarial
+scenarios where attackers have limited model knowledge.
+The evaluation was performed on a representative subset
+(10,000 samples) of the CSE-CIC-IDS2018 dataset. The
+results, presented in Table 5, demonstrate that while the
+baseline IDS accuracy significantly degrades under black-
+box attacks, our proposed defense approach (adversarial
+training combined with SHAP-based robust feature selection)
+effectively preserves detection performance.
+TABLE 5. Performance against black-box attack (square attack).
+These results highlight our framework’s effectiveness in
+improving generalization and resilience against practical
+black-box adversarial attacks, underscoring the robustness
+84998 VOLUME 13, 2025
+
+=== PAGE 8 ===
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+of combining adversarial training with SHAP-driven robust
+feature selection.
+F. COMPUTATIONAL OVERHEAD ANAL YSIS
+Evaluating computational efficiency is critical for practical
+IDS deployments in cloud environments. To explicitly
+quantify the computational overhead introduced by our
+proposed dual-layered defense strategy, we measured training
+and inference times for both the baseline IDS model and
+our proposed defended model (adversarial training combined
+with SHAP-based robust feature selection). All experiments
+were conducted on a server equipped with an Intel Xeon
+2.8 GHz processor (16 cores), 128 GB RAM, and an NVIDIA
+A100 GPU (40 GB VRAM).
+Table 6 summarizes the training and inference times
+clearly. While our proposed method introduced a modest
+training overhead of approximately 25% compared to
+the baseline model, inference times remained practically
+unchanged, maintaining suitability for real-time IDS deploy-
+ments.
+TABLE 6. Computational overhead comparison.
+Compared explicitly to PRIVFED [5], which reported a
+15.3% computational overhead primarily due to federated
+learning and privacy computations, our approach incurs
+slightly higher overhead due to adversarial training processes.
+Nevertheless, the overhead remains modest and accept-
+able for real-time deployment, especially considering the
+enhanced robustness and interpretability benefits achieved.
+Furthermore, adopting federated learning in future imple-
+mentations could distribute computational workloads, further
+reducing centralized training overhead.
+While our evaluation explicitly focuses on adversarial
+training combined with SHAP-based feature selection,
+we acknowledge explicitly the complementary role of
+detection-based defenses, such as MagNet [27]. Detection-
+based methods explicitly identify adversarial examples at
+inference time, providing an additional layer of defense.
+Explicitly evaluating these methods alongside adversar-
+ial training frameworks remains an important future
+research direction for comprehensive adversarial defense
+coverage.
+V. FEATURE IMPORTANCE ANALYSIS USING SHAP
+One of the critical aspects of improving adversarial robust-
+ness in ML-based IDS is understanding the role of individual
+features in classification decisions. Feature importance anal-
+ysis helps identify which network traffic attributes contribute
+most to the IDS model’s predictions and how adversarial
+attacks manipulate these features to evade detection. In this
+study, we employ SHAP (SHapley Additive exPlanations)
+to quantify feature importance and analyze how adversarial
+perturbations affect IDS decision boundaries.
+A. METHODOLOGY
+SHAP provides an interpretable way to assess the influence of
+each feature on model predictions by computing the average
+marginal contribution of a feature across different subsets of
+input data. The key steps in our feature importance analysis
+are:
+• Train an ML-based IDS model on the CSE-CIC-
+IDS2018 dataset.
+• Generate adversarial samples using FGSM, PGD, and
+DeepFool.
+• Compute SHAP values for both benign and adversarial
+samples.
+• Compare SHAP values before and after attack perturba-
+tions to determine which features are most affected.
+B. FEATURE DESCRIPTIONS AND IMPORTANCE
+The SHAP analysis focuses on key network traffic
+attributes, evaluating how adversarial perturbations impact
+their relative importance in IDS decision-making. Below is a
+description of the most influential features:
+• Protocol - Indicates the network protocol (e.g., TCP ,
+UDP , ICMP). Different protocols exhibit distinct traffic
+behaviors, making this a crucial feature for attack
+detection.
+• Src Port (Source Port)- Represents the originating port
+number in network communication, often manipulated
+in port-scanning and flooding attacks.
+• Dst Port (Destination Port) - The target port for
+network traffic, where attacks frequently target known
+service vulnerabilities.
+• Flow Duration - Measures the duration of a connection.
+Adversaries often manipulate connection timing to
+evade detection.
+• Packet Length - Represents the size of network packets.
+V ariations in packet length distribution can indicate
+malicious activity.
+• Flow Bytes/s - The rate of data transmission within a
+connection. Attackers may throttle or amplify this metric
+to evade detection.
+• Flow Packets/s - The number of packets transmit-
+ted per second. High-frequency, short-duration traf-
+fic patterns are common in DDoS and brute-force
+attacks.
+• Fwd Packet Length - The length of packets sent in the
+forward direction. Attackers may use inconsistencies in
+packet length to disguise malicious activity.
+These features play a critical role in IDS classification,
+and adversarial attacks attempt to exploit their vulnerabilities
+by either perturbing high-contribution features or amplifying
+irrelevant attributes.
+VOLUME 13, 2025 84999
+
+=== PAGE 9 ===
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+C. RESUL TS AND OBSERVATIONS
+The SHAP analysis reveals that certain features, such as
+flow duration, packet length, and byte distribution per
+packet, are disproportionately influenced by adversarial
+attacks. Specifically:
+• DeepFool and PGD attacks tend to manipulate low-
+variance statistical features such as packet inter-arrival
+time and flow duration, ensuring stealthy evasions.
+• FGSM primarily alters high-magnitude features,
+such as flow bytes/s and packet counts, forcing misclas-
+sification through amplified perturbations.
+FIGURE 3. SHAP feature importance analysis before and after adversarial
+attacks.
+Figure 3 illustrates the SHAP feature importance rank-
+ings before and after adversarial perturbations. The results
+indicate that adversarial attacks significantly reduce the
+contribution of key distinguishing features while amplifying
+the importance of less relevant attributes, leading to misclas-
+sification by the IDS model.
+D. SIGNIFICANCE OF SHAP-BASED FEATURE SELECTION
+Our feature importance analysis highlights the need for
+adaptive feature selection techniques that prioritize stable,
+high-contribution attributes resistant to adversarial manipula-
+tions. By integrating SHAP-based feature selection into IDS
+training, future models can:
+• Identify features that remain consistent under attack
+conditions, reducing adversarial susceptibility.
+• Improve model interpretability by providing insights
+into feature stability.
+• Enhance generalization by selecting features that retain
+predictive power across different attack scenarios.
+By leveraging SHAP-based feature selection alongside
+adversarial training, our proposed IDS framework signifi-
+cantly enhances security, interpretability, and robustness,
+ensuring improved resilience in detecting and mitigating
+adversarial cyber threats in cloud environments.
+VI. DISCUSSION AND ANALYSIS
+Our experimental findings demonstrate that adversarial
+attacks significantly degrade the performance of ML-based
+IDS models. FGSM, PGD, and DeepFool attacks reduced
+classification accuracy by up to 40%, underscoring the
+vulnerability of IDS frameworks deployed in cloud environ-
+ments. However, our proposed adversarial training and robust
+feature selection strategies effectively mitigated these threats,
+restoring model accuracy and reducing attack success rates.
+The evaluation against the Square Attack further con-
+firms our framework’s generalization capability, highlighting
+that the integrated defense strategy not only mitigates
+gradient-based adversarial threats but also provides meaning-
+ful robustness against black-box adversarial scenarios. This
+broader robustness is crucial for real-world IDS deployments,
+where attackers typically have limited knowledge of IDS
+internal workings.
+Our computational overhead analysis explicitly demon-
+strates that while the dual-layered defense strategy intro-
+duces additional training complexity (approximately 25%),
+inference speed remains suitable for real-time operations
+(11 ms/sample). This modest overhead, comparable to
+existing methods like PRIVFED [5], confirms the practical
+viability of our framework. Furthermore, potential adoption
+of federated learning architectures could distribute computa-
+tional overhead across edge devices, significantly enhancing
+scalability and computational efficiency for large-scale IDS
+deployments.
+A. EFFECTIVENESS OF DEFENSE MECHANISMS
+Adversarial training proved to be a highly effective counter-
+measure, as it exposed the model to adversarial examples
+during training, enhancing its resilience against attacks.
+Nonetheless, adversarial training increased computational
+overhead, highlighting the trade-off between security and
+efficiency. Robust feature selection further bolstered model
+security by eliminating redundant or easily exploitable
+features, thereby improving robustness without sacrificing
+computational efficiency.
+B. FEATURE IMPORTANCE INSIGHTS FROM SHAP
+To gain deeper insights into how adversarial perturba-
+tions affect IDS decision-making, we conducted a feature
+importance analysis using SHAP . This analysis provided
+valuable information regarding the features most impacted
+by adversarial attacks and the effectiveness of defense
+mechanisms.
+• SHAP analysis revealed that protocol-based features and
+statistical attributes (e.g., packet rate, duration, and flow
+bytes) had the highest SHAP values, indicating their
+significance in classification decisions.
+• Adversarial attacks primarily targeted high-importance
+features such as source/destination IP entropy and con-
+nection duration, which are critical for distinguishing
+normal and malicious traffic.
+• After applying robust feature selection, SHAP values
+indicated that selected features exhibited greater sta-
+bility under adversarial conditions, improving model
+robustness.
+85000 VOLUME 13, 2025
+
+=== PAGE 10 ===
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+• Certain features showed high variance in SHAP values
+across different attack strategies, suggesting that adver-
+saries may adapt their perturbations to target unstable
+feature sets over time.
+These findings confirm that adversarial training and
+feature selection not only enhance IDS resilience but also
+improve interpretability by highlighting how specific network
+attributes influence model decisions.
+C. LIMITATIONS AND CHALLENGES
+While our proposed defense mechanisms enhance adversarial
+robustness, certain challenges remain:
+• Computational Overhead: The inclusion of adversar-
+ial training increases training time and computational
+cost, which may not be feasible for resource-constrained
+cloud environments.
+• Adaptive Adversarial Strategies: Attackers can
+develop adaptive techniques that bypass adversarially
+trained models, necessitating continuous updates and
+retraining.
+• Feature Importance Variability: SHAP analysis
+revealed that some features have high variance in
+importance scores across different attacks, making them
+potential targets for adversarial exploitation.
+• Generalization Across Cloud Platforms: Our frame-
+work was evaluated on CSE-CIC-IDS2018; however,
+further validation on diverse cloud infrastructures is
+required.
+Our adversarial evaluation assumes functional integrity
+of the adversarially perturbed traffic; however, explicit
+validation of this functionality was beyond the scope of this
+research. It remains important to validate in practice that
+adversarial perturbations do not unintentionally compromise
+the execution of malicious activities, as this may otherwise
+lead to an overestimation of threat impact. Future research
+should explicitly evaluate and validate the functional integrity
+of adversarial examples, further enhancing the practical
+relevance and threat accuracy assessment of adversarial
+robustness studies. Our explicit use of binary classification
+provides valuable foundational insights into IDS robustness
+but lacks the granularity of multi-class detection necessary
+for distinguishing between specific attack types. Future work
+should explicitly evaluate the proposed defense methods
+using multi-class classification scenarios, providing deeper
+insights into the effectiveness of adversarial defenses across
+varied attack classes, thereby significantly enhancing their
+practical relevance and deployment value.
+Detection-based defenses, such as MagNet [27], explicitly
+complement our adversarial training and robust feature selec-
+tion approaches by providing explicit detection capabilities
+at inference time. While our current approach emphasizes
+robustness through model training and interpretability-driven
+feature selection, explicitly integrating detection-based meth-
+ods represents an important and complementary direction for
+future research. Our evaluations were explicitly performed
+using the CSE-CIC-IDS2018 dataset. While this dataset is
+comprehensive, explicitly validating our defense framework
+on additional datasets such as UNSW-NB15 or NSL-KDD
+would provide stronger evidence of generalizability. Explic-
+itly extending evaluations to additional benchmark datasets
+remains an essential and explicit future research direction.
+D. FEDERATED LEARNING FOR FUTURE RESEARCH
+Federated Learning (FL) represents a compelling paradigm
+to further enhance adversarial robustness and adaptability in
+IDS frameworks. By leveraging decentralized training across
+multiple edge nodes, FL can aggregate diverse adversarial
+examples collected from various network environments,
+providing richer and more representative datasets for training
+adaptive defenses. This decentralized approach can dynam-
+ically adapt IDS models to emerging threats in real-time,
+effectively addressing adaptive adversarial strategies by con-
+tinuously incorporating novel attack patterns encountered in
+different cloud infrastructures or edge devices. Furthermore,
+FL’s distributed computation paradigm inherently reduces
+centralized computational overhead, improving scalability
+and practical feasibility for large-scale deployments.
+By leveraging decentralized training, FL can also
+explicitly:
+• Reduce data exposure, mitigating privacy concerns
+associated with cloud-based IDS.
+• Improve model adaptability across heterogeneous cloud
+infrastructures.
+• Enhance IDS robustness by training on diverse attack
+patterns from distributed sources.
+• Utilize SHAP-driven feature selection to dynamically
+adjust IDS models based on shifting adversarial strate-
+gies.
+Integrating FL with adversarial defense mechanisms can
+further fortify cloud IDS solutions against evolving cyber
+threats, making it a compelling avenue for future research.
+VII. CONCLUSION
+In this study, we examined the adversarial robustness of
+ML-based IDS in cloud environments and proposed an inte-
+grated defense strategy combining adversarial training and
+robust feature selection. Our experimental results explicitly
+demonstrated that adversarial attacks significantly compro-
+mise IDS accuracy; however, our proposed dual-layered
+defense techniques significantly mitigate these threats, restor-
+ing and even enhancing model accuracy.
+Our findings have critical implications for industries reliant
+on cloud security, including telecommunications, finance,
+healthcare, and critical infrastructure. By enhancing IDS
+resilience, organizations can better safeguard cloud-based
+systems against evolving adversarial threats. Moreover, our
+SHAP-based feature importance analysis explicitly provided
+deeper insights into how adversarial perturbations manipulate
+IDS decision-making, identifying critical vulnerabilities in
+VOLUME 13, 2025 85001
+
+=== PAGE 11 ===
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+high-importance features and highlighting the effectiveness
+of robust feature selection in stabilizing IDS performance.
+Additionally, extending our evaluation to the Square
+Attack explicitly confirmed that our defense mechanisms
+generalize effectively beyond gradient-based attacks, sub-
+stantially increasing their practical robustness against real-
+istic black-box adversarial scenarios. Explicit computa-
+tional overhead analysis further confirmed that our defense
+approach remains practical for real-time IDS deployment,
+introducing a modest training overhead (approximately 25%)
+without significantly affecting inference speed.
+Future research explicitly aims to address several impor-
+tant directions: (i) Integrating Federated Learning (FL)
+into our adversarial defense framework to leverage diverse,
+decentralized data, enhancing adaptive robustness and scal-
+ability; (ii) Conducting explicit validation of functional
+integrity of adversarially perturbed traffic to ensure realistic
+threat modeling; (iii) Exploring hybrid defense strategies
+explicitly combining adversarial training with anomaly
+detection methods to effectively handle both known adver-
+sarial threats and novel zero-day attacks; (iv) Extending
+evaluation explicitly to multi-class classification scenarios,
+enhancing the practical applicability and detailed robustness
+insights of IDS models across diverse attack types; and
+(v) Investigating detection-based adversarial defenses (e.g.,
+MagNet) explicitly alongside our proposed framework to
+achieve comprehensive defensive coverage against adversar-
+ial threats. By addressing these explicit limitations and pur-
+suing advanced learning paradigms, our research contributes
+substantially to developing more secure, interpretable, and
+intelligent IDS frameworks tailored explicitly for robust
+deployment in dynamic cloud environments.
+ACKNOWLEDGMENT
+The authors acknowledges the CSE-CIC-IDS2018 dataset,
+which played a crucial role in evaluating adversarial attack
+and defense strategies for ML-based intrusion detection
+systems. This dataset provides a realistic representation
+of modern network traffic and attack scenarios, enabling
+rigorous experimentation and performance validation of the
+proposed methodologies. They have contributed equally to
+this work in terms of conceptualization, methodology devel-
+opment, experimentation, formal analysis, and manuscript
+preparation. Their collective efforts have been instrumental
+in the successful completion of this research.
+REFERENCES
+[1] J. Malik, R. Muthalagu, and P . M. Pawar, ‘‘A systematic review of adversar-
+ial machine learning attacks, defensive controls, and technologies,’’ IEEE
+Access, vol. 12, pp. 99382–99421, 2024.
+[2] S. Ahmad, I. Shakeel, S. Mehfuz, and J. Ahmad, ‘‘Deep learning models
+for cloud, edge, fog, and IoT computing paradigms: Survey, recent
+advances, and future directions,’’ Comput. Sci. Rev., vol. 49, Aug. 2023,
+Art. no. 100568.
+[3] J. Xiao, Y . Fan, R. Sun, J. Wang, and Z. Q. Luo, ‘‘Stability analysis and
+generalization bounds of adversarial training,’’ in Proc. Adv. Neural Inf.
+Process. Syst., vol. 35, 2022, pp. 15446–15459.
+[4] K. He, D. D. Kim, and M. R. Asghar, ‘‘Adversarial machine learning
+for network intrusion detection systems: A comprehensive survey,’’ IEEE
+Commun. Surveys Tuts., vol. 25, no. 1, pp. 538–566, 1st Quart., 2023.
+[5] K. Thumula, H. Holla, C. Gutti, A. A. Sasikumar, and H. Gogineni,
+‘‘PrivFED: Protecting user privacy in federated learning systems through
+differential privacy,’’ in Proc. 8th Int. Conf. Electron., Mater . Eng. Nano-
+Technol. (IEMENTech), Kolkata, India, Jan. 2025, pp. 1–6.
+[6] W. Villegas-Ch, A. Jaramillo-Alcázar, and S. Luján-Mora, ‘‘Evaluating the
+robustness of deep learning models against adversarial attacks: An analysis
+with FGSM, PGD and CW,’’ Big Data Cogn. Comput., vol. 8, no. 1, p. 8,
+Jan. 2024.
+[7] S.-M. Moosavi-Dezfooli, A. Fawzi, and P . Frossard, ‘‘DeepFool: A simple
+and accurate method to fool deep neural networks,’’ in Proc. IEEE Conf.
+Comput. Vis. Pattern Recognit. (CVPR) , Las V egas, NV , USA, Jun. 2016,
+pp. 2574–2582, doi: 10.1109/CVPR.2016.282.
+[8] M. Yin, Y . Zhang, X. Li, and S. Wang, ‘‘When deep fool meets deep prior:
+Adversarial attack on super-resolution network,’’ in Proc. 26th ACM Int.
+Conf. Multimedia, Oct. 2018, pp. 1930–1938.
+[9] A. Blika, S. Palmos, G. Doukas, V . Lamprou, S. Pelekis, M. Kontoulis,
+C. Ntanos, and D. Askounis, ‘‘Federated learning for enhanced cyber-
+security and trustworthiness in 5G and 6G networks: A comprehensive
+survey,’’IEEE Open J. Commun. Soc. , vol. 6, pp. 3094–3130, 2025, doi:
+10.1109/OJCOMS.2024.3449563.
+[10] A. M. Abdallah, A. S. R. O. Alkaabi, G. B. N. D. Alameri, S. H. Rafique,
+N. S. Musa, and T. Murugan, ‘‘Cloud network anomaly detection using
+machine and deep learning techniques—Recent research advancements,’’
+IEEE Access, vol. 12, pp. 56749–56773, 2024.
+[11] P . Thantharate and T. Anurag, ‘‘CYBRIA—Pioneering federated learning
+for privacy-aware cybersecurity with brilliance,’’ in Proc. IEEE 20th
+Int. Conf. Smart Communities, Improving Quality Life AI, Robot.
+IoT (HONET), Boca Raton, FL, USA, Dec. 2023, pp. 56–61, doi:
+10.1109/HONET59747.2023.10374608.
+[12] A. McCarthy, E. Ghadafi, P . Andriotis, and P . Legg, ‘‘Functionality-
+preserving adversarial machine learning for robust classification in
+cybersecurity and intrusion detection domains: A survey,’’J. Cybersecurity
+Privacy, vol. 2, no. 1, pp. 154–190, Mar. 2022.
+[13] M. Zipperle, F. Gottwalt, E. Chang, and T. S. Dillon, ‘‘Provenance-based
+intrusion detection systems: A survey,’’ACM Comput. Surv., vol. 55, no. 7,
+pp. 1–36, Jun. 2022.
+[14] L. Y ang, S. X. Y ang, Y . Li, Y . Lu, and T. Guo, ‘‘Generative adversarial
+learning for trusted and secure clustering in industrial wireless sensor
+networks,’’ IEEE Trans. Ind. Electron., vol. 70, no. 8, pp. 8377–8387,
+Aug. 2023.
+[15] J. Ferdous, R. Islam, A. Mahboubi, and M. Z. Islam, ‘‘A review of state-
+of-the-art malware attack trends and defense mechanisms,’’ IEEE Access,
+vol. 11, pp. 121118–121141, 2023.
+[16] J. Zhang, J. D. Peter, A. Shankar, and W. Viriyasitavat, ‘‘Public cloud
+networks oriented deep neural networks for effective intrusion detection
+in online music education,’’ Comput. Electr . Eng., vol. 115, Apr. 2024,
+Art. no. 109095.
+[17] S. R. Polepalli and P . Chechani, ‘‘Management of cellular data usage during
+denial of service (DoS) attacks,’’ U.S. Patent 10 237 301, Mar. 19, 2019.
+[18] V . Akashe, R. L. Neupane, M. L. Alarcon, S. Wang, and
+P . Calyam, ‘‘Network-based active defense for securing cloud-based
+healthcare data processing pipelines,’’ in Proc. Int. Conf. Comput.
+Commun. Netw. (ICCCN), Athens, Greece, Jul. 2021, pp. 1–9, doi:
+10.1109/ICCCN52240.2021.9522267.
+[19] H.-Y . Kwon, T. Kim, and M.-K. Lee, ‘‘Advanced intrusion detection
+combining signature-based and behavior-based detection methods,’’
+Electronics, vol. 11, no. 6, p. 867, Mar. 2022, doi: 10.3390/electron-
+ics11060867.
+[20] Z. K. Maseer, R. Y usof, N. Bahaman, S. A. Mostafa, and C. F. M. Foozy,
+‘‘Benchmarking of machine learning for anomaly based intrusion
+detection systems in the CICIDS2017 dataset,’’ IEEE Access, vol. 9,
+pp. 22351–22370, 2021.
+[21] S. K. R. Mallidi and R. R. Ramisetty, ‘‘Advancements in training and
+deployment strategies for AI-based intrusion detection systems in IoT:
+A systematic literature review,’’ Discover Internet Things, vol. 5, no. 1,
+p. 8, Jan. 2025.
+[22] I. J. Goodfellow, J. Shlens, and C. Szegedy, ‘‘Explaining and harnessing
+adversarial examples,’’ 2014, arXiv:1412.6572.
+85002 VOLUME 13, 2025
+
+=== PAGE 12 ===
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+[23] A. Madry, A. Makelov, L. Schmidt, D. Tsipras, and A. Vladu, ‘‘Towards
+deep learning models resistant to adversarial attacks,’’Stat, vol. 1050, no. 9,
+pp. 1–27, 2017.
+[24] M. Andriushchenko, F. Croce, N. Flammarion, and M. Hein, ‘‘Square
+attack: A query-efficient black-box adversarial attack via random search,’’
+in Proc. Eur . Conf. Comput. Vis.Cham, Switzerland: Springer, Aug. 2020,
+pp. 484–501.
+[25] X. Y uan, P . He, Q. Zhu, and X. Li, ‘‘Adversarial examples: Attacks
+and defenses for deep learning,’’ IEEE Trans. Neural Netw. Learn. Syst.,
+vol. 30, no. 9, pp. 2805–2824, Sep. 2019.
+[26] S. Kumar and A. Narayan, ‘‘Towards robust certified defense via improved
+randomized smoothing,’’ in Proc. Int. Joint Conf. Neural Netw. (IJCNN),
+Padua, Italy, Jul. 2022, pp. 1–8, doi: 10.1109/IJCNN55064.2022.9892471.
+[27] D. Meng and H. Chen, ‘‘MagNet: A two-pronged defense against
+adversarial examples,’’ in Proc. ACM SIGSAC Conf. Comput. Commun.
+Secur ., Oct. 2017, pp. 135–147.
+[28] I. Sharafaldin, A. H. Lashkari, and A. A. Ghorbani, ‘‘Toward generating a
+new intrusion detection dataset and intrusion traffic characterization,’’ in
+Proc. 4th Int. Conf. Inf. Syst. Secur . Privacy, 2018, pp. 108–116.
+HARIPRASAD HOLLA (Senior Member, IEEE)
+received the Master of Science degree in informa-
+tion technology from Sikkim Manipal University,
+India, in 2010, and the M.B.A. degree from Strayer
+University, USA, in 2020.
+He currently employed at a leading cyber-
+security company, specializing in endpoint risk
+assessment, zero-trust architecture, and AI-driven
+security solutions. Previously, he held positions
+in software engineering, technical marketing, and
+product management roles, shaping the evolution of modern networking and
+security technologies. He has earned widespread recognition for his technical
+publications and presentations at major industry conferences, including the
+RSA Conference and BlackHat. He has been honored multiple times as a
+‘‘Distinguished Speaker’’ for his ability to simplify complex concepts and
+deliver engaging content. Additionally, he has contributed as a peer reviewer
+and a judge for industry evaluations, reinforcing his reputation as a trusted
+authority in cybersecurity. An active Senior Member of OW ASP and other
+cybersecurity organizations, he is committed to advancing secure digital
+infrastructures, AI-driven threat mitigation, and industry best practices.
+His work bridges technology innovation and business strategy, driving the
+evolution of modern cybersecurity solutions.
+SHASHIDHAR REDDY POLEPALLI (Senior
+Member, IEEE) received the B.Tech. degree
+in electronics and communications engineering
+from Jawaharlal Nehru Technological University,
+Hyderabad, India, in 2001.
+He is currently with a cybersecurity com-
+pany, specializing in network security, cellular
+technology, AI, and SD-W AN, where he has
+contributed to advancements in routing, next-
+generation internet protocols, network security,
+and cellular technologies. His research interests include 5G, AI-driven
+security solutions, and enterprise networking, with significant contributions
+to high-performance network infrastructures. He holds U.S. patents in AI,
+network security, and cellular technologies, which have been cited by major
+technology companies, reflecting their impact on modern networking and
+cybersecurity solutions. He serves as a Technical Program Committee (TPC)
+Member for the IEEE V ehicular Technology Conference. He has received
+recognition for his contributions to networking and security innovations,
+including advancements in cellular technology and enterprise networking.
+ARUN AMBIKA SASIKUMAR (Senior Member,
+IEEE) received the bachelor’s degree in computer
+science from Periyar University, India, in 2004.
+He specializes in cloud security, emphasizing
+5G security, SASE, ZTNA, and network security.
+He possesses significant experience in security
+architecture across various industry verticals. His
+contributions have greatly improved public safety,
+allowing law enforcement to perform their roles
+securely while also advancing sustainability initia-
+tives. He possesses the Cisco Certified Internetworking Expert in Security
+(CCIE Security) credential, widely regarded as one of the toughest security
+technical certifications available. He has earned multiple accolades for his
+significant contributions to 5G SASE and Identity and Access Management
+and has authored several whitepapers. As a dedicated Senior Member of CSA
+Organizations, he is committed to enhancing security in the realms of agentic
+AI and the shifting security landscape.
+VOLUME 13, 2025 85003

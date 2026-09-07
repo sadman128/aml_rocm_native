@@ -1,0 +1,11 @@
+item,value
+files,10
+raw_rows,6659532
+duplicate_rows_removed,339529
+identity_columns_removed,[]
+train_rows_used,500000
+development_rows,505601
+test_rows,1264001
+benign_total,4994160
+attack_total,1325843
+files_loaded,"[""Botnet-Friday-02-03-2018_TrafficForML_CICFlowMeter.parquet"", ""Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet"", ""DDoS1-Tuesday-20-02-2018_TrafficForML_CICFlowMeter.parquet"", ""DDoS2-Wednesday-21-02-2018_TrafficForML_CICFlowMeter.parquet"", ""DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet"", ""DoS2-Friday-16-02-2018_TrafficForML_CICFlowMeter.parquet"", ""Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet"", ""Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet"", ""Web1-Thursday-22-02-2018_TrafficForML_CICFlowMeter.parquet"", ""Web2-Friday-23-02-2018_TrafficForML_CICFlowMeter.parquet""]"

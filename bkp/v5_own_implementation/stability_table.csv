@@ -1,0 +1,4 @@
+Seed,Clean Acc%,MI-FGSM Acc%,BW Acc%,Masking Gap pp,Masking Suspected
+42,95.25,91.75,28.95,62.8,True
+123,96.55,92.65,28.2,64.45,True
+2024,96.25,92.15,23.45,68.7,True

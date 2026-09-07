@@ -1,0 +1,24 @@
+{
+  "experiment_name": "V9_FINAL_PRODUCTION",
+  "created_at": "2026-08-22T15:01:37",
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "status": "COMPLETE",
+  "output_dir": "F:\\PythonProjects\\aml_rocm_native\\outputs\\v9_final",
+  "files": {
+    "final_results": "outputs\\v9_final\\FINAL_RESULTS.csv",
+    "final_results_mean_std": "outputs\\v9_final\\FINAL_RESULTS_MEAN_STD.csv",
+    "training_budget": "outputs\\v9_final\\training_budget.csv",
+    "data_summary": "outputs\\v9_final\\data_summary.json",
+    "config": "outputs\\v9_final\\config.json",
+    "environment": "outputs\\v9_final\\environment.json"
+  },
+  "per_seed": {
+    "42": "outputs\\v9_final\\seeds\\42",
+    "123": "outputs\\v9_final\\seeds\\123",
+    "2024": "outputs\\v9_final\\seeds\\2024"
+  }
+}

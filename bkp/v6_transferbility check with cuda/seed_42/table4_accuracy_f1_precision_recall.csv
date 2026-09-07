@@ -1,0 +1,9 @@
+Model / Condition,Accuracy (%),F1-score (%),Precision (%),Recall (%),Attack Success Rate (%)
+Baseline IDS (clean),95.4,89.74,87.29,92.34,-
+FGSM Attack (baseline),74.95,26.0,34.65,20.8,21.56
+PGD Attack (baseline),68.6,17.59,19.76,15.84,27.87
+DeepFool Attack (baseline),73.85,32.52,35.8,29.79,24.19
+Defended (clean),96.13,91.2,90.39,92.03,-
+FGSM Attack (defended),88.5,65.15,90.72,50.83,10.62
+PGD Attack (defended),80.15,43.04,54.74,35.46,16.55
+DeepFool Attack (defended),90.75,77.58,79.6,75.65,5.83

@@ -1,0 +1,5 @@
+PGD iters,Restarts,Defended Acc%,Success Rate%
+20,5,91.8,4.38
+50,5,91.4,4.79
+100,5,91.8,4.38
+200,5,91.6,4.58

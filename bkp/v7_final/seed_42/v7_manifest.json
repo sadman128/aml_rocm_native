@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-08-16T06:43:15.833203",
+  "version": "v7_supervisor_final",
+  "seed": 42,
+  "data_seed": 42,
+  "device": "cuda",
+  "output_dir": "./output/v7/seed_42",
+  "claim_scope": "within-dataset adversarial attack-algorithm generalization",
+  "validation_passed": true,
+  "artifacts": [
+    "all_metrics.json",
+    "run_config.json",
+    "selected_features.json",
+    "table4.csv",
+    "table4_operational.csv",
+    "table5.csv",
+    "table6.csv",
+    "table_minperturb.csv",
+    "unseen_attack_table.csv",
+    "paper_crosscheck.csv",
+    "trades_comparison.csv",
+    "table10_adaptive.csv",
+    "stability_table.csv",
+    "table11_transferability.csv",
+    "v7_analysis_results.json",
+    "v7_unified_synthesis.json",
+    "supervisor_summary.csv",
+    "constraint_validation.csv",
+    "baseline_training_history.csv",
+    "stage1_training_history.csv",
+    "stage2_training_history.csv",
+    "shap_feature_scores.csv",
+    "final_validation.json"
+  ],
+  "figures": [
+    "figures\\01_attack_accuracy_and_asr.png",
+    "figures\\02_adaptive_seed_transfer_validation.png",
+    "figures\\03_clean_roc_pr_confusion.png",
+    "figures\\04_training_and_paper_context.png",
+    "figures\\05_feature_and_training_ablations.png"
+  ]
+}

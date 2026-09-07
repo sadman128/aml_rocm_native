@@ -1,0 +1,67 @@
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+dropout regularization. We trained the model for 50 epochs
+using the Adam optimizer with an initial learning rate of
+0.001.
+B. ATTACK STRATEGIES AND DEFENSE MECHANISMS
+To evaluate the vulnerability of IDS models, we implemented
+three adversarial attack techniques:
+• FGSM (Fast Gradient Sign Method): Generates
+adversarial samples by perturbing input features along
+the gradient direction.
+• PGD (Projected Gradient Descent): An iterative
+variant of FGSM that applies multiple gradient updates
+to maximize attack effectiveness.
+• DeepFool: A sophisticated attack that iteratively per-
+turbs samples until they cross the decision boundary of
+the classifier.
+To counter these attacks, we employed two defense
+mechanisms:
+• Adversarial Training: Incorporates adversarial exam-
+ples into training to improve robustness.
+• Robust Feature Selection: Identifies and prioritizes
+stable features that contribute to model resilience against
+adversarial manipulations.
+C. PERFORMANCE EVALUATION
+We conducted experiments to assess the impact of adversarial
+attacks and the effectiveness of our defense mechanisms. The
+following table presents classification performance before
+and after applying our defenses.
+TABLE 4. Model performance against adversarial attacks.
+As seen in Table 4, adversarial attacks significantly
+degrade the model’s performance. FGSM, PGD, and Deep-
+Fool reduce accuracy to 60%, 55%, and 50%, respec-
+tively. However, applying adversarial training and fea-
+ture selection improves robustness, restoring accuracy
+to 88%.
+D. VISUALIZATION OF ATTACK IMPACT
+To further illustrate the impact of adversarial attacks,
+we provide visual comparisons in Figure 1 and Figure 2.
+The first plot highlights how adversarial defenses signifi-
+cantly reduce the attack success rate, making the IDS model
+more resilient. The second plot compares model accuracy
+under different conditions, confirming the effectiveness of
+our defense strategies.
+FIGURE 1. Comparison of attack success rates with and without defense
+mechanisms.
+FIGURE 2. Model accuracy before and after defense.
+E. ROBUSTNESS AGAINST BLACK-BOX ATTACKS (SQUARE
+ATTACK)
+To evaluate the generalizability of our defense mechanism
+beyond gradient-based adversarial attacks, we conducted
+experiments using the Square Attack [24], a popular black-
+box adversarial method. The Square Attack does not rely
+on gradient information and instead perturbs inputs using
+randomized search patterns, simulating realistic adversarial
+scenarios where attackers have limited model knowledge.
+The evaluation was performed on a representative subset
+(10,000 samples) of the CSE-CIC-IDS2018 dataset. The
+results, presented in Table 5, demonstrate that while the
+baseline IDS accuracy significantly degrades under black-
+box attacks, our proposed defense approach (adversarial
+training combined with SHAP-based robust feature selection)
+effectively preserves detection performance.
+TABLE 5. Performance against black-box attack (square attack).
+These results highlight our framework’s effectiveness in
+improving generalization and resilience against practical
+black-box adversarial attacks, underscoring the robustness
+84998 VOLUME 13, 2025

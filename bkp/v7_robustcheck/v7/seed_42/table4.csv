@@ -1,0 +1,11 @@
+Condition,N,Accuracy%,F1%,Precision%,Recall%,Success Rate%
+Baseline (clean),1217173,96.92,92.85,94.05,91.68,-
+FGSM (baseline),2000,74.3,25.51,32.96,20.8,23.93
+PGD (baseline),2000,52.5,9.18,7.7,11.35,45.85
+DeepFool (baseline),2000,73.5,26.8,32.23,22.93,26.51
+CW (baseline),200,51.0,3.92,3.64,4.26,46.60
+Defended (clean),1217173,95.73,90.35,89.03,91.7,-
+FGSM (defended),2000,93.05,84.33,80.6,88.42,2.36
+PGD (defended),2000,90.2,79.19,71.87,88.18,5.35
+DeepFool (defended),2000,94.6,87.53,85.55,89.6,1.00
+CW (defended),200,94.0,87.23,87.23,87.23,0.53

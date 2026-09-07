@@ -1,0 +1,4 @@
+target,source,source_feature_count,target_feature_count,n,clean_accuracy,transfer_accuracy,transfer_asr
+Baseline,independent IDSNet,40,40,1000,0.965,0.889,0.07875647668393783
+Paper Defense,independent IDSNet,40,15,1000,0.948,0.948,0.005274261603375527
+V8 Defense,independent IDSNet,40,12,1000,0.923,0.918,0.005417118093174431

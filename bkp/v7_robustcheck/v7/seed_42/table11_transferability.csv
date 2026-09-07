@@ -1,0 +1,5 @@
+Surrogate,Attack_on_surrogate,Target,WB_SR_pct,Transfer_Acc_pct,Transfer_SR_pct,Gap_pp
+Sur1: IDSNet (seed=999),PGD (gradient-based),Baseline,33.66,56.8,41.5,-7.84
+Sur1: IDSNet (seed=999),PGD (gradient-based),Defended,33.66,95.05,0.21,33.45
+Sur2: RandomForest,Square-style search (gradient-free),Baseline,99.64,86.45,11.06,88.58
+Sur2: RandomForest,Square-style search (gradient-free),Defended,99.64,95.2,0.11,99.53

@@ -1,0 +1,177 @@
+{
+  "baseline_clean": {
+    "accuracy": 0.9760888550764764,
+    "f1": 0.9425405813067358,
+    "precision": 0.9890613022851106,
+    "recall": 0.9001994954161309,
+    "infer_ms": 0.00042879568905368747
+  },
+  "baseline_under_attack": {
+    "FGSM": {
+      "accuracy": 0.5395,
+      "f1": 0.16348773841961853,
+      "precision": 0.13274336283185842,
+      "recall": 0.2127659574468085,
+      "infer_ms": 0.001499176025390625,
+      "mean_linf": 0.049825020134449005,
+      "max_linf": 0.0500030517578125,
+      "mean_l2": 0.3229029178619385,
+      "success_rate": 0.4534764826175869,
+      "n_originally_correct": 1956
+    },
+    "PGD": {
+      "accuracy": 0.405,
+      "f1": 0.03565640194489465,
+      "precision": 0.027127003699136867,
+      "recall": 0.05200945626477541,
+      "infer_ms": 0.0014998912811279297,
+      "mean_linf": 0.049162521958351135,
+      "max_linf": 0.05000019073486328,
+      "mean_l2": 0.2539295256137848,
+      "success_rate": 0.5858895705521472,
+      "n_originally_correct": 1956
+    },
+    "DeepFool": {
+      "accuracy": 0.1625,
+      "f1": 0.11609498680738786,
+      "precision": 0.07472826086956522,
+      "recall": 0.26004728132387706,
+      "infer_ms": 0.0014979839324951172,
+      "mean_linf": 0.049798619002103806,
+      "max_linf": 0.0500030517578125,
+      "mean_l2": 0.3189437985420227,
+      "success_rate": 0.8553169734151329,
+      "n_originally_correct": 1956
+    }
+  },
+  "baseline_under_square": {
+    "accuracy": 0.242,
+    "f1": 0.10401891252955082,
+    "precision": 0.0694006309148265,
+    "recall": 0.20754716981132076,
+    "infer_ms": 0.0030002593994140625,
+    "success_rate": 0.753061224489796
+  },
+  "baseline_minperturb": {
+    "n_total": 2000,
+    "n_fooled_within_grid": 1915,
+    "pct_fooled_within_grid": 95.75,
+    "eps_grid_max": 0.1,
+    "mean_min_eps": 0.033073107049608357,
+    "median_min_eps": 0.02,
+    "p10_min_eps": 0.005,
+    "p90_min_eps": 0.08
+  },
+  "defended_clean": {
+    "accuracy": 0.9597279926518252,
+    "f1": 0.9085324665146499,
+    "precision": 0.8991899888083269,
+    "recall": 0.9180711169103477,
+    "infer_ms": 0.0004386278333569237
+  },
+  "defended_under_attack": {
+    "FGSM": {
+      "accuracy": 0.915,
+      "f1": 0.8191489361702128,
+      "precision": 0.7446808510638298,
+      "recall": 0.9101654846335697,
+      "infer_ms": 0.0015004873275756836,
+      "mean_linf": 0.04985002055764198,
+      "max_linf": 0.05000019073486328,
+      "mean_l2": 0.24421413242816925,
+      "success_rate": 0.042909471480900054,
+      "n_originally_correct": 1911
+    },
+    "PGD": {
+      "accuracy": 0.903,
+      "f1": 0.7936170212765957,
+      "precision": 0.7214700193423598,
+      "recall": 0.8817966903073287,
+      "infer_ms": 0.0009996891021728516,
+      "mean_linf": 0.04975001513957977,
+      "max_linf": 0.05000019073486328,
+      "mean_l2": 0.1978447288274765,
+      "success_rate": 0.054945054945054944,
+      "n_originally_correct": 1911
+    },
+    "DeepFool": {
+      "accuracy": 0.9455,
+      "f1": 0.8773903262092239,
+      "precision": 0.8369098712446352,
+      "recall": 0.9219858156028369,
+      "infer_ms": 0.0015004873275756836,
+      "mean_linf": 0.04985002055764198,
+      "max_linf": 0.05000019073486328,
+      "mean_l2": 0.24411292374134064,
+      "success_rate": 0.013605442176870748,
+      "n_originally_correct": 1911
+    }
+  },
+  "defended_under_square": {
+    "accuracy": 0.929,
+    "f1": 0.8459869848156182,
+    "precision": 0.7831325301204819,
+    "recall": 0.9198113207547169,
+    "infer_ms": 0.002001523971557617,
+    "success_rate": 0.036307053941908696
+  },
+  "defended_minperturb": {
+    "n_total": 2000,
+    "n_fooled_within_grid": 476,
+    "pct_fooled_within_grid": 23.8,
+    "eps_grid_max": 0.1,
+    "mean_min_eps": 0.05861344537815126,
+    "median_min_eps": 0.08,
+    "p10_min_eps": 0.005,
+    "p90_min_eps": 0.1
+  },
+  "zeroday_results": {
+    "MI-FGSM": {
+      "baseline_accuracy": 0.3825,
+      "baseline_f1": 0.10050983248361253,
+      "baseline_success_rate": 0.6059824651882414,
+      "defended_accuracy": 0.919,
+      "defended_f1": 0.8250539956803455,
+      "defended_success_rate": 0.03668763102725367,
+      "delta_accuracy": 0.5365
+    },
+    "Random": {
+      "baseline_accuracy": 0.805,
+      "baseline_f1": 0.6422018348623854,
+      "baseline_success_rate": 0.1815368746776689,
+      "defended_accuracy": 0.9365,
+      "defended_f1": 0.8587319243604005,
+      "defended_success_rate": 0.018867924528301886,
+      "delta_accuracy": 0.13149999999999995
+    },
+    "Sparse": {
+      "baseline_accuracy": 0.914,
+      "baseline_f1": 0.7937649880095923,
+      "baseline_success_rate": 0.0593089221248066,
+      "defended_accuracy": 0.9515,
+      "defended_f1": 0.8888888888888888,
+      "defended_success_rate": 0.002620545073375262,
+      "delta_accuracy": 0.03749999999999998
+    },
+    "Boundary-Walk": {
+      "baseline_accuracy": 0.001,
+      "baseline_f1": 0.001998001998001998,
+      "baseline_success_rate": 0.998968540484786,
+      "defended_accuracy": 0.3485,
+      "defended_f1": 0.0,
+      "defended_success_rate": 0.6346960167714885,
+      "delta_accuracy": 0.3475
+    }
+  },
+  "zeroday_masking_check": {
+    "gradient_zd_attacks": [
+      "MI-FGSM",
+      "Sparse"
+    ],
+    "gradient_zd_defended_mean%": 93.525,
+    "boundary_walk_defended%": 34.85,
+    "gap_pp": 58.675,
+    "alert_threshold_pp": 15.0,
+    "masking_suspected": true
+  }
+}

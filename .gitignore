@@ -1,0 +1,15 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Ignored default folder with query files
+/queries/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+data/
+rocm_env/
+bkp/v9_final/artifacts
+outputs/v9_final/artifacts
+bkp/v6_transferbility check with cuda/seed_42/checkpoints

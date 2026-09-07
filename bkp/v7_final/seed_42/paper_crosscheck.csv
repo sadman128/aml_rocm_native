@@ -1,0 +1,9 @@
+Metric,Paper,This run,Directly comparable,Descriptive difference
+Baseline clean accuracy,85.0,96.50526260441202,Context only,11.51
+Baseline under FGSM,60.0,79.85,Context only,19.85
+Baseline under PGD,55.0,68.25,Context only,13.25
+Baseline under DeepFool,50.0,82.1,Context only,32.1
+Baseline under custom square-style search*,63.0,54.300000000000004,No,
+Defended under gradient attacks (mean),88.0,91.01666666666667,Context only,3.02
+Defended under custom square-style search*,84.0,91.60000000000001,No,
+Training overhead %,25.0,253.11015653102777,Context only,228.11

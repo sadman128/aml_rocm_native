@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+<h1>Test Math Page</h1>
+<p>Here is inline math: $S(f) = 1 - |	ext{SHAP}_D(f) - 	ext{SHAP}_{D_{adv}}(f)|$.</p>
+<p>And budget: $\epsilon = 0.05$.</p>
+<div class="math">$$	ext{adv} = 	ext{clamp}(x_0 + \delta, \, \mathbf{lo}, \, \mathbf{hi}) \odot \mathbf{mask}$$</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\(", right: "\)", display: false},
+            {left: "\[", right: "\]", display: true}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+</body>
+</html>

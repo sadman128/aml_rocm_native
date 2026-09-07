@@ -1,0 +1,79 @@
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+[23] A. Madry, A. Makelov, L. Schmidt, D. Tsipras, and A. Vladu, ‘‘Towards
+deep learning models resistant to adversarial attacks,’’Stat, vol. 1050, no. 9,
+pp. 1–27, 2017.
+[24] M. Andriushchenko, F. Croce, N. Flammarion, and M. Hein, ‘‘Square
+attack: A query-efficient black-box adversarial attack via random search,’’
+in Proc. Eur . Conf. Comput. Vis.Cham, Switzerland: Springer, Aug. 2020,
+pp. 484–501.
+[25] X. Y uan, P . He, Q. Zhu, and X. Li, ‘‘Adversarial examples: Attacks
+and defenses for deep learning,’’ IEEE Trans. Neural Netw. Learn. Syst.,
+vol. 30, no. 9, pp. 2805–2824, Sep. 2019.
+[26] S. Kumar and A. Narayan, ‘‘Towards robust certified defense via improved
+randomized smoothing,’’ in Proc. Int. Joint Conf. Neural Netw. (IJCNN),
+Padua, Italy, Jul. 2022, pp. 1–8, doi: 10.1109/IJCNN55064.2022.9892471.
+[27] D. Meng and H. Chen, ‘‘MagNet: A two-pronged defense against
+adversarial examples,’’ in Proc. ACM SIGSAC Conf. Comput. Commun.
+Secur ., Oct. 2017, pp. 135–147.
+[28] I. Sharafaldin, A. H. Lashkari, and A. A. Ghorbani, ‘‘Toward generating a
+new intrusion detection dataset and intrusion traffic characterization,’’ in
+Proc. 4th Int. Conf. Inf. Syst. Secur . Privacy, 2018, pp. 108–116.
+HARIPRASAD HOLLA (Senior Member, IEEE)
+received the Master of Science degree in informa-
+tion technology from Sikkim Manipal University,
+India, in 2010, and the M.B.A. degree from Strayer
+University, USA, in 2020.
+He currently employed at a leading cyber-
+security company, specializing in endpoint risk
+assessment, zero-trust architecture, and AI-driven
+security solutions. Previously, he held positions
+in software engineering, technical marketing, and
+product management roles, shaping the evolution of modern networking and
+security technologies. He has earned widespread recognition for his technical
+publications and presentations at major industry conferences, including the
+RSA Conference and BlackHat. He has been honored multiple times as a
+‘‘Distinguished Speaker’’ for his ability to simplify complex concepts and
+deliver engaging content. Additionally, he has contributed as a peer reviewer
+and a judge for industry evaluations, reinforcing his reputation as a trusted
+authority in cybersecurity. An active Senior Member of OW ASP and other
+cybersecurity organizations, he is committed to advancing secure digital
+infrastructures, AI-driven threat mitigation, and industry best practices.
+His work bridges technology innovation and business strategy, driving the
+evolution of modern cybersecurity solutions.
+SHASHIDHAR REDDY POLEPALLI (Senior
+Member, IEEE) received the B.Tech. degree
+in electronics and communications engineering
+from Jawaharlal Nehru Technological University,
+Hyderabad, India, in 2001.
+He is currently with a cybersecurity com-
+pany, specializing in network security, cellular
+technology, AI, and SD-W AN, where he has
+contributed to advancements in routing, next-
+generation internet protocols, network security,
+and cellular technologies. His research interests include 5G, AI-driven
+security solutions, and enterprise networking, with significant contributions
+to high-performance network infrastructures. He holds U.S. patents in AI,
+network security, and cellular technologies, which have been cited by major
+technology companies, reflecting their impact on modern networking and
+cybersecurity solutions. He serves as a Technical Program Committee (TPC)
+Member for the IEEE V ehicular Technology Conference. He has received
+recognition for his contributions to networking and security innovations,
+including advancements in cellular technology and enterprise networking.
+ARUN AMBIKA SASIKUMAR (Senior Member,
+IEEE) received the bachelor’s degree in computer
+science from Periyar University, India, in 2004.
+He specializes in cloud security, emphasizing
+5G security, SASE, ZTNA, and network security.
+He possesses significant experience in security
+architecture across various industry verticals. His
+contributions have greatly improved public safety,
+allowing law enforcement to perform their roles
+securely while also advancing sustainability initia-
+tives. He possesses the Cisco Certified Internetworking Expert in Security
+(CCIE Security) credential, widely regarded as one of the toughest security
+technical certifications available. He has earned multiple accolades for his
+significant contributions to 5G SASE and Identity and Access Management
+and has authored several whitepapers. As a dedicated Senior Member of CSA
+Organizations, he is committed to enhancing security in the realms of agentic
+AI and the shifting security landscape.
+VOLUME 13, 2025 85003

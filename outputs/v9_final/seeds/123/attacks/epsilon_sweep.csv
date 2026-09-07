@@ -1,0 +1,13 @@
+method,epsilon,seed,accuracy
+Baseline,0.01,123,0.8985
+Paper Defense,0.01,123,0.9065
+V9 Defense,0.01,123,0.9415
+Baseline,0.03,123,0.8705
+Paper Defense,0.03,123,0.898
+V9 Defense,0.03,123,0.9395
+Baseline,0.05,123,0.767
+Paper Defense,0.05,123,0.8595
+V9 Defense,0.05,123,0.9075
+Baseline,0.1,123,0.682
+Paper Defense,0.1,123,0.7315
+V9 Defense,0.1,123,0.7785

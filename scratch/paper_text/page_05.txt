@@ -1,0 +1,108 @@
+H. Holla et al.: Adversarial Threats to Cloud IDS: Robust Defense
+We propose a two-pronged solution: adversarial training to
+expose the model to crafted adversarial examples and robust
+feature selection to improve resilience.
+In this research, we explicitly focus on binary clas-
+sification, distinguishing malicious traffic (attacks) from
+benign traffic. The choice of binary classification facili-
+tates the fundamental evaluation of adversarial robustness,
+establishing a clear baseline for assessing the efficacy of
+defense strategies against adversarial perturbations. Although
+binary classification provides a robust initial assessment
+framework, we acknowledge explicitly that multi-class
+classification, capable of differentiating among specific types
+of attacks (e.g., DDoS, SQL injection, botnet attacks),
+would yield more granular insights. Evaluating adversarial
+robustness in multi-class scenarios remains an important
+direction for future research to improve IDS practical
+applicability.
+A. DATASET SELECTION AND IMPORTANCE
+For this study, we utilize the CSE-CIC-IDS2018 dataset,
+which is one of the most comprehensive and widely recog-
+nized benchmark datasets for evaluating intrusion detection
+models. This dataset was chosen due to several key factors
+that make it particularly well-suited for adversarial robustness
+research:
+• Realistic Network Traffic: The dataset is generated
+from real-world network traffic, encompassing both
+benign and malicious activities that mirror real-world
+attack scenarios.
+• Wide Range of Attacks: It includes various modern
+cyberattacks such as brute force, botnet activity, dis-
+tributed denial-of-service (DDoS), SQL injection, and
+infiltration attacks, providing a diverse attack landscape
+for IDS training and evaluation.
+• Feature Richness: The dataset consists of over 80 net-
+work flow features, including packet-level statistics,
+connection duration, protocol information, and payload
+characteristics, allowing for deep analysis of adversarial
+vulnerabilities.
+• Well-Labeled and Structured: CSE-CIC-IDS2018
+provides well-labeled instances of both normal and
+attack traffic, facilitating the supervised learning
+approach necessary for training ML-based IDS models.
+• Cloud Suitability: Given that cloud environments are
+highly dynamic and prone to evolving cyber threats, the
+dataset captures the complexity of network interactions,
+making it a suitable benchmark for cloud IDS evalua-
+tion.
+By using this dataset, we ensure that our study closely
+aligns with real-world IDS deployment scenarios, partic-
+ularly in cloud environments where intrusion patterns are
+highly dynamic. The dataset’s rich feature set and diverse
+attack classes allow us to rigorously test adversarial attack
+strategies and validate the effectiveness of our proposed
+defense mechanisms.
+B. PREPROCESSING AND FEATURE ENGINEERING
+Before training our IDS models, we apply extensive data
+preprocessing and feature engineering techniques to enhance
+learning efficiency and adversarial robustness. The following
+steps are undertaken:
+• Data Cleaning: Removal of duplicate records, handling
+missing values, and normalization of numeric features.
+• Feature Selection: Identification and retention of the
+most relevant features using mutual information ranking
+and variance thresholding.
+• Categorical Encoding: One-hot encoding of cate-
+gorical variables to ensure compatibility with ML
+algorithms.
+• Balancing Class Distribution: The dataset is balanced
+using synthetic data generation techniques such as
+SMOTE (Synthetic Minority Over-sampling Technique)
+to prevent bias toward majority classes.
+These preprocessing steps ensure that our models receive
+high-quality input, reducing the likelihood of bias and
+improving the resilience of IDS frameworks against adver-
+sarial attacks.
+C. ADVERSARIAL ATTACK IMPLEMENTATION
+To evaluate the vulnerability of ML-based IDS, we imple-
+ment three widely used adversarial attack techniques:
+• FGSM (Fast Gradient Sign Method): Generates
+adversarial perturbations by computing the gradient of
+the loss function and applying a single-step modification
+to the input data. This is a fast and computationally
+efficient attack that exploits linearity in ML models.
+• PGD (Projected Gradient Descent): An iterative
+attack that refines adversarial examples by applying
+multiple gradient updates, making it more effective in
+generating adversarial samples that deceive the IDS.
+• DeepFool: A minimal perturbation attack that iteratively
+shifts input features until they cross the decision
+boundary of the IDS, ensuring high attack success rates
+with subtle modifications to the input data.
+These attacks are applied to the IDS model to evaluate its
+robustness and inform the development of stronger defensive
+mechanisms.
+D. DEFENSE STRATEGIES
+To counteract the impact of adversarial attacks, we incorpo-
+rate two primary defense mechanisms:
+• Adversarial Training: By integrating adversarially
+generated samples into the training process, we enhance
+the model’s ability to recognize and withstand adversar-
+ial inputs, improving its overall robustness.
+• Robust Feature Selection: Certain features in network
+traffic data are more susceptible to adversarial manip-
+ulations. By selecting and prioritizing features that are
+stable and less prone to perturbations, we improve the
+resilience of the IDS model.
+84996 VOLUME 13, 2025
