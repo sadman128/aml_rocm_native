@@ -1,0 +1,37 @@
+{
+  "baseline_clean": {
+    "tp": 420,
+    "fp": 111,
+    "fn": 36,
+    "tn": 1433,
+    "acc": 0.9265
+  },
+  "reference_clean": {
+    "tp": 366,
+    "fp": 24,
+    "fn": 90,
+    "tn": 1520,
+    "acc": 0.943
+  },
+  "proposed_clean": {
+    "tp": 413,
+    "fp": 30,
+    "fn": 43,
+    "tn": 1514,
+    "acc": 0.9635
+  },
+  "proposed_fgsm": {
+    "tp": 330,
+    "fp": 71,
+    "fn": 126,
+    "tn": 1473,
+    "acc": 0.9015
+  },
+  "proposed_pgd100": {
+    "tp": 271,
+    "fp": 132,
+    "fn": 185,
+    "tn": 1412,
+    "acc": 0.8415
+  }
+}
