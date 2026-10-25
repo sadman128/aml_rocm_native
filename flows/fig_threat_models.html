@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        font-family: Arial, sans-serif;
+    }
+    .diagram-container {
+        position: relative;
+        width: 7.50in;
+        height: 8.50in;
+        background-color: #ffffff;
+        overflow: visible;
+        margin: 0;
+    }
+    .card {
+        position: absolute;
+        width: 6.50in;
+        height: 1.55in;
+        left: 0.50in;
+        border-radius: 0.12in;
+        border-style: solid;
+        border-width: 2.25pt;
+        box-shadow: 1px 1px 4px rgba(0,0,0,0.15);
+        box-sizing: border-box;
+    }
+    .card-icon {
+        position: absolute;
+        left: 0.15in;
+        top: 0.225in;
+        width: 1.10in;
+        height: 1.10in;
+    }
+    .card-text {
+        position: absolute;
+        left: 1.40in;
+        top: 0.20in;
+        width: 4.80in;
+    }
+    .card-title {
+        font-family: Arial, sans-serif;
+        font-size: 19pt;
+        font-weight: bold;
+        color: #111111;
+        margin: 0 0 0.10in 0;
+    }
+    .card-body {
+        font-family: Arial, sans-serif;
+        font-size: 15pt;
+        color: #222222;
+        line-height: 1.30;
+        margin: 0;
+        white-space: pre-wrap;
+    }
+    .card-badge {
+        position: absolute;
+        right: -0.27in;
+        top: -0.27in;
+        width: 0.58in;
+        height: 0.58in;
+        border-radius: 50%;
+        color: white;
+        font-family: Arial, sans-serif;
+        font-size: 22pt;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+    .svg-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+        /* === A4 Print-Ready Styles === */
+        @page {
+            size: A4 portrait;
+            margin: 0.5in;
+        }
+        * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            color-adjust: exact !important;
+        }
+        @media print {
+            body {
+                background: white !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                min-height: auto !important;
+            }
+            .canvas, .page-container {
+                box-shadow: none !important;
+                margin: 0 auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="diagram-container">
+    <!-- Connectors -->
+    <svg class="svg-layer">
+        <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="#444444" />
+            </marker>
+        </defs>
+        <line x1="3.75in" y1="1.95in" x2="3.75in" y2="2.25in" stroke="#444444" stroke-width="2.5" marker-end="url(#arrow)" />
+        <line x1="3.75in" y1="3.85in" x2="3.75in" y2="4.15in" stroke="#444444" stroke-width="2.5" marker-end="url(#arrow)" />
+        <line x1="3.75in" y1="5.75in" x2="3.75in" y2="6.05in" stroke="#444444" stroke-width="2.5" marker-end="url(#arrow)" />
+    </svg>
+
+    <!-- Card 1 -->
+    <div class="card" style="top: 0.40in; border-color: #2C3E50; background-color: #F0F4F8;">
+        <div class="card-icon">
+            <svg viewBox="0 0 100 100" style="width:100%; height:100%;">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#2C3E50" stroke-width="0.75pt" />
+                <circle cx="50" cy="50" r="25" fill="none" stroke="#2C3E50" stroke-width="0.75pt" />
+                <circle cx="50" cy="50" r="10" fill="none" stroke="#2C3E50" stroke-width="0.75pt" />
+                <line x1="10" y1="50" x2="90" y2="50" stroke="#2C3E50" stroke-width="0.75pt" />
+                <line x1="50" y1="10" x2="50" y2="90" stroke="#2C3E50" stroke-width="0.75pt" />
+                <path d="M75,25 L55,45" stroke="#2C3E50" stroke-width="2pt" fill="none" marker-end="url(#arrow1)" />
+                <defs>
+                    <marker id="arrow1" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+                        <path d="M0,0 L10,5 L0,10 z" fill="#2C3E50" />
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+        <div class="card-text">
+            <div class="card-title">Adversarial Evasion Attack Model</div>
+            <div class="card-body">Attacker Perturbs Malicious Flow x₀ at Test Time
+x_adv = x₀ + δ, subject to ‖δ‖∞ ≤ ε = 0.05</div>
+        </div>
+        <div class="card-badge" style="background-color: #2C3E50;">1</div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card" style="top: 2.30in; border-color: #C0392B; background-color: #FDEDEC;">
+        <div class="card-icon">
+            <svg viewBox="0 0 100 100" style="width:100%; height:100%;">
+                <path d="M10,50 Q50,10 90,50 Q50,90 10,50" fill="none" stroke="#C0392B" stroke-width="0.75pt" />
+                <circle cx="50" cy="50" r="15" fill="none" stroke="#C0392B" stroke-width="0.75pt" />
+                <rect x="65" y="65" width="20" height="15" rx="2" fill="none" stroke="#C0392B" stroke-width="0.75pt" />
+                <path d="M70,65 V58 A5,5 0 0,1 80,58 V65" fill="none" stroke="#C0392B" stroke-width="0.75pt" />
+            </svg>
+        </div>
+        <div class="card-text">
+            <div class="card-title">White-Box Threat (Full Information)</div>
+            <div class="card-body">Complete Access: Model Weights θ, Architecture, ∇x
+Attacks: FGSM, PGD-100, BIM, MIM, APGD-CE, CW-L∞</div>
+        </div>
+        <div class="card-badge" style="background-color: #C0392B;">2</div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card" style="top: 4.20in; border-color: #E67E22; background-color: #FEF5E7;">
+        <div class="card-icon">
+            <svg viewBox="0 0 100 100" style="width:100%; height:100%;">
+                <rect x="20" y="30" width="60" height="50" fill="none" stroke="#E67E22" stroke-width="0.75pt" />
+                <path d="M20,30 L50,15 L80,30" fill="none" stroke="#E67E22" stroke-width="0.75pt" />
+                <path d="M50,15 V30" fill="none" stroke="#E67E22" stroke-width="0.75pt" />
+                <text x="50" y="65" font-family="Arial" font-size="24" font-weight="bold" fill="#E67E22" text-anchor="middle">?</text>
+            </svg>
+        </div>
+        <div class="card-text">
+            <div class="card-title">Black-Box Query Threat (Zero Gradient)</div>
+            <div class="card-body">No Model Access — Only Input/Output Queries
+Attacks: Square Attack (100 iter), Boundary Search (30+30 steps)</div>
+        </div>
+        <div class="card-badge" style="background-color: #E67E22;">3</div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card" style="top: 6.10in; border-color: #8E44AD; background-color: #F5EEF8;">
+        <div class="card-icon">
+            <svg viewBox="0 0 100 100" style="width:100%; height:100%;">
+                <rect x="15" y="30" width="25" height="40" rx="3" fill="none" stroke="#8E44AD" stroke-width="0.75pt" />
+                <rect x="60" y="30" width="25" height="40" rx="3" fill="none" stroke="#8E44AD" stroke-width="0.75pt" />
+                <path d="M40,50 L60,50" stroke="#8E44AD" stroke-width="0.75pt" fill="none" marker-end="url(#arrow4)" />
+                <defs>
+                    <marker id="arrow4" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+                        <path d="M0,0 L10,5 L0,10 z" fill="#8E44AD" />
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+        <div class="card-text">
+            <div class="card-title">Black-Box Transfer Threat</div>
+            <div class="card-body">Train Surrogate Model f̂_ψ on Local Data
+Craft White-Box Attacks on Surrogate → Test on Target (ASR: 2.08%)</div>
+        </div>
+        <div class="card-badge" style="background-color: #8E44AD;">4</div>
+    </div>
+</div>
+</body>
+</html>

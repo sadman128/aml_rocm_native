@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Attack Suite Overview</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .canvas {
+            width: 7.50in;
+            height: 20.00in;
+            background: white;
+            position: relative;
+            overflow: visible;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .svg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .card {
+            position: absolute;
+            width: 6.50in;
+            height: 1.75in;
+            left: 0.50in;
+            border-style: solid;
+            border-width: 2.25pt;
+            border-radius: 0.12in;
+            box-shadow: 1px 1px 4px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            padding-left: 1.35in;
+            padding-right: 0.2in;
+        }
+        .badge {
+            position: absolute;
+            width: 0.58in;
+            height: 0.58in;
+            right: -0.27in;
+            top: -0.27in;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22pt;
+            font-weight: bold;
+            color: white;
+            z-index: 20;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        .icon {
+            position: absolute;
+            left: 0.15in;
+            width: 1.15in;
+            height: 1.15in;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .icon svg {
+            width: 100%;
+            height: 100%;
+            stroke-width: 0.75pt;
+            fill: none;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .title {
+            font-size: 19pt;
+            font-weight: bold;
+            color: #111111;
+            margin-bottom: 0.06in;
+        }
+        .body-text {
+            font-size: 15pt;
+            color: #222222;
+            line-height: 1.30;
+            margin: 0;
+        }
+        .mono {
+            font-family: Consolas, monospace;
+            font-size: 13pt;
+            font-weight: bold;
+            color: #555555;
+        }
+            /* === A4 Print-Ready Styles === */
+        @page {
+            size: A4 portrait;
+            margin: 0.5in;
+        }
+        * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            color-adjust: exact !important;
+        }
+        @media print {
+            body {
+                background: white !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                min-height: auto !important;
+            }
+            .canvas, .page-container {
+                box-shadow: none !important;
+                margin: 0 auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas">
+        <svg class="svg-overlay" width="720" height="1776" viewBox="0 0 720 1776">
+            <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#444444" />
+                </marker>
+            </defs>
+            <!-- Conversion: 1in = 96px -->
+            <!-- Arrows -->
+            <!-- card i: top = 0.4in + i*1.9in, bot = 1.95in + i*1.9in -->
+            <!-- i=0 bot: 1.95in (187.2px). i=1 top: 2.3in (220.8px) -->
+            <line x1="360" y1="187.2" x2="360" y2="212" stroke="#444444" stroke-width="2.5" marker-end="url(#arrow)" />
+            <line x1="360" y1="369.6" x2="360" y2="394.4" stroke="#444444" stroke-width="2.5" marker-end="url(#arrow)" />
+            <line x1="360" y1="552" x2="360" y2="576.8" stroke="#444444" stroke-width="2.5" marker-end="url(#arrow)" />
+            <line x1="360" y1="734.4" x2="360" y2="759.2" stroke="#444444" stroke-width="2.5" marker-end="url(#arrow)" />
+            <line x1="360" y1="916.8" x2="360" y2="941.6" stroke="#444444" stroke-width="2.5" marker-end="url(#arrow)" />
+            <line x1="360" y1="1099.2" x2="360" y2="1124" stroke="#444444" stroke-width="2.5" marker-end="url(#arrow)" />
+            <line x1="360" y1="1281.6" x2="360" y2="1306.4" stroke="#444444" stroke-width="2.5" marker-end="url(#arrow)" />
+            <line x1="360" y1="1464" x2="360" y2="1488.8" stroke="#444444" stroke-width="2.5" marker-end="url(#arrow)" />
+        </svg>
+
+        <!-- Card 1 -->
+        <div class="card" style="top: 0.40in; border-color: #C0392B; background-color: #FDEDEC;">
+            <div class="badge" style="background-color: #C0392B;">1</div>
+            <div class="icon">
+                <svg viewBox="0 0 100 100" stroke="#C0392B">
+                    <path d="M55,10 L35,50 L50,50 L40,90 L70,40 L50,40 Z" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="content">
+                <div class="title">FGSM (Fast Gradient Sign Method)</div>
+                <div class="body-text">White-Box &mdash; Single-Step Gradient Attack<br/>
+                <span class="mono">&epsilon; = 0.05 &bull; Phase2Net Accuracy: 92.67% &bull; ASR: 3.62%</span></div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card" style="top: 2.30in; border-color: #E74C3C; background-color: #FDEDEC;">
+            <div class="badge" style="background-color: #E74C3C;">2</div>
+            <div class="icon">
+                <svg viewBox="0 0 100 100" stroke="#E74C3C">
+                    <path d="M40,20 L30,45 L40,45 L30,70 L50,40 L40,40 Z" stroke-linejoin="round"/>
+                    <path d="M65,30 L55,55 L65,55 L55,80 L75,50 L65,50 Z" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="content">
+                <div class="title">PGD-100 (Projected Gradient Descent)</div>
+                <div class="body-text">White-Box &mdash; 100-Step Iterative, <span class="mono">&alpha; = 0.005</span>, Random Init<br/>
+                <span class="mono">&epsilon; = 0.05 &bull; Phase2Net Accuracy: 90.13% &bull; ASR: 6.05%</span></div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card" style="top: 4.20in; border-color: #D35400; background-color: #FDF2E9;">
+            <div class="badge" style="background-color: #D35400;">3</div>
+            <div class="icon">
+                <svg viewBox="0 0 100 100" stroke="#D35400">
+                    <polyline points="20,80 40,80 40,60 60,60 60,40 80,40 80,20" stroke-linejoin="round"/>
+                    <polyline points="25,75 35,65" marker-end="url(#arrow)" stroke="#D35400" />
+                </svg>
+            </div>
+            <div class="content">
+                <div class="title">BIM / I-FGSM (Basic Iterative Method)</div>
+                <div class="body-text">White-Box &mdash; 40-Step Iterative Gradient<br/>
+                <span class="mono">&epsilon; = 0.05 &bull; Phase2Net Accuracy: 91.37% &bull; ASR: N/A (Unseen)</span></div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card" style="top: 6.10in; border-color: #E67E22; background-color: #FEF5E7;">
+            <div class="badge" style="background-color: #E67E22;">4</div>
+            <div class="icon">
+                <svg viewBox="0 0 100 100" stroke="#E67E22">
+                    <path d="M20,50 Q50,20 80,50" stroke-linejoin="round"/>
+                    <path d="M80,50 L70,40 M80,50 L70,60" stroke-linejoin="round"/>
+                    <circle cx="50" cy="35" r="3" fill="#E67E22"/>
+                </svg>
+            </div>
+            <div class="content">
+                <div class="title">MIM / MI-FGSM (Momentum Iterative)</div>
+                <div class="body-text">White-Box &mdash; 40 Steps, Momentum Factor <span class="mono">&mu; = 1.0</span><br/>
+                <span class="mono">&epsilon; = 0.05 &bull; Phase2Net Accuracy: 91.05% &bull; ASR: N/A (Unseen)</span></div>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card" style="top: 8.00in; border-color: #8E44AD; background-color: #F5EEF8;">
+            <div class="badge" style="background-color: #8E44AD;">5</div>
+            <div class="icon">
+                <svg viewBox="0 0 100 100" stroke="#8E44AD">
+                    <circle cx="50" cy="50" r="30"/>
+                    <line x1="50" y1="50" x2="65" y2="35"/>
+                    <circle cx="65" cy="35" r="4" fill="#8E44AD"/>
+                    <path d="M25,50 A25,25 0 0,1 50,25"/>
+                </svg>
+            </div>
+            <div class="content">
+                <div class="title">Auto-PGD (APGD-CE &mdash; Adaptive)</div>
+                <div class="body-text">Adaptive Attack &mdash; 50 Steps, Auto Step Size, <span class="mono">&rho; = 0.75</span><br/>
+                <span class="mono">&epsilon; = 0.05 &bull; Phase2Net Accuracy: 88.55% &bull; ASR: N/A (Unseen)</span></div>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card" style="top: 9.90in; border-color: #6C3483; background-color: #F4ECF7;">
+            <div class="badge" style="background-color: #6C3483;">6</div>
+            <div class="icon">
+                <svg viewBox="0 0 100 100" stroke="#6C3483">
+                    <path d="M20,80 Q50,20 80,80" stroke-linejoin="round"/>
+                    <path d="M20,70 Q50,10 80,70" stroke-dasharray="4,4"/>
+                    <line x1="50" y1="40" x2="50" y2="50" stroke-width="1"/>
+                </svg>
+            </div>
+            <div class="content">
+                <div class="title">Carlini-Wagner L&infin; (Margin Loss)</div>
+                <div class="body-text">Adaptive Attack &mdash; 50-Step Margin-Based Optimization<br/>
+                <span class="mono">&epsilon; = 0.05 &bull; Phase2Net Accuracy: 90.15% &bull; ASR: N/A (Unseen)</span></div>
+            </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="card" style="top: 11.80in; border-color: #2980B9; background-color: #EBF5FB;">
+            <div class="badge" style="background-color: #2980B9;">7</div>
+            <div class="icon">
+                <svg viewBox="0 0 100 100" stroke="#2980B9">
+                    <rect x="25" y="25" width="50" height="50"/>
+                    <rect x="35" y="35" width="30" height="30"/>
+                    <line x1="25" y1="50" x2="75" y2="50"/>
+                    <line x1="50" y1="25" x2="50" y2="75"/>
+                </svg>
+            </div>
+            <div class="content">
+                <div class="title">Square Attack (Black-Box)</div>
+                <div class="body-text">Zero-Gradient &mdash; 100-Iteration Coordinate Search<br/>
+                <span class="mono">&epsilon; = 0.05 &bull; Phase2Net Accuracy: 91.83% &bull; ASR: 5.27%</span></div>
+            </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="card" style="top: 13.70in; border-color: #1ABC9C; background-color: #E8F8F5;">
+            <div class="badge" style="background-color: #1ABC9C;">8</div>
+            <div class="icon">
+                <svg viewBox="0 0 100 100" stroke="#1ABC9C">
+                    <path d="M10,90 Q50,40 90,10"/>
+                    <circle cx="40" cy="30" r="3" fill="#1ABC9C"/>
+                    <circle cx="70" cy="60" r="3" fill="#1ABC9C"/>
+                    <line x1="40" y1="30" x2="50" y2="50" stroke-dasharray="2,2"/>
+                </svg>
+            </div>
+            <div class="content">
+                <div class="title">Label-Only Boundary Search</div>
+                <div class="body-text">Decision-Based &mdash; 30 Init Trials + 30 Binary Search Steps<br/>
+                <span class="mono">&epsilon; &le; 0.05 &bull; Phase2Net ASR: 4.56%</span></div>
+            </div>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="card" style="top: 15.60in; border-color: #2C3E50; background-color: #F0F4F8;">
+            <div class="badge" style="background-color: #2C3E50;">9</div>
+            <div class="icon">
+                <svg viewBox="0 0 100 100" stroke="#2C3E50">
+                    <line x1="20" y1="80" x2="80" y2="20"/>
+                    <line x1="30" y1="30" x2="50" y2="50" marker-end="url(#arrow)"/>
+                    <circle cx="30" cy="30" r="2" fill="#2C3E50"/>
+                </svg>
+            </div>
+            <div class="content">
+                <div class="title">Vectorized DeepFool (Geometric Probe)</div>
+                <div class="body-text">Unconstrained &mdash; 50 Steps, No <span class="mono">&epsilon;</span> Ceiling<br/>
+                <span class="mono">97.33% of Flips Exceed &epsilon; = 0.05 Budget &bull; Avg L&infin;: 2.3238</span></div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

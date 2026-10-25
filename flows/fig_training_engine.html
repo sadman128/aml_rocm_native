@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Training Engine Diagram</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 7.50in;
+            height: 13.00in;
+            background-color: white;
+            font-family: Arial, sans-serif;
+            overflow: visible;
+        }
+        .canvas {
+            position: relative;
+            width: 7.50in;
+            height: 13.00in;
+            background-color: white;
+            overflow: visible;
+        }
+        .svg-connectors {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .card {
+            position: absolute;
+            width: 6.50in;
+            height: 1.70in;
+            left: 0.50in;
+            border-radius: 0.12in;
+            border-style: solid;
+            border-width: 2.25pt;
+            box-shadow: 1px 1px 4px rgba(0,0,0,0.15);
+            box-sizing: border-box;
+            z-index: 2;
+        }
+        .badge {
+            position: absolute;
+            top: -0.27in;
+            right: -0.27in;
+            width: 0.58in;
+            height: 0.58in;
+            border-radius: 50%;
+            color: white;
+            font-size: 22pt;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            z-index: 3;
+        }
+        .icon-container {
+            position: absolute;
+            left: 0.15in;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1.15in; height: 1.15in;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .icon-container svg {
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke-width: 0.75pt;
+        }
+        .text-content {
+            position: absolute;
+            left: 1.35in;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5.0in; /* 6.5 - 1.35 - margin */
+        }
+        .title {
+            font-size: 19pt;
+            font-weight: bold;
+            color: #111111;
+            margin-bottom: 0.08in;
+        }
+        .body-text {
+            font-size: 15pt;
+            color: #222222;
+            line-height: 1.30;
+            margin: 0;
+        }
+        
+        /* Specific Card Positions */
+        #card1 { top: 0.40in; border-color: #2C3E50; background-color: #F0F4F8; }
+        #card2 { top: 2.25in; border-color: #2980B9; background-color: #EBF5FB; }
+        #card3 { top: 4.10in; border-color: #C0392B; background-color: #FDEDEC; }
+        #card4 { top: 5.95in; border-color: #8E44AD; background-color: #F5EEF8; }
+        #card5 { top: 7.80in; border-color: #E67E22; background-color: #FEF5E7; }
+        #card6 { top: 9.65in; border-color: #16A085; background-color: #E8F8F5; }
+
+        /* Specific Badge Colors */
+        #badge1 { background-color: #2C3E50; }
+        #badge2 { background-color: #2980B9; }
+        #badge3 { background-color: #C0392B; }
+        #badge4 { background-color: #8E44AD; }
+        #badge5 { background-color: #E67E22; }
+        #badge6 { background-color: #16A085; }
+
+        /* Icon Stroke Colors */
+        #icon1 { stroke: #2C3E50; }
+        #icon2 { stroke: #2980B9; }
+        #icon3 { stroke: #C0392B; }
+        #icon4 { stroke: #8E44AD; }
+        #icon5 { stroke: #E67E22; }
+        #icon6 { stroke: #16A085; }
+            /* === A4 Print-Ready Styles === */
+        @page {
+            size: A4 portrait;
+            margin: 0.5in;
+        }
+        * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            color-adjust: exact !important;
+        }
+        @media print {
+            body {
+                background: white !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                min-height: auto !important;
+            }
+            .canvas, .page-container {
+                box-shadow: none !important;
+                margin: 0 auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas">
+        <!-- SVG Connectors -->
+        <svg class="svg-connectors">
+            <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#444444" />
+                </marker>
+            </defs>
+            <!-- 3.75in = 0.50in (margin) + 3.25in (half card width) -->
+            <!-- 1.90in = 0.40in + 1.50in -->
+            <line x1="3.75in" y1="1.90in" x2="3.75in" y2="2.23in" stroke="#444444" stroke-width="2.5" marker-end="url(#arrow)" />
+            <line x1="3.75in" y1="3.75in" x2="3.75in" y2="4.08in" stroke="#444444" stroke-width="2.5" marker-end="url(#arrow)" />
+            <line x1="3.75in" y1="5.60in" x2="3.75in" y2="5.93in" stroke="#444444" stroke-width="2.5" marker-end="url(#arrow)" />
+            <line x1="3.75in" y1="7.45in" x2="3.75in" y2="7.78in" stroke="#444444" stroke-width="2.5" marker-end="url(#arrow)" />
+            <line x1="3.75in" y1="9.30in" x2="3.75in" y2="9.63in" stroke="#444444" stroke-width="2.5" marker-end="url(#arrow)" />
+        </svg>
+
+        <!-- Card 1 -->
+        <div id="card1" class="card">
+            <div id="badge1" class="badge">1</div>
+            <div class="icon-container">
+                <svg id="icon1" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 7h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 17h16" />
+                    <path d="M7 12l5 5 5-5" />
+                    <circle cx="12" cy="7" r="2" />
+                </svg>
+            </div>
+            <div class="text-content">
+                <div class="title">Balanced Training Data Input</div>
+                <div class="body-text">7,191,590 SMOTE-Balanced Flows (27 Stable Features)<br>Loaded into GPU VRAM as Tensor Batches</div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div id="card2" class="card">
+            <div id="badge2" class="badge">2</div>
+            <div class="icon-container">
+                <svg id="icon2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                    <circle cx="12" cy="12" r="4" />
+                </svg>
+            </div>
+            <div class="text-content">
+                <div class="title">Phase 1: Clean Warm-Up Pretraining</div>
+                <div class="body-text">Epochs 1–10: Train on Clean Data Only (No Adversarial Samples)<br>Establish Class Boundaries + Stabilize BatchNorm Statistics</div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div id="card3" class="card">
+            <div id="badge3" class="badge">3</div>
+            <div class="icon-container">
+                <svg id="icon3" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                </svg>
+            </div>
+            <div class="text-content">
+                <div class="title">Phase 2: Online PGD Adversarial Generation</div>
+                <div class="body-text">Epochs 11–50: For Each Batch &rarr; 5-Step PGD on Current &theta;&#x209C;<br>&epsilon; = 0.05, &alpha; = 0.005, Random Init + Feature Mask + Domain Clamp</div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div id="card4" class="card">
+            <div id="badge4" class="badge">4</div>
+            <div class="icon-container">
+                <svg id="icon4" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v20M5.5 8.5l6.5-4 6.5 4" />
+                    <path d="M4 14l3.5-6.5L11 14h-7zM13 14l3.5-6.5L20 14h-7z" />
+                </svg>
+            </div>
+            <div class="text-content">
+                <div class="title">Joint Optimization Objective</div>
+                <div class="body-text">&#x2112;_total = 0.5 &middot; &#x2112;_CE(clean) + 0.5 &middot; &#x2112;_CE(adversarial)<br>Adam Optimizer (lr = 10&strnsup;&minus;3;) &rarr; Update Model Weights</div>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div id="card5" class="card">
+            <div id="badge5" class="badge">5</div>
+            <div class="icon-container">
+                <svg id="icon5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
+                    <rect x="9" y="9" width="6" height="6" />
+                    <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3" />
+                </svg>
+            </div>
+            <div class="text-content">
+                <div class="title">Pure-GPU Runtime Engineering</div>
+                <div class="body-text">Vectorized PGD in VRAM (Zero CPU&#x2194;GPU Transfer)<br>Auto OOM Recovery: Batch 2048 &rarr; 1024 &rarr; 512 &rarr; 256 &rarr; 128</div>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div id="card6" class="card">
+            <div id="badge6" class="badge">6</div>
+            <div class="icon-container">
+                <svg id="icon6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+                    <polyline points="17 21 17 13 7 13 7 21" />
+                    <polyline points="7 3 7 8 15 8" />
+                </svg>
+            </div>
+            <div class="text-content">
+                <div class="title">Exact Checkpoint Resumption</div>
+                <div class="body-text">Save PyTorch + NumPy + Python + CUDA RNG States<br>Full Reproducibility: Identical Results on Resume</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

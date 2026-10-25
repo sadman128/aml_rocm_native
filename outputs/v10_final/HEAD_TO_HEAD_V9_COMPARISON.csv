@@ -1,0 +1,6 @@
+Threat / Condition,Baseline (V9 Exact),Paper Def (V9 Exact),V9 Defense (Exact),V10 Proposed Defense
+Clean Traffic,92.82%,93.97%,96.19%,94.77% +- 1.71%
+FGSM (eps=0.05),84.20% (ASR 8.91%),84.32% (ASR 9.91%),92.67% (ASR 3.62%),90.35% +- 0.20% (ASR 5.61%)
+PGD-100 (eps=0.05),73.90% (ASR 20.14%),79.70% (ASR 15.23%),90.13% (ASR 6.05%),86.53% +- 2.35% (ASR 8.81%)
+Square (Black-Box),82.00% (ASR 18.08%),85.40% (ASR 13.63%),91.83% (ASR 5.27%),89.57% +- 0.76% (ASR 6.72%)
+DeepFool (Unconstrained),21.87% (ASR 84.73%),29.27% (ASR 75.60%),10.53% (ASR 93.07%),11.93% +- 6.91% (ASR 92.88%)

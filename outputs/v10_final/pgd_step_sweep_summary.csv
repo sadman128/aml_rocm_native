@@ -1,0 +1,46 @@
+method,pgd_steps,seed,accuracy
+Baseline,5,42,0.8555
+Paper Defense,5,42,0.8135
+V10 Defense,5,42,0.923
+Baseline,10,42,0.777
+Paper Defense,10,42,0.774
+V10 Defense,10,42,0.881
+Baseline,20,42,0.767
+Paper Defense,20,42,0.7735
+V10 Defense,20,42,0.8555
+Baseline,50,42,0.714
+Paper Defense,50,42,0.7725
+V10 Defense,50,42,0.842
+Baseline,100,42,0.714
+Paper Defense,100,42,0.7725
+V10 Defense,100,42,0.8415
+Baseline,5,123,0.8915
+Paper Defense,5,123,0.872
+V10 Defense,5,123,0.9095
+Baseline,10,123,0.817
+Paper Defense,10,123,0.8455
+V10 Defense,10,123,0.9025
+Baseline,20,123,0.7985
+Paper Defense,20,123,0.841
+V10 Defense,20,123,0.884
+Baseline,50,123,0.7795
+Paper Defense,50,123,0.8295
+V10 Defense,50,123,0.8665
+Baseline,100,123,0.7795
+Paper Defense,100,123,0.8285
+V10 Defense,100,123,0.866
+Baseline,5,2024,0.903
+Paper Defense,5,2024,0.8315
+V10 Defense,5,2024,0.92
+Baseline,10,2024,0.729
+Paper Defense,10,2024,0.8245
+V10 Defense,10,2024,0.9095
+Baseline,20,2024,0.727
+Paper Defense,20,2024,0.781
+V10 Defense,20,2024,0.894
+Baseline,50,2024,0.724
+Paper Defense,50,2024,0.776
+V10 Defense,50,2024,0.889
+Baseline,100,2024,0.724
+Paper Defense,100,2024,0.776
+V10 Defense,100,2024,0.8885

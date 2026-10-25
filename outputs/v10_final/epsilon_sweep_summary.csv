@@ -1,0 +1,55 @@
+method,epsilon,seed,accuracy
+Baseline,0.01,42,0.888
+Paper Defense,0.01,42,0.8945
+V10 Defense,0.01,42,0.931
+Baseline,0.02,42,0.839
+Paper Defense,0.02,42,0.8135
+V10 Defense,0.02,42,0.9255
+Baseline,0.03,42,0.805
+Paper Defense,0.03,42,0.807
+V10 Defense,0.03,42,0.898
+Baseline,0.05,42,0.767
+Paper Defense,0.05,42,0.7735
+V10 Defense,0.05,42,0.8555
+Baseline,0.08,42,0.6945
+Paper Defense,0.08,42,0.6985
+V10 Defense,0.08,42,0.797
+Baseline,0.1,42,0.6785
+Paper Defense,0.1,42,0.6675
+V10 Defense,0.1,42,0.738
+Baseline,0.01,123,0.8985
+Paper Defense,0.01,123,0.9045
+V10 Defense,0.01,123,0.9105
+Baseline,0.02,123,0.861
+Paper Defense,0.02,123,0.8995
+V10 Defense,0.02,123,0.91
+Baseline,0.03,123,0.8545
+Paper Defense,0.03,123,0.8675
+V10 Defense,0.03,123,0.908
+Baseline,0.05,123,0.7985
+Paper Defense,0.05,123,0.841
+V10 Defense,0.05,123,0.884
+Baseline,0.08,123,0.728
+Paper Defense,0.08,123,0.7505
+V10 Defense,0.08,123,0.812
+Baseline,0.1,123,0.722
+Paper Defense,0.1,123,0.718
+V10 Defense,0.1,123,0.7795
+Baseline,0.01,2024,0.876
+Paper Defense,0.01,2024,0.8795
+V10 Defense,0.01,2024,0.925
+Baseline,0.02,2024,0.821
+Paper Defense,0.02,2024,0.8305
+V10 Defense,0.02,2024,0.9205
+Baseline,0.03,2024,0.798
+Paper Defense,0.03,2024,0.829
+V10 Defense,0.03,2024,0.9195
+Baseline,0.05,2024,0.727
+Paper Defense,0.05,2024,0.781
+V10 Defense,0.05,2024,0.894
+Baseline,0.08,2024,0.6875
+Paper Defense,0.08,2024,0.7365
+V10 Defense,0.08,2024,0.8335
+Baseline,0.1,2024,0.6715
+Paper Defense,0.1,2024,0.709
+V10 Defense,0.1,2024,0.731

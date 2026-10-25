@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Evaluation Attack Suite — Phase2Net</title>
+<style>
+  * {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  body {
+    background: #eef1f5;
+    margin: 0;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .canvas {
+    position: relative;
+    width: 7.50in;
+    height: 10.20in;
+    background: #FFFFFF;
+    margin: 0 auto;
+    overflow: visible;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  }
+
+  /* ── Header Banner ── */
+  .fig-header {
+    position: absolute;
+    top: 0.22in;
+    left: 0.50in;
+    width: 6.50in;
+    text-align: center;
+    border-bottom: 1.5pt solid #E2E8F0;
+    padding-bottom: 0.08in;
+  }
+  .fig-title {
+    font-size: 17pt;
+    font-weight: bold;
+    color: #0F172A;
+    letter-spacing: -0.2px;
+    margin: 0;
+  }
+  .fig-desc {
+    font-size: 11pt;
+    color: #64748B;
+    margin: 0.03in 0 0 0;
+  }
+
+  /* ── Base Card ── */
+  .card {
+    position: absolute;
+    left: 0.50in;
+    width: 6.50in;
+    border-style: solid;
+    border-width: 2pt;
+    border-radius: 0.10in;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    box-sizing: border-box;
+    padding: 0.10in 0.16in 0.10in 0.12in;
+    display: flex;
+    align-items: center;
+  }
+
+  .card-i   { top: 0.95in;  height: 2.10in; border-color: #DC2626; background: #FEF2F2; }
+  .card-ii  { top: 3.30in;  height: 1.70in; border-color: #7C3AED; background: #FAF5FF; }
+  .card-iii { top: 5.25in;  height: 2.10in; border-color: #0284C7; background: #F0F9FF; }
+  .card-iv  { top: 7.60in;  height: 2.05in; border-color: #334155; background: #F8FAFC; }
+
+  /* ── Roman Badges ── */
+  .badge {
+    position: absolute;
+    top: -0.25in;
+    right: -0.25in;
+    width: 0.52in;
+    height: 0.52in;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 16pt;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.22);
+  }
+  .badge-i   { background: #DC2626; }
+  .badge-ii  { background: #7C3AED; }
+  .badge-iii { background: #0284C7; }
+  .badge-iv  { background: #334155; }
+
+  /* ── Icon Column ── */
+  .icon-col {
+    width: 1.05in;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.12in;
+  }
+  .icon-col svg {
+    width: 0.85in;
+    height: 0.85in;
+  }
+  .icon-tag {
+    font-size: 8.5pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 0.05in;
+    text-align: center;
+  }
+  .tag-i   { color: #991B1B; }
+  .tag-ii  { color: #5B21B6; }
+  .tag-iii { color: #075985; }
+  .tag-iv  { color: #1E293B; }
+
+  /* ── Body Column ── */
+  .body-col {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.06in;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    padding-bottom: 0.03in;
+  }
+  .card-title {
+    font-size: 15.5pt;
+    font-weight: bold;
+    color: #0F172A;
+    margin: 0;
+  }
+  .card-subtitle {
+    font-size: 10.5pt;
+    color: #64748B;
+    font-style: italic;
+    margin: 0;
+  }
+
+  /* ── 2-Column Attack Grid ── */
+  .attack-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.06in 0.08in;
+  }
+
+  /* ── Attack Chip / Pill ── */
+  .attack-chip {
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 0.06in;
+    padding: 0.05in 0.08in;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .attack-name-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.03in;
+  }
+  .attack-name {
+    font-size: 11.5pt;
+    font-weight: bold;
+    color: #1E293B;
+  }
+  .attack-spec {
+    font-size: 9.5pt;
+    color: #64748B;
+    font-family: Consolas, 'Courier New', monospace;
+  }
+  .attack-stats-row {
+    display: flex;
+    align-items: center;
+    gap: 0.05in;
+    flex-wrap: wrap;
+  }
+
+  /* ── Stat Badges ── */
+  .stat-pill {
+    display: inline-flex;
+    align-items: center;
+    font-size: 9.5pt;
+    padding: 0.01in 0.05in;
+    border-radius: 0.04in;
+    line-height: 1.25;
+  }
+  .stat-label {
+    font-size: 8.5pt;
+    font-weight: 600;
+    margin-right: 0.03in;
+    text-transform: uppercase;
+  }
+  .stat-acc {
+    background: #DCFCE7;
+    color: #166534;
+    border: 1px solid #BBF7D0;
+  }
+  .stat-acc .stat-label { color: #15803D; }
+
+  .stat-asr {
+    background: #FEE2E2;
+    color: #991B1B;
+    border: 1px solid #FECACA;
+  }
+  .stat-asr .stat-label { color: #B91C1C; }
+
+  .stat-neutral {
+    background: #F1F5F9;
+    color: #334155;
+    border: 1px solid #E2E8F0;
+  }
+  .stat-neutral .stat-label { color: #475569; }
+
+  .stat-highlight {
+    background: #FEF3C7;
+    color: #92400E;
+    border: 1px solid #FDE68A;
+  }
+  .stat-highlight .stat-label { color: #B45309; }
+
+  /* ── Vertical Connector SVG ── */
+  svg.connector {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  /* ── Print Styles ── */
+  @page {
+    size: A4 portrait;
+    margin: 0.4in;
+  }
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  @media print {
+    body {
+      background: #FFFFFF !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    .canvas {
+      box-shadow: none !important;
+      margin: 0 auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <!-- Header Banner -->
+  <div class="fig-header">
+    <div class="fig-title">Comprehensive Adversarial Robustness Evaluation Suite</div>
+    <div class="fig-desc">Multi-Threat Verification across 9 Attack Algorithms at Benchmark Perturbation Budget (&epsilon; = 0.05, 3 Random Seeds)</div>
+  </div>
+
+  <!-- Connector Arrows -->
+  <svg class="connector">
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748B"/>
+      </marker>
+    </defs>
+    <!-- Arrow 1: Card I to Card II -->
+    <line x1="3.75in" y1="3.05in" x2="3.75in" y2="3.26in" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+    <!-- Arrow 2: Card II to Card III -->
+    <line x1="3.75in" y1="5.00in" x2="3.75in" y2="5.21in" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+    <!-- Arrow 3: Card III to Card IV -->
+    <line x1="3.75in" y1="7.35in" x2="3.75in" y2="7.56in" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+  </svg>
+
+  <!-- ═════════════════════════════════════════════════════════
+       CARD I: White-Box Gradient Attacks
+       ═════════════════════════════════════════════════════════ -->
+  <div class="card card-i">
+    <div class="badge badge-i">I</div>
+    <div class="icon-col">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#DC2626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Dual Lightning Vectors -->
+        <path d="M 45 10 L 22 48 L 48 48 L 32 90 L 80 38 L 52 38 Z" fill="#FEE2E2" />
+        <path d="M 68 18 L 55 42 L 72 42 L 58 75" stroke="#EF4444" stroke-width="1.2" stroke-dasharray="3 2" />
+      </svg>
+      <div class="icon-tag tag-i">White-Box</div>
+    </div>
+    <div class="body-col">
+      <div class="card-header">
+        <div class="card-title">White-Box Gradient Attacks</div>
+        <div class="card-subtitle">Full access: weights &theta;, architecture, exact gradients &nabla;<sub>x</sub>&Lscr;</div>
+      </div>
+      <div class="attack-grid">
+        <!-- FGSM -->
+        <div class="attack-chip">
+          <div class="attack-name-row">
+            <span class="attack-name">FGSM</span>
+            <span class="attack-spec">1-Step Sign</span>
+          </div>
+          <div class="attack-stats-row">
+            <span class="stat-pill stat-acc"><span class="stat-label">Acc</span>92.67%</span>
+            <span class="stat-pill stat-asr"><span class="stat-label">ASR</span>3.62%</span>
+            <span class="stat-pill stat-neutral">&plusmn;1.56%</span>
+          </div>
+        </div>
+        <!-- PGD-100 -->
+        <div class="attack-chip">
+          <div class="attack-name-row">
+            <span class="attack-name">PGD-100</span>
+            <span class="attack-spec">100-Step, &alpha;=0.005</span>
+          </div>
+          <div class="attack-stats-row">
+            <span class="stat-pill stat-acc"><span class="stat-label">Acc</span>90.13%</span>
+            <span class="stat-pill stat-asr"><span class="stat-label">ASR</span>6.05%</span>
+            <span class="stat-pill stat-neutral">&plusmn;1.20%</span>
+          </div>
+        </div>
+        <!-- BIM (I-FGSM) -->
+        <div class="attack-chip">
+          <div class="attack-name-row">
+            <span class="attack-name">BIM (I-FGSM)</span>
+            <span class="attack-spec">40-Step Iter</span>
+          </div>
+          <div class="attack-stats-row">
+            <span class="stat-pill stat-acc"><span class="stat-label">Acc</span>91.37%</span>
+            <span class="stat-pill stat-neutral"><span class="stat-label">F1</span>87.36%</span>
+            <span class="stat-pill stat-neutral">Unseen</span>
+          </div>
+        </div>
+        <!-- MIM (MI-FGSM) -->
+        <div class="attack-chip">
+          <div class="attack-name-row">
+            <span class="attack-name">MIM (MI-FGSM)</span>
+            <span class="attack-spec">40-Step, &mu;=1.0</span>
+          </div>
+          <div class="attack-stats-row">
+            <span class="stat-pill stat-acc"><span class="stat-label">Acc</span>91.05%</span>
+            <span class="stat-pill stat-neutral"><span class="stat-label">F1</span>86.93%</span>
+            <span class="stat-pill stat-neutral">Momentum</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═════════════════════════════════════════════════════════
+       CARD II: Adaptive Defense-Aware Attacks
+       ═════════════════════════════════════════════════════════ -->
+  <div class="card card-ii">
+    <div class="badge badge-ii">II</div>
+    <div class="icon-col">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Target dial with adaptive compass -->
+        <circle cx="50" cy="50" r="32" stroke-dasharray="4 3" />
+        <circle cx="50" cy="50" r="20" fill="#F5F3FF" />
+        <circle cx="50" cy="50" r="6" fill="#7C3AED" />
+        <path d="M 50 10 L 50 22 M 50 78 L 50 90 M 10 50 L 22 50 M 78 50 L 90 50" />
+        <path d="M 72 28 L 58 42" stroke-width="2.2" stroke="#6D28D9" />
+        <path d="M 72 28 L 64 28 M 72 28 L 72 36" stroke-width="2" stroke="#6D28D9" />
+      </svg>
+      <div class="icon-tag tag-ii">Adaptive</div>
+    </div>
+    <div class="body-col">
+      <div class="card-header">
+        <div class="card-title">Adaptive Defense-Aware Attacks</div>
+        <div class="card-subtitle">Designed to bypass gradient masking and plateaus</div>
+      </div>
+      <div class="attack-grid">
+        <!-- Auto-PGD (APGD-CE) -->
+        <div class="attack-chip">
+          <div class="attack-name-row">
+            <span class="attack-name">Auto-PGD (APGD-CE)</span>
+            <span class="attack-spec">50-Step, &rho;=0.75</span>
+          </div>
+          <div class="attack-stats-row">
+            <span class="stat-pill stat-acc"><span class="stat-label">Acc</span>88.55%</span>
+            <span class="stat-pill stat-neutral"><span class="stat-label">F1</span>82.58%</span>
+            <span class="stat-pill stat-highlight">+10.10% vs Ref</span>
+          </div>
+        </div>
+        <!-- CW-L_infinity Margin -->
+        <div class="attack-chip">
+          <div class="attack-name-row">
+            <span class="attack-name">CW-L<sub>&infin;</sub> Margin</span>
+            <span class="attack-spec">50-Step Margin Loss</span>
+          </div>
+          <div class="attack-stats-row">
+            <span class="stat-pill stat-acc"><span class="stat-label">Acc</span>90.15%</span>
+            <span class="stat-pill stat-neutral"><span class="stat-label">F1</span>85.44%</span>
+            <span class="stat-pill stat-highlight">+10.38% vs Ref</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═════════════════════════════════════════════════════════
+       CARD III: Black-Box Zero-Gradient Attacks
+       ═════════════════════════════════════════════════════════ -->
+  <div class="card card-iii">
+    <div class="badge badge-iii">III</div>
+    <div class="icon-col">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#0284C7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Query Box with probe vectors -->
+        <rect x="22" y="22" width="56" height="56" rx="6" fill="#E0F2FE" />
+        <text x="50" y="58" font-family="Arial" font-size="26" font-weight="bold" fill="#0284C7" text-anchor="middle" stroke="none">?</text>
+        <path d="M 8 50 L 18 50" stroke-width="2.2" />
+        <path d="M 14 46 L 18 50 L 14 54" stroke-width="2" />
+        <path d="M 50 8 L 50 18" stroke-width="2.2" />
+        <path d="M 46 14 L 50 18 L 54 14" stroke-width="2" />
+        <path d="M 92 50 L 82 50" stroke-width="2.2" />
+        <path d="M 86 46 L 82 50 L 86 54" stroke-width="2" />
+      </svg>
+      <div class="icon-tag tag-iii">Black-Box</div>
+    </div>
+    <div class="body-col">
+      <div class="card-header">
+        <div class="card-title">Black-Box Zero-Gradient Attacks</div>
+        <div class="card-subtitle">Zero gradient visibility &mdash; score, decision, or surrogate transfer</div>
+      </div>
+      <div class="attack-grid">
+        <!-- Square Attack -->
+        <div class="attack-chip">
+          <div class="attack-name-row">
+            <span class="attack-name">Square Attack</span>
+            <span class="attack-spec">100-Iter Search</span>
+          </div>
+          <div class="attack-stats-row">
+            <span class="stat-pill stat-acc"><span class="stat-label">Acc</span>91.83%</span>
+            <span class="stat-pill stat-asr"><span class="stat-label">ASR</span>5.27%</span>
+            <span class="stat-pill stat-neutral">Score-Based</span>
+          </div>
+        </div>
+        <!-- Decision Boundary Search -->
+        <div class="attack-chip">
+          <div class="attack-name-row">
+            <span class="attack-name">Boundary Search</span>
+            <span class="attack-spec">30 Init + 30 Steps</span>
+          </div>
+          <div class="attack-stats-row">
+            <span class="stat-pill stat-asr"><span class="stat-label">ASR</span>4.56%</span>
+            <span class="stat-pill stat-neutral"><span class="stat-label">L2</span>0.0710</span>
+            <span class="stat-pill stat-neutral">Label-Only</span>
+          </div>
+        </div>
+        <!-- Surrogate Transfer -->
+        <div class="attack-chip" style="grid-column: span 2;">
+          <div class="attack-name-row">
+            <span class="attack-name">Surrogate Model Transfer Attack</span>
+            <span class="attack-spec">White-Box Generated on Surrogate &fnof;&#770;<sub>&psi;</sub> &rarr; Evaluated on Target</span>
+          </div>
+          <div class="attack-stats-row">
+            <span class="stat-pill stat-asr"><span class="stat-label">Transfer ASR</span>2.08%</span>
+            <span class="stat-pill stat-highlight">Strictly &lt; 6.05% White-Box ASR (No Gradient Leakage Confirmed)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═════════════════════════════════════════════════════════
+       CARD IV: Geometric Boundary Probe (DeepFool)
+       ═════════════════════════════════════════════════════════ -->
+  <div class="card card-iv">
+    <div class="badge badge-iv">IV</div>
+    <div class="icon-col">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#334155" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Decision boundary curve & projection vector -->
+        <path d="M 12 85 C 32 82 48 25 88 15" stroke-dasharray="4 3" stroke="#64748B" />
+        <circle cx="28" cy="68" r="6" fill="#E2E8F0" stroke="#334155" />
+        <path d="M 28 68 L 56 42" stroke-width="2.2" stroke="#0F172A" />
+        <path d="M 50 42 L 56 42 L 56 48" stroke-width="2" stroke="#0F172A" />
+        <circle cx="56" cy="42" r="3.5" fill="#334155" />
+        <text x="68" y="38" font-family="Arial" font-size="12" font-style="italic" fill="#334155" stroke="none">&delta;*</text>
+      </svg>
+      <div class="icon-tag tag-iv">Geometric</div>
+    </div>
+    <div class="body-col">
+      <div class="card-header">
+        <div class="card-title">Geometric Boundary Probe</div>
+        <div class="card-subtitle">Unconstrained optimization &mdash; measures true physical margin distance</div>
+      </div>
+      <div class="attack-grid">
+        <!-- DeepFool Distance Metrics -->
+        <div class="attack-chip">
+          <div class="attack-name-row">
+            <span class="attack-name">Vectorized DeepFool</span>
+            <span class="attack-spec">50-Step, No &epsilon; Bound</span>
+          </div>
+          <div class="attack-stats-row">
+            <span class="stat-pill stat-neutral"><span class="stat-label">Avg L<sub>&infin;</sub></span>2.3238</span>
+            <span class="stat-pill stat-neutral"><span class="stat-label">Avg L<sub>2</sub></span>4.1502</span>
+            <span class="stat-pill stat-highlight">+116% Margin vs Ref</span>
+          </div>
+        </div>
+        <!-- Real-World Threat Realism -->
+        <div class="attack-chip">
+          <div class="attack-name-row">
+            <span class="attack-name">Threat Budget Realism</span>
+            <span class="attack-spec">Realistic Threat &epsilon; &le; 0.05</span>
+          </div>
+          <div class="attack-stats-row">
+            <span class="stat-pill stat-highlight"><span class="stat-label">Flips Exceeding &epsilon;</span>97.33%</span>
+            <span class="stat-pill stat-acc"><span class="stat-label">Valid Success</span>Only 2.67%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

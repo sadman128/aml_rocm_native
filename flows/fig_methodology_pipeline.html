@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Methodology Pipeline</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            /* To ensure exact sizing and display */
+            width: 7.50in;
+            height: 16.00in;
+            position: relative;
+            overflow: visible;
+        }
+
+        .canvas {
+            width: 7.50in;
+            height: 16.00in;
+            position: relative;
+        }
+
+        .card {
+            width: 6.50in;
+            height: 1.75in;
+            left: 0.50in;
+            position: absolute;
+            border-radius: 0.12in;
+            border-style: solid;
+            border-width: 2.25pt;
+            box-shadow: 1px 1px 4px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+        }
+
+        .badge {
+            width: 0.58in;
+            height: 0.58in;
+            border-radius: 50%;
+            position: absolute;
+            top: -0.27in;
+            right: -0.27in;
+            color: white;
+            font-size: 22pt;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .icon-container {
+            width: 1.10in;
+            height: 1.10in;
+            position: absolute;
+            left: 0.15in;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .text-container {
+            position: absolute;
+            left: 1.40in;
+            right: 0.15in;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .title {
+            font-size: 19pt;
+            font-weight: bold;
+            color: #111111;
+            margin-bottom: 0.06in;
+        }
+
+        .body {
+            font-size: 15pt;
+            color: #171717;
+            line-height: 1.30;
+            white-space: pre-line;
+        }
+
+        svg.overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Card positions */
+        .card-1 { top: 0.40in; border-color: #133149; background-color: #F3FAFD; }
+        .card-1 .badge { background-color: #133149; }
+        
+        .card-2 { top: 2.35in; border-color: #245A8A; background-color: #F4F8FC; }
+        .card-2 .badge { background-color: #245A8A; }
+        
+        .card-3 { top: 4.30in; border-color: #06592D; background-color: #F2FBF5; }
+        .card-3 .badge { background-color: #06592D; }
+        
+        .card-4 { top: 6.25in; border-color: #1A6B4F; background-color: #E8F8F0; }
+        .card-4 .badge { background-color: #1A6B4F; }
+        
+        .card-5 { top: 8.20in; border-color: #159A73; background-color: #DCF8E9; }
+        .card-5 .badge { background-color: #159A73; }
+        
+        .card-6 { top: 10.15in; border-color: #4D3782; background-color: #F8F5FC; }
+        .card-6 .badge { background-color: #4D3782; }
+        
+        .card-7 { top: 12.10in; border-color: #172033; background-color: #FAFBFD; }
+        .card-7 .badge { background-color: #172033; }
+
+            /* === A4 Print-Ready Styles === */
+        @page {
+            size: A4 portrait;
+            margin: 0.5in;
+        }
+        * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            color-adjust: exact !important;
+        }
+        @media print {
+            body {
+                background: white !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                min-height: auto !important;
+            }
+            .canvas, .page-container {
+                box-shadow: none !important;
+                margin: 0 auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas">
+        <!-- SVG Arrows Overlay -->
+        <svg class="overlay">
+            <defs>
+                <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                    <polygon points="0,0 6,3 0,6" fill="#303030" />
+                </marker>
+            </defs>
+            <!-- 1 to 2 -->
+            <line x1="3.75in" y1="2.00in" x2="3.75in" y2="2.32in" stroke="#303030" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+            <!-- 2 to 3 -->
+            <line x1="3.75in" y1="3.95in" x2="3.75in" y2="4.27in" stroke="#303030" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+            <!-- 3 to 4 -->
+            <line x1="3.75in" y1="5.90in" x2="3.75in" y2="6.22in" stroke="#303030" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+            <!-- 4 to 5 -->
+            <line x1="3.75in" y1="7.85in" x2="3.75in" y2="8.17in" stroke="#303030" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+            <!-- 5 to 6 -->
+            <line x1="3.75in" y1="9.80in" x2="3.75in" y2="10.12in" stroke="#303030" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+            <!-- 6 to 7 -->
+            <line x1="3.75in" y1="11.75in" x2="3.75in" y2="12.07in" stroke="#303030" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+        </svg>
+
+        <!-- Card 1 -->
+        <div class="card card-1">
+            <div class="badge">1</div>
+            <div class="icon-container">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#133149" stroke-width="0.75" width="1.10in" height="1.10in">
+                    <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                    <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"></path>
+                    <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"></path>
+                    <circle cx="16" cy="16" r="3" fill="none"></circle>
+                    <path d="M16 12v1m0 6v1m3.5-4.5l-.87.5M12.5 15.5l.87-.5m6-1l-.87-.5M12.5 12.5l.87.5"></path>
+                </svg>
+            </div>
+            <div class="text-container">
+                <div class="title">Dataset &amp; Preprocessing</div>
+                <div class="body">CSE-CIC-IDS2018 (6,320,003 Network Flow Records)
+Metadata Sanitization → Remove IPs, Ports, Timestamp</div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card card-2">
+            <div class="badge">2</div>
+            <div class="icon-container">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#245A8A" stroke-width="0.75" width="1.10in" height="1.10in">
+                    <path d="M12 2v6M12 8c-4 0-6 4-6 8v6M12 8c4 0 6 4 6 8v6"></path>
+                    <circle cx="12" cy="2" r="2"></circle>
+                    <circle cx="6" cy="22" r="2"></circle>
+                    <circle cx="18" cy="22" r="2"></circle>
+                </svg>
+            </div>
+            <div class="text-container">
+                <div class="title">Zero-Leakage Data Partitioning</div>
+                <div class="body">Train: 4,550,401 / Dev: 505,601 / Test: 1,264,001
+80/20 Stratified Split → Pre-Transformation Isolation</div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card card-3">
+            <div class="badge">3</div>
+            <div class="icon-container">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#06592D" stroke-width="0.75" width="1.10in" height="1.10in">
+                    <path d="M12 3v18"></path>
+                    <path d="M12 5h-7v4l7 3 7-3V5h-7z"></path>
+                    <path d="M5 9c0 3.5 2.5 6 7 6s7-2.5 7-6"></path>
+                    <line x1="6" y1="21" x2="18" y2="21"></line>
+                </svg>
+            </div>
+            <div class="text-container">
+                <div class="title">Train-Only SMOTE Class Balancing</div>
+                <div class="body">4,550,401 → 7,191,590 Balanced Training Flows
+Minority Attack Classes Oversampled to 1.0 Ratio</div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card card-4">
+            <div class="badge">4</div>
+            <div class="icon-container">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#1A6B4F" stroke-width="0.75" width="1.10in" height="1.10in">
+                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                </svg>
+            </div>
+            <div class="text-container">
+                <div class="title">Stage 1: Mutual Information Pre-Filter</div>
+                <div class="body">69 Encoded Dimensions → Top k = 40 Features
+MI Computed on 100K Stratified Training Sample</div>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card card-5">
+            <div class="badge">5</div>
+            <div class="icon-container">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#159A73" stroke-width="0.75" width="1.10in" height="1.10in">
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    <path d="M8 14h2M12 14h4M8 10h4M16 10h2"></path>
+                    <polyline points="7 16 10 12 14 15 18 9"></polyline>
+                </svg>
+            </div>
+            <div class="text-container">
+                <div class="title">Stage 2: SHAP Attribution Stability Selection</div>
+                <div class="body">S(f) Stability Metric → 80% Cumulative Mass Threshold
+40 → 27 Robust Features (13 Fragile Dimensions Pruned)</div>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card card-6">
+            <div class="badge">6</div>
+            <div class="icon-container">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#4D3782" stroke-width="0.75" width="1.10in" height="1.10in">
+                    <circle cx="6" cy="6" r="2"></circle>
+                    <circle cx="6" cy="18" r="2"></circle>
+                    <circle cx="12" cy="12" r="2"></circle>
+                    <circle cx="18" cy="6" r="2"></circle>
+                    <circle cx="18" cy="18" r="2"></circle>
+                    <path d="M7.5 7.5l3 3M13.5 10.5l3-3M7.5 16.5l3-3M13.5 13.5l3 3M6 8v8M18 8v8"></path>
+                </svg>
+            </div>
+            <div class="text-container">
+                <div class="title">Phase2Net Two-Phase Adversarial Training</div>
+                <div class="body">Phase 1: 10 Clean Warm-Up Epochs (Representation Learning)
+Phase 2: 40 Dynamic Online PGD Epochs (ε = 0.05, 5-Step)</div>
+            </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="card card-7">
+            <div class="badge">7</div>
+            <div class="icon-container">
+                <svg viewBox="0 0 24 24" fill="#172033" stroke="none" width="1.10in" height="1.10in">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <path d="M9 12l2 2 4-4" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </div>
+            <div class="text-container">
+                <div class="title">Multi-Threat Robustness Evaluation</div>
+                <div class="body">1,264,001 Frozen Test Flows × 3 Seeds (42, 123, 2024)
+9 Attacks: FGSM, PGD-100, BIM, MIM, APGD, CW, Square, Boundary, DeepFool</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
