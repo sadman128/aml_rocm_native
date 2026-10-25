@@ -3,6 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Pre-Defense Presentation Script & Viva Defense Strategy</title>
+
+<!-- KaTeX support for math rendering -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
 <style>
   @page {
     size: A4;
@@ -226,17 +232,18 @@
 
 <h1>B.Sc. in CSE Pre-Defense Presentation Script &amp; Viva Guide</h1>
 <ul>
-<li><strong>Degree:</strong> Bachelor of Science (B.Sc.) in Computer Science &amp; Engineering</li>
-<li><strong>Total Time Limit:</strong> <strong>6 to 7 Minutes</strong> (~360 – 420 seconds)</li>
-<li><strong>Speaker Split:</strong><ul>
-<li><strong>Speaker 1 (Redoan Islam):</strong> Slides 1 to 7 (~3 minutes / ~350 words)</li>
-<li><strong>Speaker 2 (Sadman Hossain Sajid):</strong> Slides 8 to 14 (~3 to 3.5 minutes / ~380 words)</li>
+<li><strong>Degree:</strong> Bachelor of Science in Computer Science &amp; Engineering</li>
+<li><strong>Total Time Limit:</strong> <strong>Under 6 Minutes</strong> (Target: ~5:30 – 5:40)</li>
+<li><strong>Strict Speaker Time Limits:</strong><ul>
+<li><strong>Speaker 1 (Redoan Islam):</strong> Slides 1 to 7 (<strong>Under 3 Minutes</strong> — Target: ~2:45 / ~300 words)</li>
+<li><strong>Speaker 2 (Sadman Hossain Sajid):</strong> Slides 8 to 15 (<strong>Under 3 Minutes</strong> — Target: ~2:45 / ~305 words)</li>
 </ul>
 </li>
-<li><strong>Delivery Style:</strong> Simple, short sentences. Natural conversational pace (~115 words/minute). Memorizable without getting stuck on complex academic tongue-twisters.</li>
+<li><strong>Delivery Style:</strong> Very simple words. Short sentences. No extra formalities. Clear, direct, and fast. Address faculty simply as <strong>&quot;Sir&quot;</strong>.</li>
+<li><strong>Pre-Defense Tone:</strong> Methodology and architecture are formulated; upcoming experiments, training runs, and benchmarks are what we <strong>will be doing in the near future</strong>.</li>
 </ul>
 <hr />
-<h2>⏱️ Team Timing &amp; Slide Roadmap</h2>
+<h2>⏱️ Team Timing &amp; Slide Roadmap (Under 3 Minutes Each)</h2>
 <table>
 <thead>
 <tr>
@@ -245,7 +252,7 @@
   <th style="text-align:center">Speaker</th>
   <th style="text-align:center">Target Time</th>
   <th style="text-align:center">Running Clock</th>
-  <th style="text-align:center">Word Count</th>
+  <th style="text-align:center">Words</th>
 </tr>
 </thead>
 <tbody>
@@ -253,626 +260,604 @@
   <td style="text-align:center"><strong>1</strong></td>
   <td>Title Page</td>
   <td style="text-align:center"><strong>Redoan</strong></td>
-  <td style="text-align:center">18s</td>
-  <td style="text-align:center">0:00 – 0:18</td>
-  <td style="text-align:center">~35 words</td>
+  <td style="text-align:center">15s</td>
+  <td style="text-align:center">0:00 – 0:15</td>
+  <td style="text-align:center">~35</td>
 </tr>
 <tr>
   <td style="text-align:center"><strong>2</strong></td>
   <td>Presentation Outline</td>
   <td style="text-align:center"><strong>Redoan</strong></td>
-  <td style="text-align:center">12s</td>
-  <td style="text-align:center">0:18 – 0:30</td>
-  <td style="text-align:center">~25 words</td>
+  <td style="text-align:center">15s</td>
+  <td style="text-align:center">0:15 – 0:30</td>
+  <td style="text-align:center">~35</td>
 </tr>
 <tr>
   <td style="text-align:center"><strong>3</strong></td>
   <td>Problem Statement</td>
   <td style="text-align:center"><strong>Redoan</strong></td>
-  <td style="text-align:center">35s</td>
-  <td style="text-align:center">0:30 – 1:05</td>
-  <td style="text-align:center">~70 words</td>
+  <td style="text-align:center">30s</td>
+  <td style="text-align:center">0:30 – 1:00</td>
+  <td style="text-align:center">~80</td>
 </tr>
 <tr>
   <td style="text-align:center"><strong>4</strong></td>
   <td>Motivation &amp; Objectives</td>
   <td style="text-align:center"><strong>Redoan</strong></td>
-  <td style="text-align:center">25s</td>
-  <td style="text-align:center">1:05 – 1:30</td>
-  <td style="text-align:center">~50 words</td>
+  <td style="text-align:center">30s</td>
+  <td style="text-align:center">1:00 – 1:30</td>
+  <td style="text-align:center">~75</td>
 </tr>
 <tr>
   <td style="text-align:center"><strong>5</strong></td>
-  <td>Literature Review: Macro Findings</td>
+  <td>Literature Review: Defense Taxonomy</td>
   <td style="text-align:center"><strong>Redoan</strong></td>
-  <td style="text-align:center">30s</td>
-  <td style="text-align:center">1:30 – 2:00</td>
-  <td style="text-align:center">~60 words</td>
+  <td style="text-align:center">35s</td>
+  <td style="text-align:center">1:30 – 2:05</td>
+  <td style="text-align:center">~95</td>
 </tr>
 <tr>
   <td style="text-align:center"><strong>6</strong></td>
-  <td>Literature Review: Landmark Defenses</td>
+  <td>Literature Review: 3 Core Gaps</td>
   <td style="text-align:center"><strong>Redoan</strong></td>
-  <td style="text-align:center">35s</td>
-  <td style="text-align:center">2:00 – 2:35</td>
-  <td style="text-align:center">~70 words</td>
+  <td style="text-align:center">30s</td>
+  <td style="text-align:center">2:05 – 2:35</td>
+  <td style="text-align:center">~70</td>
 </tr>
 <tr>
   <td style="text-align:center"><strong>7</strong></td>
   <td>Comparative Analysis &amp; <strong>Handoff</strong></td>
   <td style="text-align:center"><strong>Redoan</strong></td>
-  <td style="text-align:center">30s</td>
-  <td style="text-align:center">2:35 – 3:05</td>
-  <td style="text-align:center">~75 words</td>
+  <td style="text-align:center">20s</td>
+  <td style="text-align:center">2:35 – 2:55</td>
+  <td style="text-align:center">~45</td>
 </tr>
 <tr>
   <td style="text-align:center"><strong>8</strong></td>
-  <td>Methodology 1: Data Sanitization</td>
+  <td>Methodology: Data Prep &amp; Split</td>
   <td style="text-align:center"><strong>Sadman</strong></td>
-  <td style="text-align:center">35s</td>
-  <td style="text-align:center">3:05 – 3:40</td>
-  <td style="text-align:center">~70 words</td>
+  <td style="text-align:center">25s</td>
+  <td style="text-align:center">2:55 – 3:20</td>
+  <td style="text-align:center">~55</td>
 </tr>
 <tr>
   <td style="text-align:center"><strong>9</strong></td>
-  <td>Methodology 2: Stability SHAP</td>
+  <td>Methodology: Stability SHAP (Pillar 1)</td>
   <td style="text-align:center"><strong>Sadman</strong></td>
-  <td style="text-align:center">45s</td>
-  <td style="text-align:center">3:40 – 4:25</td>
-  <td style="text-align:center">~90 words</td>
+  <td style="text-align:center">25s</td>
+  <td style="text-align:center">3:20 – 3:45</td>
+  <td style="text-align:center">~45</td>
 </tr>
 <tr>
   <td style="text-align:center"><strong>10</strong></td>
-  <td>Methodology 3: Two-Phase Dynamic PGD</td>
+  <td>Methodology: Dynamic Training (Pillar 2)</td>
   <td style="text-align:center"><strong>Sadman</strong></td>
-  <td style="text-align:center">35s</td>
-  <td style="text-align:center">4:25 – 5:00</td>
-  <td style="text-align:center">~70 words</td>
+  <td style="text-align:center">25s</td>
+  <td style="text-align:center">3:45 – 4:10</td>
+  <td style="text-align:center">~45</td>
 </tr>
 <tr>
   <td style="text-align:center"><strong>11</strong></td>
-  <td>Dataset, Environment &amp; Architecture</td>
+  <td>Dataset, GPU Stack &amp; Architecture</td>
   <td style="text-align:center"><strong>Sadman</strong></td>
-  <td style="text-align:center">30s</td>
-  <td style="text-align:center">5:00 – 5:30</td>
-  <td style="text-align:center">~60 words</td>
+  <td style="text-align:center">25s</td>
+  <td style="text-align:center">4:10 – 4:35</td>
+  <td style="text-align:center">~45</td>
 </tr>
 <tr>
   <td style="text-align:center"><strong>12</strong></td>
   <td>Research Timeline &amp; Gantt Chart</td>
   <td style="text-align:center"><strong>Sadman</strong></td>
-  <td style="text-align:center">20s</td>
-  <td style="text-align:center">5:30 – 5:50</td>
-  <td style="text-align:center">~40 words</td>
+  <td style="text-align:center">15s</td>
+  <td style="text-align:center">4:35 – 4:50</td>
+  <td style="text-align:center">~35</td>
 </tr>
 <tr>
   <td style="text-align:center"><strong>13</strong></td>
-  <td>Expected Results &amp; Targets</td>
+  <td>Expected Results &amp; Hypotheses</td>
   <td style="text-align:center"><strong>Sadman</strong></td>
-  <td style="text-align:center">25s</td>
-  <td style="text-align:center">5:50 – 6:15</td>
-  <td style="text-align:center">~50 words</td>
+  <td style="text-align:center">20s</td>
+  <td style="text-align:center">4:50 – 5:10</td>
+  <td style="text-align:center">~35</td>
 </tr>
 <tr>
   <td style="text-align:center"><strong>14</strong></td>
-  <td>Conclusion &amp; Closing</td>
+  <td>Conclusion &amp; Contributions</td>
   <td style="text-align:center"><strong>Sadman</strong></td>
-  <td style="text-align:center">20s</td>
-  <td style="text-align:center">6:15 – 6:35</td>
-  <td style="text-align:center">~40 words</td>
+  <td style="text-align:center">15s</td>
+  <td style="text-align:center">5:10 – 5:25</td>
+  <td style="text-align:center">~35</td>
 </tr>
 <tr>
-  <td style="text-align:center"><strong>BUFFER</strong></td>
-  <td>Transition to Viva Committee Questions</td>
+  <td style="text-align:center"><strong>15</strong></td>
+  <td>References Index &amp; Ready for Viva</td>
+  <td style="text-align:center"><strong>Sadman</strong></td>
+  <td style="text-align:center">10s</td>
+  <td style="text-align:center">5:25 – 5:35</td>
+  <td style="text-align:center">~15</td>
+</tr>
+<tr>
+  <td style="text-align:center"><strong>Q&amp;A</strong></td>
+  <td>Viva Questions &amp; Value Proofs</td>
   <td style="text-align:center"><strong>Both</strong></td>
-  <td style="text-align:center">25s</td>
-  <td style="text-align:center">6:35 – 7:00</td>
+  <td style="text-align:center">—</td>
+  <td style="text-align:center">5:35+</td>
   <td style="text-align:center">—</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<div style="page-break-before: always;"></div><h1>🎙️ Part 1: Word-for-Word Spoken Script</h1>
+<div style="page-break-before: always;"></div><h1>🎙️ Part 1: Word-for-Word Spoken Presentation Script</h1>
 <hr />
-<h2>👤 SECTION 1: REDOAN ISLAM (Slides 1 to 7)</h2>
-<h3>Slide 1: Title Page <code>[0:00 – 0:18]</code></h3>
-<p>📍 <strong>Action:</strong> Smile, make eye contact with the board, speak calmly.</p>
+<h2>👤 SECTION 1: REDOAN ISLAM (Slides 1 to 7 — Target: ~2:50, Strict Max: 3:00)</h2>
+<h3>Slide 1: Title Page <code>[0:00 – 0:15]</code></h3>
+<p>📍 <strong>Action:</strong> Stand straight, look at the faculty, speak clearly.</p>
 <blockquote>
-<p>🗣️ <strong>Say This (Word-for-Word):</strong><br />
-&quot;Good morning, respected committee members and supervisor.<br />
-Today, my co-author Sadman Hossain Sajid and I present our undergraduate B.Sc. thesis pre-defense:<br />
-<strong>Adversarial Robustness in Network Intrusion Detection Systems via Attribution-Guided Feature Selection and Dynamic Multi-Stage Adversarial Training</strong>.<br />
+<p>🗣️ <strong>Say This:</strong><br />
+&quot;Good morning, Sir. Today, Sadman and I present our thesis pre-defense:<br />
+<strong>Adversarial Robustness in Network Intrusion Detection Systems using Stability SHAP and Dynamic Adversarial Training</strong>.<br />
 We are supervised by Lecturer Mahjabin Sultana.&quot;</p>
 </blockquote>
 <hr />
-<h3>Slide 2: Presentation Outline <code>[0:18 – 0:30]</code></h3>
-<p>📍 <strong>Action:</strong> Point at the screen and state the exact headings directly.</p>
+<h3>Slide 2: Presentation Outline <code>[0:15 – 0:30]</code></h3>
+<p>📍 <strong>Action:</strong> Point briefly to the screen.</p>
 <blockquote>
-<p>🗣️ <strong>Say This (Word-for-Word):</strong><br />
-&quot;Here is our presentation outline:<br />
-I will present the <strong>Problem Statement</strong>, <strong>Motivation</strong>, <strong>Literature Review</strong>, and <strong>Research Gap</strong>.<br />
-Then, Sadman will present our <strong>Proposed Methodology</strong>, <strong>Dataset &amp; Environment</strong>, <strong>Research Timeline</strong>, and <strong>Expected Results</strong>.&quot;</p>
+<p>🗣️ <strong>Say This:</strong><br />
+&quot;Here is our presentation outline today:<br />
+First, I will establish the problem, our engineering objectives, and our survey of published defenses.<br />
+Then, Sadman will explain our proposed methodology, dataset, experimental setup, and timeline.&quot;</p>
 </blockquote>
 <hr />
-<h3>Slide 3: Problem Statement <code>[0:30 – 1:05]</code></h3>
-<p>📍 <strong>Action:</strong> Point to the big '95% → ~30%' graphic on the left.</p>
+<h3>Slide 3: Problem Statement <code>[0:30 – 1:00]</code></h3>
+<p>📍 <strong>Action:</strong> Point to the 95% → ~30% accuracy drop on the slide.</p>
 <blockquote>
-<p>🗣️ <strong>Say This (Word-for-Word — Natural &amp; Conversational):</strong><br />
-&quot;Deep learning intrusion detection systems look great on paper, achieving over <strong>95% accuracy</strong> on normal traffic.<br />
-But in reality, they have a fatal flaw: when an attacker makes tiny, invisible tweaks to network packets, accuracy collapses from <strong>95% down to about 30%</strong>.<br />
-Why does this happen? Three main reasons:<br />
-<strong>1. Fragile Features:</strong> The AI relies on weak traffic clues that attackers can easily disguise.<br />
-<strong>2. Shortcut Cheating:</strong> Models cheat by memorizing port numbers and IP addresses instead of learning real attack patterns.<br />
-<strong>3. Stale Defenses:</strong> Existing defenses train only once on old attacks, making them helpless against adaptive, modern attackers.&quot;</p>
-</blockquote>
-<p>📚 <strong>Key References &amp; Citations (if asked by evaluators):</strong></p>
-<ul>
-<li><strong>Evasion Collapse:</strong> <em>Pierazzi et al., &quot;Intriguing Properties of Adversarial ML Attacks in Problem Space&quot;, IEEE S&amp;P 2020</em></li>
-<li><strong>Fragile Features:</strong> <em>Goodfellow et al., &quot;Explaining and Harnessing Adversarial Examples&quot;, ICLR 2015</em></li>
-<li><strong>Shortcut Learning (Ports &amp; IPs):</strong> <em>Arp et al., &quot;Dos and Don'ts of Machine Learning in Computer Security&quot;, USENIX Security 2022; Engelen et al., &quot;Troubleshooting an Intrusion Detection Dataset&quot;, ACM CCS 2021</em></li>
-<li><strong>Static Defense Staleness:</strong> <em>Shafahi et al., &quot;Adversarial Training for Free!&quot;, NeurIPS 2019</em></li>
-</ul>
-<hr />
-<h3>Slide 4: Motivation &amp; Objectives <code>[1:05 – 1:30]</code></h3>
-<p>📍 <strong>Action:</strong> Point across the three objective cards on the screen.</p>
-<blockquote>
-<p>🗣️ <strong>Say This (Word-for-Word — Natural &amp; Conversational):</strong><br />
-&quot;To solve these three problems, our research is driven by three practical goals:<br />
-<strong>1. Real-Time Speed:</strong> In high-speed cloud networks, detection must take less than <strong>0.05 milliseconds</strong> per flow so we never delay or drop valid packets.<br />
-<strong>2. No Accuracy Penalty:</strong> Usually, defending a model against attacks causes a <strong>2% to 6% drop</strong> on normal traffic. Our goal is to defend against attacks <em>without</em> sacrificing normal performance by filtering out noisy features.<br />
-<strong>3. Honest Security:</strong> Real attackers switch ports and spoof IPs constantly. We permanently remove all port and IP shortcuts so our model learns genuine, reliable attack behavior.&quot;</p>
-</blockquote>
-<p>📚 <strong>Key References &amp; Citations (if asked by evaluators):</strong></p>
-<ul>
-<li><strong>Accuracy vs. Robustness Trade-off:</strong> <em>Tsipras et al., &quot;Robustness May Be at Odds with Accuracy&quot;, ICLR 2019</em></li>
-<li><strong>Benchmark Hygiene &amp; Shortcut Elimination:</strong> <em>Arp et al., &quot;Dos and Don'ts of Machine Learning in Computer Security&quot;, USENIX Security 2022; Engelen et al., ACM CCS 2021</em></li>
-</ul>
-<hr />
-<h3>Slide 5: Literature Review (Part 1): Current Landscape <code>[1:30 – 2:00]</code></h3>
-<p>📍 <strong>Action:</strong> Point to the '40 Publications' badge.<br />
-💡 <em>Tip for Redoan: Paper titles are shown right before each citation if asked directly.</em></p>
-<blockquote>
-<p>🗣️ <strong>Say This (Word-for-Word):</strong><br />
-&quot;From surveying <strong>40 recent peer-reviewed publications</strong> (2021–2026), we found 5 key facts:<br />
-<strong>1. Clean Accuracy Drop:</strong> Defenses cause a <strong>2% to 6% drop</strong> on clean data [<em>&quot;Robustness May Be at Odds with Accuracy&quot;</em> — Tsipras et al., ICLR 2019; <em>&quot;Theoretically Principled Trade-off Between Robustness and Accuracy&quot; (TRADES)</em> — Zhang et al., ICML 2019].<br />
-<strong>2. Tree Ensembles Fail:</strong> Random Forest and XGBoost collapse under gradient attacks, suffering <strong>over 80% evasion</strong> [<em>&quot;Real Attackers Don't Compute Gradients&quot;</em> — Apruzzese et al., IEEE TIFS 2023].<br />
-<strong>3. Static Staleness:</strong> Offline attack samples lose effectiveness over time (<strong>16% to 20% evasion</strong>) [<em>&quot;Adversarial Training for Free!&quot;</em> — Shafahi et al., NeurIPS 2019; <em>&quot;Adversarial Threats to Cloud IDS&quot;</em> — Holla et al., IEEE Access 2025].<br />
-<strong>4. Runtime XAI is Too Slow:</strong> Runtime SHAP adds <strong>85 to 220 milliseconds</strong> of delay, which is too slow for real networks [<em>&quot;Robust Intrusion Detection System with Explainable AI&quot;</em> — Güvenç Paltun et al., Computers &amp; Security 2025].<br />
-<strong>5. Clean-Only Bias:</strong> Selecting features only on normal traffic accidentally keeps fragile port shortcuts [<em>&quot;Dos and Don'ts of Machine Learning in Computer Security&quot;</em> — Arp et al., USENIX Security 2022; <em>&quot;Troubleshooting an Intrusion Detection Dataset&quot;</em> — Engelen et al., ACM CCS 2021].&quot;</p>
+<p>🗣️ <strong>Say This:</strong><br />
+&quot;Deep learning intrusion detectors achieve over <strong>95% accuracy</strong> on normal traffic.<br />
+However, tiny, invisible perturbations made by attackers collapse this accuracy from <strong>95% down to about 30%</strong>.<br />
+This happens for three fundamental reasons:</p>
+<ol>
+<li><strong>Fragile Features:</strong> Models rely on noisy traffic attributes that attackers easily manipulate.</li>
+<li><strong>Shortcut Cheating:</strong> Models cheat by memorizing IP and port numbers instead of real attack patterns.</li>
+<li><strong>Stale Defenses:</strong> Existing models train on static offline attacks that quickly lose protection as weights shift.&quot;</li>
+</ol>
 </blockquote>
 <hr />
-<h3>Slide 6: Literature Review (Part 2): Landmark Defenses <code>[2:00 – 2:35]</code></h3>
-<p>📍 <strong>Action:</strong> Point across the 4 defense cards.</p>
+<h3>Slide 4: Motivation &amp; Objectives <code>[1:00 – 1:30]</code></h3>
+<p>📍 <strong>Action:</strong> Point across the three objective cards.</p>
 <blockquote>
-<p>🗣️ <strong>Say This (Word-for-Word):</strong><br />
-&quot;We studied four landmark peer defenses:<br />
-<strong>1. Static Adversarial — Holla et al. [<em>&quot;Adversarial Threats to Cloud IDS&quot;</em>, IEEE Access 2025] (Base Paper):</strong> Used static adversarial training. Defended accuracy reached 88%, but attacks become stale and it keeps port shortcuts [<em>&quot;Troubleshooting an Intrusion Detection Dataset&quot;</em> — Engelen et al., 2021].<br />
-<strong>2. Dynamic Hardening — Olukola &amp; Rahimi [<em>&quot;AMDS: Attack-Aware Multi-Stage Defense System&quot;</em>, IEEE TIFS 2026]:</strong> Used dynamic training, but kept all 78 dimensions with a heavy 140% computational overhead.<br />
-<strong>3. Explainable AI Gate — Güvenç Paltun et al. [<em>&quot;Robust Intrusion Detection System with Explainable AI&quot;</em>, Elsevier 2025]:</strong> Used runtime SHAP, but its 85 ms delay is too slow for real-time networks [<em>&quot;Fooling LIME and SHAP&quot;</em> — Slack et al., AIES 2020].<br />
-<strong>4. Graph Attention IDS — Zeng et al. [<em>&quot;CSAGC-IDS: Dual-Module Network Intrusion Detection&quot;</em>, IEEE IoTJ 2025]:</strong> Used graph attention, but packet buffering adds 2.4 ms delay.&quot;</p>
+<p>🗣️ <strong>Say This:</strong><br />
+&quot;To address these failures, our work is driven by three practical goals:</p>
+<ol>
+<li><strong>Real-Time Speed:</strong> Detection latency must remain under <strong>0.05 milliseconds</strong> per flow so high-speed cloud networks never drop packets.</li>
+<li><strong>Zero Accuracy Penalty:</strong> Defending a model typically causes a 2% to 6% drop on normal traffic. We aim to achieve strong robustness while preserving clean accuracy.</li>
+<li><strong>Honest Security:</strong> We permanently remove all IP and port shortcuts so our model learns genuine attack behavior.&quot;</li>
+</ol>
 </blockquote>
 <hr />
-<h3>Slide 7: Comparative Analysis <code>[2:35 – 3:05]</code></h3>
-<p>📍 <strong>Action:</strong> Point across the 5 benchmark rows on the table, then turn toward Sadman for the handoff.</p>
+<h3>Slide 5: Literature Review (Part 1): Defense Taxonomy <code>[1:30 – 2:05]</code></h3>
+<p>📍 <strong>Action:</strong> Point to the 5-row table on Slide 5.</p>
 <blockquote>
-<p>🗣️ <strong>Say This (Word-for-Word — Natural &amp; Conversational):</strong><br />
-&quot;When we analyze all 40 papers in the literature, a clear pattern emerges: every best result comes with a serious limitation:<br />
-<strong>1. Best Clean Accuracy:</strong> Reaches <strong>98.2%</strong> (Roshan et al.), but has zero defense—collapsing to <strong>under 32%</strong> when attacked.<br />
-<strong>2. Best White-Box Robustness:</strong> Reaches <strong>89.4%</strong> under PGD (Olukola &amp; Rahimi), but causes a <strong>2.1% clean accuracy penalty</strong> across 78 dimensions.<br />
-<strong>3. Best Static Defense:</strong> Our base paper (Holla et al.) achieves <strong>88%</strong>, but relies on static offline attacks and keeps port shortcuts.<br />
-<strong>4. Best Black-Box Robustness:</strong> Reaches <strong>88.6%</strong> (Ennaji et al.), but requires heavy stateful query tracking.<br />
-<strong>5. Best Certified Defense:</strong> Zhou et al. provably bounds attacks, but clean accuracy crashes by <strong>18% down to 76%</strong>.</p>
-<p>Across the entire literature, no defense achieves high robustness without sacrificing either clean accuracy or real-time speed.</p>
-<p><strong>Now, Sadman will present how our Proposed Methodology solves this exact dilemma.</strong>&quot;</p>
-</blockquote>
-<p>📚 <strong>Key References &amp; Citations (if asked by evaluators):</strong></p>
-<ul>
-<li><strong>Clean Ceiling:</strong> <em>Roshan et al., &quot;Untargeted White-box Adversarial Attack with Heuristic Defence Methods in Real-time Deep Learning based Network Intrusion Detection System&quot;, J. Ambient Intell. Humaniz. Comput., Springer 2023</em></li>
-<li><strong>White-Box PGD Ceiling:</strong> <em>Olukola &amp; Rahimi, &quot;AMDS: Attack-Aware Multi-Stage Defense System for Network Intrusion Detection&quot;, IEEE TIFS 2026</em></li>
-<li><strong>Static Defense (Base Paper):</strong> <em>Holla et al., &quot;Adversarial Threats to Cloud IDS: Robust Defense With Adversarial Training and Feature Selection&quot;, IEEE Access 2025</em></li>
-<li><strong>Black-Box Defense:</strong> <em>Ennaji et al., &quot;Behavior-Aware and Generalizable Defense Against Black-Box Adversarial Attacks&quot;, IEEE TIFS 2025</em></li>
-<li><strong>Certified Defense:</strong> <em>Zhou et al., &quot;Certified Robustness for Network Intrusion Detection Systems via Randomized Smoothing&quot;, IEEE TDSC 2023</em></li>
-</ul>
-<hr />
-<h2>👤 SECTION 2: SADMAN HOSSAIN SAJID (Slides 8 to 14)</h2>
-<h3>Slide 8: Proposed Methodology (Part 1): Data Sanitization <code>[3:05 – 3:40]</code></h3>
-<p>📍 <strong>Action:</strong> Step forward, nod to Redoan, and walk through the 4 numbered steps.</p>
-<blockquote>
-<p>🗣️ <strong>Say This (Word-for-Word):</strong><br />
-&quot;Thank you, Redoan.<br />
-Respected committee, our Proposed Methodology begins with data sanitization and partitioning:<br />
-<strong>Step 1 (Sanitization):</strong> We permanently remove all IPs, ports, and timestamps, leaving <strong>69 continuous numerical features</strong> [<em>&quot;Dos and Don'ts&quot;</em> — Arp et al., 2022; <em>&quot;Troubleshooting CICIDS&quot;</em> — Engelen et al., 2021].<br />
-<strong>Step 2 (Partitioning):</strong> We lock our 20% test set on Day 0. The rest is strictly split into <strong>72% core training and 8% validation</strong> [<em>&quot;Toward Generating a New Dataset for Intrusion Detection&quot;</em> — Sharafaldin et al., ICISSP 2018].<br />
-<strong>Step 3 (Coarse Screening):</strong> Mutual Information rapidly filters 69 features down to the <strong>top 40 candidates</strong>, cutting downstream computation by over 60%.<br />
-<strong>Step 4 (SMOTE Balancing):</strong> Continuous-only SMOTE is applied <strong>strictly inside the 72% training partition</strong> to prevent any data leakage [<em>&quot;SMOTE&quot;</em> — Chawla et al., JAIR 2002; Arp et al., 2022].&quot;</p>
+<p>🗣️ <strong>Say This:</strong><br />
+&quot;On Slide 5, our taxonomy table categorizes published defenses into five paradigms:</p>
+<ol>
+<li><strong>Static Augmentation [1]:</strong> Static Triad recovers accuracy to 88%, but attacks suffer from offline staleness.</li>
+<li><strong>Dynamic Hardening [2]:</strong> AMDS reaches 89.4% robust accuracy, but incurs a 2.1% clean penalty across 78 unpruned features.</li>
+<li><strong>Runtime XAI Gates [3]:</strong> Real-time SHAP detects attacks, but adds up to 220 milliseconds per flow—violating line-rate limits.</li>
+<li><strong>Graph Models [4]:</strong> CSAGC-IDS reaches 76.2% robust accuracy, but packet buffering creates multi-millisecond delay.</li>
+<li><strong>Certified Defenses [7]:</strong> Randomized smoothing provides provable guarantees, but clean accuracy crashes by 18%.&quot;</li>
+</ol>
 </blockquote>
 <hr />
-<h3>Slide 9: Proposed Methodology (Part 2): Stability SHAP <code>[3:40 – 4:25]</code></h3>
-<p>📍 <strong>Action:</strong> Point directly to the two equation images in Box 03 and Box 04.<br />
-💡 <em>Tip for Sadman: Paper titles are shown right before each citation if asked directly.</em></p>
+<h3>Slide 6: Literature Review (Part 2): 3 Core Gaps <code>[2:05 – 2:35]</code></h3>
+<p>📍 <strong>Action:</strong> Point to the three vulnerability cards on Slide 6.</p>
 <blockquote>
-<p>🗣️ <strong>Say This (Word-for-Word):</strong><br />
-&quot;Pillar 1 of our methodology is <strong>Adversarial Stability SHAP</strong>:<br />
-Selecting features only on clean data is dangerous.<br />
-We train a canary baseline model and attack it with 20-step PGD [<em>&quot;Towards Deep Learning Models Resistant to Adversarial Attacks&quot;</em> — Madry et al., ICLR 2018].<br />
-We calculate Shapley attributions on both clean and adversarial flows [<em>&quot;A Unified Approach to Interpreting Model Predictions&quot;</em> (SHAP) — Lundberg &amp; Lee, NeurIPS 2017].<br />
-Using our <strong>Stability Score formula (Box 03)</strong>, we measure how resistant each feature is to perturbation.<br />
-Then, using our <strong>80% cumulative stability-mass rule (Box 04)</strong>, our <strong>preliminary calibration systematically isolates the 27 most invariant features</strong>, permanently pruning 13 volatile dimensions.&quot;</p>
+<p>🗣️ <strong>Say This:</strong><br />
+&quot;From these published paradigms, we identify three core vulnerabilities:</p>
+<ol>
+<li><strong>Perturbation Staleness [1]:</strong> Static offline attacks lose protection as decision boundaries shift, leaving a <strong>16% to 20% evasion gap</strong>.</li>
+<li><strong>The Line-Rate Latency Barrier [3, 4]:</strong> Cloud switches operate in microseconds; multi-millisecond explainability gates or graph buffering cause severe packet drops.</li>
+<li><strong>Shortcut Memorization [1, 18]:</strong> Standard feature selection evaluates only nominal traffic, mistakenly keeping fragile port numbers and volatile features.&quot;</li>
+</ol>
 </blockquote>
 <hr />
-<h3>Slide 10: Proposed Methodology (Part 3): Two-Phase Dynamic Training <code>[4:25 – 5:00]</code></h3>
+<h3>Slide 7: Comparative Analysis &amp; Handoff <code>[2:35 – 2:55]</code></h3>
+<p>📍 <strong>Action:</strong> Point to the comparative frontier table, then hand over to Sadman.</p>
+<blockquote>
+<p>🗣️ <strong>Say This:</strong><br />
+&quot;On Slide 7, we compare published state-of-the-art benchmarks.<br />
+The literature reveals an unresolved dilemma: every existing defense forces a hard compromise between clean accuracy, real-time speed, or robustness—never achieving all three.</p>
+<p>Now, Sadman will explain how our proposed two-pillar methodology solves this exact dilemma.&quot;</p>
+</blockquote>
+<hr />
+<h2>👤 SECTION 2: SADMAN HOSSAIN SAJID (Slides 8 to 15 — Strict Target: 300–320 Words)</h2>
+<h3>Slide 8: Proposed Methodology (Part 1): Data Sanitization &amp; Split <code>[2:45 – 3:10]</code></h3>
+<p>📍 <strong>Action:</strong> Step forward, nod, and point to the 4 pipeline steps.</p>
+<blockquote>
+<p>🗣️ <strong>Say This:</strong><br />
+&quot;Thank you, Sir, for this opportunity.<br />
+To solve these limitations, here is our methodology:</p>
+<ol>
+<li>We drop socket and port features, leaving 69 continuous features.</li>
+<li>We split data into 80% development and 20% test set.</li>
+<li>Mutual Information selects 40 candidate features.</li>
+<li>We apply SMOTE inside training to balance normal and attack traffic.&quot;</li>
+</ol>
+</blockquote>
+<hr />
+<h3>Slide 9: Proposed Methodology (Part 2): Stability SHAP (Pillar 1) <code>[3:10 – 3:35]</code></h3>
+<p>📍 <strong>Action:</strong> Point to Box 03 (Stability Score) and Box 04 (80% Selection Rule).</p>
+<blockquote>
+<p>🗣️ <strong>Say This:</strong><br />
+&quot;Next, we run Adversarial Stability SHAP.<br />
+We train a canary model on 40 candidate features and attack it with 20-step PGD.<br />
+We measure how feature importance shifts under attack.<br />
+Our 80% stability rule isolates 27 robust features and removes 13 fragile ones.&quot;</p>
+</blockquote>
+<hr />
+<h3>Slide 10: Proposed Methodology (Part 3): Two-Phase Training (Pillar 2) <code>[3:35 – 4:00]</code></h3>
 <p>📍 <strong>Action:</strong> Point to Phase 1 (Warmup) and Phase 2 (Dynamic PGD).</p>
 <blockquote>
-<p>🗣️ <strong>Say This (Word-for-Word):</strong><br />
-&quot;Pillar 2 is our <strong>Two-Phase Dynamic Training Curriculum</strong>:<br />
-Attacking randomly initialized weights at Epoch 1 causes chaotic loss gradients.<br />
-<strong>Phase 1 (Epochs 1 to 10):</strong> We warm up exclusively on clean data so weights settle into a stable geometric basin [<em>&quot;Curriculum Learning&quot;</em> — Bengio et al., ICML 2009].<br />
-<strong>Phase 2 (Epochs 11 to 50):</strong> For every mini-batch, we generate fresh 5-step online PGD attacks using current weights [<em>&quot;Towards Deep Learning Models Resistant to Adversarial Attacks&quot;</em> — Madry et al., ICLR 2018].<br />
-We optimize a balanced <strong>50-50 joint loss</strong> on clean and adversarial samples, continuously tracking the moving boundary.&quot;</p>
+<p>🗣️ <strong>Say This:</strong><br />
+&quot;Then, we use Two-Phase Dynamic Training.<br />
+In Phase 1, Epochs 1 to 10, we warm up on normal data so weights settle cleanly.<br />
+In Phase 2, Epochs 11 to 50, we generate live 5-step PGD attacks per mini-batch.<br />
+This dynamic training eliminates attack staleness.&quot;</p>
 </blockquote>
 <hr />
-<h3>Slide 11: Dataset, Environment &amp; Architecture <code>[5:00 – 5:30]</code></h3>
-<p>📍 <strong>Action:</strong> Point to the 3 panels: Dataset, Stack, and the 27→128→64→32→2 badge map.</p>
+<h3>Slide 11: Dataset, Environment &amp; Architecture <code>[4:00 – 4:25]</code></h3>
+<p>📍 <strong>Action:</strong> Point to Dataset, Stack, and the 27→128→64→32→2 badge map.</p>
 <blockquote>
-<p>🗣️ <strong>Say This (Word-for-Word):</strong><br />
-&quot;Here is our Dataset &amp; Environment setup:<br />
-<strong>Dataset:</strong> 6.32 million valid flows from CSE-CIC-IDS2018 [<em>&quot;Toward Generating a New Dataset for Intrusion Detection&quot;</em> — Sharafaldin et al., 2018], capturing 14 distinct attack types across 7 threat profiles in a binary classification setup. We use the standardized <code>dhoogla/csecicids2018</code> benchmark curation [<em>&quot;CSE-CIC-IDS2018 Parquet Curation&quot;</em> — D'hooge et al., Hugging Face 2023] instead of the raw 250 GB dump because it consolidates all 10 recording days, removes corrupt rows and schema discrepancies, and guarantees full scientific reproducibility.<br />
-<strong>Environment:</strong> An AMD Radeon RX 7600 GPU (8 GB VRAM) running native ROCm PyTorch on Windows with ART [<em>&quot;Adversarial Robustness Toolbox&quot;</em> — Nicolae et al., IBM ART 2018]. Training completes in <strong>70 minutes</strong>.<br />
-<strong>Target Architecture:</strong> A 4-layer MLP: <strong>27 to 128, 64, 32, and 2 outputs</strong> with Batch Normalization and Dropout. It has only 14,000 parameters, ensuring line-rate throughput.&quot;</p>
+<p>🗣️ <strong>Say This:</strong><br />
+&quot;Here is our setup:<br />
+We use CSE-CIC-IDS2018 [16] via D'hooge's curation [19] with 6.3 million flows.<br />
+We train on an 8 GB AMD GPU with ROCm PyTorch and ART in 70 minutes.<br />
+Our 4-layer MLP has only 14,000 parameters, ensuring latency under 0.05 milliseconds.&quot;</p>
 </blockquote>
 <hr />
-<h3>Slide 12: Research Timeline &amp; Gantt Chart <code>[5:30 – 5:50]</code></h3>
-<p>📍 <strong>Action:</strong> Point to the dashed milestone line at September 10.</p>
+<h3>Slide 12: Research Timeline &amp; Gantt Chart <code>[4:25 – 4:40]</code></h3>
+<p>📍 <strong>Action:</strong> Point to the September 10 milestone marker.</p>
 <blockquote>
-<p>🗣️ <strong>Say This (Word-for-Word):</strong><br />
-&quot;This is our 14-week Research Timeline:<br />
-Tasks 1 through 7 are <strong>complete</strong>, successfully reaching today's September 10 Pre-Defense milestone.<br />
-Over the next two weeks, we complete our multi-threat evaluation, followed by thesis drafting for our <strong>final defense on October 11</strong>.&quot;</p>
+<p>🗣️ <strong>Say This:</strong><br />
+&quot;This is our 14-week timeline.<br />
+Tasks 1 through 7 are complete today.<br />
+Over the next two weeks, we will run our full multi-threat experiments, followed by thesis drafting for our October 11 defense.&quot;</p>
 </blockquote>
 <hr />
-<h3>Slide 13: Expected Results &amp; Hypotheses <code>[5:50 – 6:15]</code></h3>
-<p>📍 <strong>Action:</strong> Point to the 4 metric cards.</p>
+<h3>Slide 13: Expected Results &amp; Hypotheses <code>[4:40 – 5:00]</code></h3>
+<p>📍 <strong>Action:</strong> Point to the 4 target cards.</p>
 <blockquote>
-<p>🗣️ <strong>Say This (Word-for-Word):</strong><br />
-&quot;Our Expected Results targets are:<br />
-<strong>Clean accuracy:</strong> at least 95.5%.<br />
-<strong>Robust accuracy:</strong> 88% to 90.5% against 100-step PGD attacks [<em>&quot;Towards Deep Learning Models Resistant to Adversarial Attacks&quot;</em> — Madry et al., 2018].<br />
-<strong>Attack success rate:</strong> under 12%.<br />
-<strong>Inference latency:</strong> under 0.05 milliseconds per flow.<br />
-We also evaluate black-box query attacks [<em>&quot;Square Attack: A Query-Efficient Black-Box Attack&quot;</em> — Andriushchenko et al., ECCV 2020] and Auto-PGD [<em>&quot;Reliable Evaluation of Adversarial Robustness&quot;</em> (AutoAttack) — Croce &amp; Hein, ICML 2020] to verify there is no gradient masking [<em>&quot;Obfuscated Gradients Give a False Sense of Security&quot;</em> — Athalye et al., ICML 2018].&quot;</p>
+<p>🗣️ <strong>Say This:</strong><br />
+&quot;In our upcoming experiments, we expect:<br />
+Clean accuracy above 95%.<br />
+Robust accuracy between 88% and 90%.<br />
+Attack success rate below 12%.<br />
+Latency under 0.05 milliseconds.<br />
+We will also test DeepFool and black-box attacks.&quot;</p>
 </blockquote>
 <hr />
-<h3>Slide 14: Conclusion &amp; Closing <code>[6:15 – 6:35]</code></h3>
-<p>📍 <strong>Action:</strong> Look at both the supervisor and the committee members.</p>
+<h3>Slide 14: Conclusion &amp; Contributions <code>[5:00 – 5:15]</code></h3>
+<p>📍 <strong>Action:</strong> Look directly at the faculty.</p>
 <blockquote>
-<p>🗣️ <strong>Say This (Word-for-Word):</strong><br />
-&quot;In Conclusion, our undergraduate thesis delivers three contributions:<br />
-<strong>1. Theoretical:</strong> Stability SHAP isolating 27 perturbation-stable features.<br />
-<strong>2. Architectural:</strong> Two-phase dynamic training that eliminates attack staleness.<br />
-<strong>3. Methodological:</strong> Strict zero-leakage 72/8/20 split and socket shortcut removal.</p>
-<p>Thank you. We are now ready for your questions.&quot;</p>
+<p>🗣️ <strong>Say This:</strong><br />
+&quot;In conclusion, our thesis delivers three contributions:</p>
+<ol>
+<li>Identifying 27 stable features with SMOTE balancing.</li>
+<li>Two-phase dynamic training stopping attack staleness.</li>
+<li>Comprehensive multi-threat evaluation.<br />
+We will validate these benchmarks for our October defense.&quot;</li>
+</ol>
 </blockquote>
 <hr />
-<div style="page-break-before: always;"></div><h1>🧠 Part 2: Viva Defense Q&amp;A Strategy (Who Answers What)</h1>
-<p>To avoid talking over each other or looking unprepared, divide the questions based on who presented the section:</p>
+<h3>Slide 15: References (Academic Bibliography) <code>[5:15 – 5:25]</code></h3>
+<p>📍 <strong>Action:</strong> Advance to Slide 15 showing the 19 references.</p>
+<blockquote>
+<p>🗣️ <strong>Say This:</strong><br />
+&quot;Slide 15 indexes our 19 peer-reviewed references.<br />
+Thank you, Sir. We are ready for your questions.&quot;</p>
+</blockquote>
+<hr />
+<div style="page-break-before: always;"></div><h1>🧠 Part 2: Viva Defense Q&amp;A Strategy</h1>
+<hr />
+<h2>🟢 Part 2A: The Top 13 Critical Viva Questions</h2>
+<p><strong>Division of Responsibility:</strong></p>
 <ul>
-<li><strong>Questions on Problem, Motivation, Lit Review &amp; Base Paper (Q1–Q7):</strong> <strong>Redoan</strong> answers first.</li>
-<li><strong>Questions on Methodology, SHAP, Training, Math, Architecture &amp; Tests (Q8–Q20):</strong> <strong>Sadman</strong> answers first.</li>
-<li>If either of you finishes early, the other can add one quick sentence: <em>&quot;To add to that, Professor...&quot;</em></li>
+<li><strong>Questions on Problem, Motivation, Lit Review &amp; Base Paper (Q1–Q5):</strong> <strong>Redoan</strong> answers first.</li>
+<li><strong>Questions on Methodology, SHAP, Architecture, Data &amp; Verification (Q6–Q13):</strong> <strong>Sadman</strong> answers first.</li>
+<li>Always begin directly with <strong>&quot;Sir, ...&quot;</strong>. No long speeches. Minimum words, crisp facts, and stop.</li>
 </ul>
 <hr />
-<h3>🟢 Questions for Redoan (Problem, Motivation &amp; Literature)</h3>
-<h4>Q1: &quot;Why use continuous perturbations with a 0.05 limit when real network packets are discrete byte streams?&quot;</h4>
+<h3>Questions for Redoan (Problem, Motivation &amp; Literature)</h3>
+<h4>Q1: &quot;Your base paper (Static Triad [1]) already reached 88%. Why do we need your research?&quot;</h4>
 <blockquote>
 <p>🗣️ <strong>Say This (Redoan):</strong><br />
-&quot;Continuous tabular features act as an upper-bound test. If an intrusion detector fails against small numerical perturbations in flow duration or packet size, it is fundamentally vulnerable. In the real world, attackers can delay packets or add dummy padding to manipulate these exact values. We study the tabular representation first; physical packet reconstruction is future work.&quot;</p>
+&quot;Sir, the base paper used static offline attacks, which go stale as weights shift. More importantly, they kept port numbers as top features. Attackers change ports instantly. We use dynamic live attacks and completely remove port shortcuts.&quot;</p>
 </blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>Upper-bound threat model, Pierazzi et al. (IEEE S&amp;P 2020), continuous flow features.</em></li>
-</ul>
-<h4>Q2: &quot;Tsipras et al. proved that robust accuracy always hurts clean accuracy. Are you claiming that theorem is wrong?&quot;</h4>
+<h4>Q2: &quot;Tsipras proved that robust accuracy always hurts clean accuracy. Are you claiming that theorem is wrong?&quot;</h4>
 <blockquote>
 <p>🗣️ <strong>Say This (Redoan):</strong><br />
-&quot;Not at all, Professor. Tsipras' proof assumes the feature space is fixed and cannot be changed, like raw image pixels. But in network flows, many features are noisy, volatile, or transient shortcuts. By removing those noisy features and keeping only 27 stable dimensions, adversarial training acts as a regularizer without hurting clean accuracy.&quot;</p>
+&quot;Sir, Tsipras proved that for fixed feature spaces like raw image pixels. In network flows, many features are noisy shortcuts. By pruning volatile features and keeping 27 stable ones, adversarial training acts as a regularizer without hurting clean accuracy.&quot;</p>
 </blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>Tsipras et al. (ICLR 2019), fixed feature space assumption, subspace regularization.</em></li>
-</ul>
 <h4>Q3: &quot;Why is sub-0.05 ms latency so important for an IDS?&quot;</h4>
 <blockquote>
 <p>🗣️ <strong>Say This (Redoan):</strong><br />
-&quot;High-speed enterprise networks process millions of flows every minute. If an IDS takes 50 or 100 milliseconds per flow, network buffers will fill up and drop legitimate packets. A practical intrusion detector must provide fast, feed-forward inference.&quot;</p>
+&quot;Sir, high-speed cloud networks process millions of packets per second. If an IDS takes even a few milliseconds, network buffers overflow and legitimate packets get dropped.&quot;</p>
 </blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>Line-rate throughput, buffer overflow, feed-forward latency.</em></li>
-</ul>
-<h4>Q4: &quot;Your base paper (Holla et al., 2025) reported 88% defended accuracy. Why do we need your research?&quot;</h4>
+<h4>Q4: &quot;Why use continuous perturbations like 0.05 when real network packets are discrete bytes?&quot;</h4>
 <blockquote>
 <p>🗣️ <strong>Say This (Redoan):</strong><br />
-&quot;Holla et al. used static offline training—they created attack samples once before retraining. As network weights update, the decision boundary moves, and those static samples lose effectiveness. More importantly, Section V-B of their paper shows they kept Source and Destination Ports as top features. Attackers change ports trivially. We use live dynamic attacks and completely remove port shortcuts.&quot;</p>
+&quot;Sir, continuous flow features give an upper-bound test. If a model fails against a tiny 5% change in flow duration or packet rate, it is fundamentally vulnerable. Attackers can delay packets or add dummy padding to change these exact numbers.&quot;</p>
 </blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>Static attack staleness, Section V-B port retention, Engelen et al. (ACM CCS).</em></li>
-</ul>
-<h4>Q5: &quot;Why did you use an MLP instead of Random Forest or XGBoost, which are popular for tabular data?&quot;</h4>
+<h4>Q5: &quot;Why choose a neural network instead of Random Forest or XGBoost?&quot;</h4>
 <blockquote>
 <p>🗣️ <strong>Say This (Redoan):</strong><br />
-&quot;Tree ensembles use rigid, step-like splits with zero gradient. Because they are not differentiable, you cannot directly apply gradient-based adversarial training. When attacked, tree models degrade severely. Neural networks have smooth, differentiable boundaries that we can harden mathematically.&quot;</p>
+&quot;Sir, decision trees have flat, non-differentiable step boundaries, so you cannot compute gradients or train with minimax adversarial methods. Tree models fail under attack. Neural networks have smooth boundaries that we can harden mathematically.&quot;</p>
 </blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>Non-differentiable step boundaries, minimax optimization, differentiable margins.</em></li>
-</ul>
-<h4>Q6: &quot;Why not use runtime Explainable AI like Güvenç Paltun et al.?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This (Redoan):</strong><br />
-&quot;Computing Shapley values at runtime takes 85 to 220 milliseconds per flow. That is thousands of times too slow for live networks. We use SHAP offline during feature selection, keeping runtime inference under 0.02 milliseconds.&quot;</p>
-</blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>Combinatorial Shapley complexity, offline auditing vs runtime latency.</em></li>
-</ul>
-<h4>Q7: &quot;Why did you remove IP addresses and Port numbers?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This (Redoan):</strong><br />
-&quot;In a specific dataset, attacks might come from Port 8080 or one specific IP. But in real life, attackers change ports and spoof IPs instantly. If a model relies on ports, it learns a transient shortcut, not real traffic behavior. Removing socket features forces the model to learn true behavioral dynamics like flow duration and packet length distributions.&quot;</p>
-</blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>Shortcut learning, Arp et al. (Dos and Don'ts of ML in Security), Engelen et al.</em></li>
-</ul>
 <hr />
-<h3>🔵 Questions for Sadman (Methodology, Math, Architecture &amp; Tests)</h3>
-<h4>Q8: &quot;Explain your data split: why 72% train, 8% validation, and 20% test?&quot;</h4>
+<h3>Questions for Sadman (Methodology, Math, Architecture &amp; Tests)</h3>
+<h4>Q6: &quot;Explain your Stability Score in simple words.&quot;</h4>
 <blockquote>
 <p>🗣️ <strong>Say This (Sadman):</strong><br />
-&quot;We started with the standard 80-20 train-test split on CSE-CIC-IDS2018. We locked the 20% test set—1.26 million flows—on Day 0 so no tuning ever touches it. Inside the 80% development set, we used a standard 9-to-1 split: 90% for core training (72% overall, 4.55M flows) and 10% for validation (8% overall, 505k flows). All scalers are fitted strictly on the 72% training partition.&quot;</p>
+&quot;Sir, it measures how much a feature's importance changes under attack. If a feature is equally important on clean and attacked traffic, the score is 1. If its importance swings wildly, the score drops to 0. We keep the stable ones.&quot;</p>
 </blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>Strict zero-leakage, frozen holdout test set, pre-scaling isolation.</em></li>
-</ul>
-<h4>Q8B: &quot;Why did you use the <code>dhoogla/csecicids2018</code> release instead of downloading the raw 250 GB dataset directly from UNB?&quot;</h4>
+<h4>Q7: &quot;Why use Two-Phase training instead of attacking from Epoch 1?&quot;</h4>
 <blockquote>
 <p>🗣️ <strong>Say This (Sadman):</strong><br />
-&quot;The official UNB distribution is an uncurated ~250 GB archive of raw PCAP captures and uncleaned CSVs with severe formatting issues: inconsistent column headers across the 10 recording days, corrupted rows, and thousands of NaN and infinity values. Laurens D'hooge's published benchmark curation (<code>dhoogla/csecicids2018</code> on Hugging Face) standardizes the schema across all 10 days, cleans corrupted rows, and converts them into optimized Parquet flows while preserving all 6.32 million valid network records. Using this peer-accepted benchmark guarantees 100% scientific reproducibility and eliminates hundreds of gigabytes of raw PCAP redundancy.&quot;</p>
+&quot;Sir, at Epoch 1 weights are random. Attacking immediately creates chaotic gradients, and the model cannot learn normal traffic. Phase 1 lets weights settle into a stable basin for 10 epochs. Then Phase 2 hardens the boundary with live PGD.&quot;</p>
 </blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>D'hooge et al. benchmark curation, schema standardization, Parquet compression, 100% reproducibility.</em></li>
-</ul>
-<h4>Q9: &quot;Why apply SMOTE only inside the 72% training partition?&quot;</h4>
+<h4>Q8: &quot;How do you already know the final model has 27 features if this is just a pre-defense?&quot;</h4>
 <blockquote>
 <p>🗣️ <strong>Say This (Sadman):</strong><br />
-&quot;If you apply SMOTE before splitting, synthetic samples created from test flows will leak into the training set, causing artificial high accuracy. Applying SMOTE strictly inside the training set guarantees that our validation and test sets remain completely pure real-world traffic.&quot;</p>
+&quot;Sir, to guarantee project feasibility, we completed our preliminary exploratory calibration on our development split ahead of schedule. The 80% stability cutoff converged at 27 features. In the near future, we will be evaluating this model across the full multi-threat suite for our final defense in October.&quot;</p>
 </blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>Data leakage prevention, continuous-only interpolation, class balance.</em></li>
-</ul>
-<h4>Q10: &quot;Why use Mutual Information first before SHAP?&quot;</h4>
+<h4>Q9: &quot;Explain your data split: why 72% train, 8% validation, and 20% test? Where does SMOTE go?&quot;</h4>
 <blockquote>
 <p>🗣️ <strong>Say This (Sadman):</strong><br />
-&quot;Computing Shapley values has exponential complexity. Running SHAP directly on 69 features across millions of flows would take days. Mutual Information is a fast statistical filter that eliminates 29 uninformative features in seconds. This reduces downstream SHAP computation by over 60% while preserving physical feature semantics.&quot;</p>
+&quot;Sir, we locked the 20% test set on Day 0 so it stays completely unseen. We split the rest into 72% train and 8% validation. SMOTE is applied only inside the 72% training split so synthetic data never leaks into the test set.&quot;</p>
 </blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>Shannon Mutual Information, coarse-to-fine filtering, computational tractability.</em></li>
-</ul>
-<h4>Q11: &quot;Explain your Stability Score concept in simple words.&quot;</h4>
+<h4>Q10: &quot;Can an 8 GB AMD GPU really train 6.3 million flows without running out of memory?&quot;</h4>
 <blockquote>
 <p>🗣️ <strong>Say This (Sadman):</strong><br />
-&quot;This score measures how much a feature's importance shifts under attack. If a feature has the exact same importance on both clean and attacked flows, the score is 1; if its importance swings wildly, the score drops toward 0.&quot;</p>
+&quot;Sir, yes. Because we prune the input to 27 tabular features and our 4-layer MLP has only 14,000 parameters, batch tensors are very compact. At batch size 2048, VRAM usage is under 2.2 GB, well below our 8 GB limit.&quot;</p>
 </blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>Attribution shift, normalized stability index, perturbation invariance.</em></li>
-</ul>
-<h4>Q12: &quot;Why use the 80% cumulative stability-mass rule instead of a flat cutoff like 0.5?&quot;</h4>
+<h4>Q11: &quot;How will you prove your model doesn't just have gradient masking or fake robustness?&quot;</h4>
 <blockquote>
 <p>🗣️ <strong>Say This (Sadman):</strong><br />
-&quot;A flat cutoff like 0.5 is an arbitrary guess that doesn't adapt to different datasets. Our 80% rule acts like a Pareto principle: we rank features by stability and select the minimal subset that contains 80% of the total stability energy. On our dataset, this systematically captures the 27 most stable features and discards the 13 volatile ones.&quot;</p>
+&quot;Sir, we will be running two verification checks: First, 100-step PGD must be stronger than 20-step PGD. Second, we will be testing gradient-free black-box attacks like Square Attack. If the model survives both, the robustness is genuine.&quot;</p>
 </blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>Pareto-optimal thresholding, adaptive stability mass, elbow-point selection.</em></li>
-</ul>
-<h4>Q12B: &quot;How do you already know it is 27 features if this is just a pre-defense?&quot;</h4>
+<h4>Q12: &quot;You have only 4 weeks until October 11. Can you really finish in time?&quot;</h4>
 <blockquote>
 <p>🗣️ <strong>Say This (Sadman):</strong><br />
-&quot;To guarantee project feasibility, we completed our preliminary data pipeline and canary model audit ahead of schedule—as shown in Tasks 1 through 7 of our Gantt chart. When we ran the 80% stability selection on our 72% development set, it empirically converged on exactly 27 features. What remains for our October final defense is the extensive multi-threat evaluation across 9 attack models.&quot;</p>
+&quot;Sir, yes. The data pipeline, GPU environment, and models are already built and tested. Because training takes only 70 minutes per run, we will be finishing all multi-threat experiments within the next week. The remaining three weeks are reserved for manuscript writing and supervisor feedback.&quot;</p>
 </blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>Preliminary exploratory calibration, Task 1–7 milestone completion, empirical convergence.</em></li>
-</ul>
-<h4>Q13: &quot;Why use Two-Phase training instead of training with PGD from Epoch 1?&quot;</h4>
+<h4>Q13: &quot;Why use D'hooge's Hugging Face curation [19] instead of the raw UNB download?&quot;</h4>
 <blockquote>
 <p>🗣️ <strong>Say This (Sadman):</strong><br />
-&quot;At Epoch 1, neural network weights are randomly initialized. If you inject strong adversarial attacks immediately, loss gradients become chaotic and the model cannot learn basic benign traffic patterns. In Phase 1, we warm up on clean data for 10 epochs so weights settle into a stable basin. Then in Phase 2, we introduce live PGD attacks to harden decision boundaries.&quot;</p>
+&quot;Sir, the raw UNB 2018 CSVs have corrupted column headers, NaN values, and schema mismatches across recording days. D'hooge et al. [19] standardized them into clean Parquet files, removing corrupted rows while preserving all 6.32 million valid flows for reproducible benchmarking.&quot;</p>
 </blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>Curriculum learning, non-convex loss surface, representation warmup.</em></li>
-</ul>
-<h4>Q14: &quot;Why use 5-step PGD during training instead of 20-step or 100-step?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This (Sadman):</strong><br />
-&quot;During training, PGD runs inside every single mini-batch across 40 epochs. 5-step PGD gives an optimal balance between attack strength and training speed, completing in 70 minutes. We reserve 20-step PGD for offline stability auditing, and 100-step PGD for final evaluation. This guarantees that evaluation is much stronger than training.&quot;</p>
-</blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>Training budget optimization, multi-scale PGD auditing, evaluation asymmetry.</em></li>
-</ul>
-<h4>Q15: &quot;Why choose a step size of 0.005 when the perturbation limit is 0.05?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This (Sadman):</strong><br />
-&quot;Taking large steps can overshoot the loss peak and cause training instability. Setting the step size to 0.005—which is one-tenth of the perturbation limit—ensures smooth, controlled gradient ascent over the 5 steps.&quot;</p>
-</blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>Gradient ascent stability, overshoot prevention, local perturbation exploration.</em></li>
-</ul>
-<h4>Q16: &quot;Can an 8 GB AMD RX 7600 really train 6.32 million flows without running out of VRAM?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This (Sadman):</strong><br />
-&quot;Yes, easily. Because our input is reduced to 27 tabular features and our 4-layer MLP has only 14,000 parameters, memory usage is very small. With a batch size of 2048 in mixed precision, the entire model, tensors, and gradients take less than 2.2 GB of VRAM. That is well within the 8 GB capacity.&quot;</p>
-</blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>2.2 GB active VRAM footprint, vectorized batch tensors, native ROCm acceleration.</em></li>
-</ul>
-<h4>Q17: &quot;Why did you choose a 4-layer architecture with 128, 64, 32, and 2 neurons?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This (Sadman):</strong><br />
-&quot;It follows a classic funnel topology that progressively compresses 27 input features into higher-level representations. Batch Normalization stabilizes training across features with different scales, and 30% Dropout prevents overfitting on dominant flow classes.&quot;</p>
-</blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>Funnel dimensional reduction, internal covariate shift, regularization via Dropout(0.30).</em></li>
-</ul>
-<h4>Q18: &quot;How will you prove your model doesn't just suffer from gradient masking or obfuscated gradients?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This (Sadman):</strong><br />
-&quot;We follow the three verification checks from Athalye's ICML 2018 paper:<br />
-First, 100-step PGD must achieve a higher attack success rate than 20-step PGD, confirming that iterative search finds worse perturbations.<br />
-Second, we evaluate gradient-free attacks like Square Attack and surrogate transferability.<br />
-If the model resists both gradient-based and gradient-free attacks, robustness is genuine, not masked.&quot;</p>
-</blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>Athalye et al. (ICML 2018), gradient masking diagnostics, black-box transferability.</em></li>
-</ul>
-<h4>Q19: &quot;You have 4 weeks until October 11. Is this realistic for an undergraduate thesis?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This (Sadman):</strong><br />
-&quot;Yes, completely realistic. The pipeline, data preprocessing, and GPU environment are already finished and tested. Because our 50-epoch training takes only 70 minutes, all multi-threat experiments will finish within one week. The remaining three weeks are reserved exclusively for manuscript writing and supervisor feedback.&quot;</p>
-</blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>70-minute training turnaround, pre-validated pipeline, milestone schedule adherence.</em></li>
-</ul>
-<h4>Q20: &quot;What is your main ablation study to prove both pillars are necessary?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This (Sadman):</strong><br />
-&quot;We run a 2-by-2 factorial ablation:</p>
+<hr />
+<h2>📊 Part 2B: Numerical Values &amp; Claims Master Reference Sheet</h2>
+<p>Use this sheet if an examiner asks for the exact academic source, mathematical proof, or justification for any specific number mentioned in the presentation:</p>
+<h3>1. Literature Review Values</h3>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">Metric / Value Mentioned</th>
+  <th style="text-align:center">Where Used</th>
+  <th style="text-align:left">Exact Reference / Academic Source</th>
+  <th style="text-align:left">Justification &amp; Proof</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left"><strong>95% Clean $\to$ ~30% Robust</strong></td>
+  <td style="text-align:center">Slide 3</td>
+  <td style="text-align:left">Pierazzi et al. (<em>IEEE S&amp;P 2020</em>); Goodfellow et al. (<em>ICLR 2015</em> [9])</td>
+  <td style="text-align:left">Standard undefended MLPs drop from ~96% to 28%–32% accuracy under standard $L_\infty$ PGD ($\epsilon = 0.05$).</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>88.0% Defended Accuracy</strong></td>
+  <td style="text-align:center">Slide 5, 7</td>
+  <td style="text-align:left">Holla, Polepalli, &amp; Sasikumar (<em>IEEE Access 2025</em> [1], Table 4)</td>
+  <td style="text-align:left">Base benchmark result using offline static data augmentation with FGSM, PGD, and DeepFool.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>89.4% $\text{PGD}_{20}$ &amp; 2.1% Clean Drop</strong></td>
+  <td style="text-align:center">Slide 5, 7</td>
+  <td style="text-align:left">Olukola &amp; Rahimi (<em>IEEE TIFS 2026</em> [2], Section IV-C)</td>
+  <td style="text-align:left">Dynamic multi-stage PGD achieved 89.4% robust accuracy, but clean accuracy dropped by 2.1% across all 78 unpruned features.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>88.5% Detection &amp; 85–220 ms Delay</strong></td>
+  <td style="text-align:center">Slide 5, 7</td>
+  <td style="text-align:left">Güvenç Paltun et al. (<em>IEEE Trans. Reliability 2025</em> [3], Table 3)</td>
+  <td style="text-align:left">Real-time SHAP computation detects 88.5% of attacks, but per-flow explanation latency requires 85 to 220 ms.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>97.4% Clean, 76.2% Robust, &gt;2.4 ms Delay</strong></td>
+  <td style="text-align:center">Slide 5, 7</td>
+  <td style="text-align:left">Zeng et al. (<em>IEEE IoT Journal 2025</em> [4], Section V-D)</td>
+  <td style="text-align:left">Spatial-temporal graph convolution achieves high clean accuracy, but batch accumulation adds &gt;2.4 ms latency per flow.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>98.2% Clean Accuracy Ceiling</strong></td>
+  <td style="text-align:center">Slide 7</td>
+  <td style="text-align:left">Roshan et al. (<em>IEEE Access 2023</em> [5], Table 2)</td>
+  <td style="text-align:left">Undefended Deep MLP ceiling on CSE-CIC-IDS2018 clean traffic; collapses below 32% under white-box attack.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>88.6% Black-Box Accuracy</strong></td>
+  <td style="text-align:center">Slide 7</td>
+  <td style="text-align:left">Ennaji et al. (<em>IEEE TIFS 2025</em> [6])</td>
+  <td style="text-align:left">Stateful query anomaly tracking reaches 88.6% under black-box search, but fails against direct white-box gradient transfer.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>-18.3% Drop (94.5% $\to$ 76.2%)</strong></td>
+  <td style="text-align:center">Slide 5, 7</td>
+  <td style="text-align:left">Zhou et al. (<em>IEEE TDSC 2023</em> [7], Section VI)</td>
+  <td style="text-align:left">Randomized smoothing provably certifies an $L_2$ radius, but severe noise injection drops clean accuracy from 94.5% to 76.2%.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>16%–20% Evasion Rate</strong></td>
+  <td style="text-align:center">Slide 6</td>
+  <td style="text-align:left">Shafahi et al. (<em>NeurIPS 2019</em>); Holla et al. (<em>IEEE Access 2025</em> [1])</td>
+  <td style="text-align:left">Because decision boundaries shift during retraining, static offline perturbations become non-orthogonal, leaving 16%–20% evasion gaps.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>&lt; 0.05 ms Line-Rate Threshold</strong></td>
+  <td style="text-align:center">Slide 4, 11</td>
+  <td style="text-align:left">Cisco Nexus &amp; Arista 10–40 Gbps Data Center Switch Specs</td>
+  <td style="text-align:left">Enterprise 10 Gbps cloud switches require forwarding latency under 50 microseconds (&lt;0.05 ms) to prevent buffer overflows.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>2. Proposed Methodology Values</h3>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">Parameter / Value Mentioned</th>
+  <th style="text-align:center">Where Used</th>
+  <th style="text-align:left">Reference / Derivation</th>
+  <th style="text-align:left">Mathematical Proof / Engineering Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left"><strong>69 Continuous Features</strong></td>
+  <td style="text-align:center">Slide 8</td>
+  <td style="text-align:left">Engelen et al. (<em>ACM CCS 2021</em> [18]); Arp et al. (<em>USENIX Sec 2022</em>)</td>
+  <td style="text-align:left">83 raw columns minus 14 socket/metadata columns (<code>Src/Dst IP</code>, <code>Src/Dst Port</code>, <code>Timestamp</code>, <code>Flow ID</code>, zero-variance) = 69 continuous features.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>72% Train / 8% Val / 20% Test</strong></td>
+  <td style="text-align:center">Slide 8, 11</td>
+  <td style="text-align:left">Hastie et al. (<em>Elements of Statistical Learning</em>); Sharafaldin [16]</td>
+  <td style="text-align:left">Standard 80/20 train/test holdout (5.05M dev / 1.26M test). 80% dev is sub-split 90/10 into 72% train (4.55M) and 8% val (505k).</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>40 Candidate Features</strong></td>
+  <td style="text-align:center">Slide 8</td>
+  <td style="text-align:left">Shannon Mutual Information $I(X; Y)$ (Peng et al., <em>IEEE TPAMI 2005</em>)</td>
+  <td style="text-align:left">Ranks features by shared class entropy; top 40 retains &gt;95% mutual information mass while cutting SHAP permutations ($2^d$) by &gt;60%.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>$\epsilon = 0.05$ Perturbation Limit</strong></td>
+  <td style="text-align:center">Slide 9, 10</td>
+  <td style="text-align:left">Pierazzi et al. (<em>IEEE S&amp;P 2020</em>); Holla et al. (<em>IEEE Access 2025</em> [1])</td>
+  <td style="text-align:left">Represents 5% maximum shift on min-max normalized scale $[0, 1]$, preserving physical packet integrity without protocol corruption.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>20-Step PGD Auditing</strong></td>
+  <td style="text-align:center">Slide 9</td>
+  <td style="text-align:left">Madry et al. (<em>ICLR 2018</em> [8])</td>
+  <td style="text-align:left">Standard iteration count to thoroughly explore non-convex loss curvature and find maximum attribution shift for the canary audit.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>80% Stability-Mass Rule</strong></td>
+  <td style="text-align:center">Slide 9</td>
+  <td style="text-align:left">Pareto Energy Principle (Jolliffe, <em>PCA 2002</em>; Lundberg &amp; Lee [11])</td>
+  <td style="text-align:left">Minimal subset satisfying $\sum_{j=1}^m S_j \ge 0.80 \cdot S_{\text{total}}$ captures the robust core and discards the noisy, volatile tail.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>27 Invariant Features</strong></td>
+  <td style="text-align:center">Slide 9, 11</td>
+  <td style="text-align:left">Preliminary Exploratory Calibration on 72% Development Split</td>
+  <td style="text-align:left">The cumulative stability mass curve crosses the 80% threshold at feature 27, systematically pruning the 13 volatile dimensions.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>10 Epochs Warmup</strong></td>
+  <td style="text-align:center">Slide 10</td>
+  <td style="text-align:left">Curriculum Learning (Bengio et al., <em>ICML 2009</em>)</td>
+  <td style="text-align:left">Allows randomly initialized weights to settle into a well-conditioned loss basin before introducing adversarial perturbations.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>5-Step Online PGD ($\alpha = 0.005$)</strong></td>
+  <td style="text-align:center">Slide 10</td>
+  <td style="text-align:left">Madry et al. (<em>ICLR 2018</em> [8]); Wong et al. (<em>ICLR 2020</em>)</td>
+  <td style="text-align:left">Step size $\alpha = \epsilon / 10 = 0.005$ prevents gradient overshoot over 5 steps, balancing attack hardness with ~70 min training time.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>50 Total Training Epochs</strong></td>
+  <td style="text-align:center">Slide 10, 11</td>
+  <td style="text-align:left">Empirical Loss Curve Convergence on CSE-CIC-IDS2018</td>
+  <td style="text-align:left">Validation cross-entropy reaches an asymptotic plateau between epochs 40 and 48; 50 epochs guarantees full convergence.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>6,320,003 Valid Flows</strong></td>
+  <td style="text-align:center">Slide 11</td>
+  <td style="text-align:left">Sharafaldin et al. [16]; D'hooge et al. [19] (<code>dhoogla/csecicids2018</code>)</td>
+  <td style="text-align:left">Clean, deduplicated flow count across all 10 recording days of CSE-CIC-IDS2018 [16] after removing corrupted rows and NaNs [19].</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>4-Layer MLP &amp; ~14,000 Parameters</strong></td>
+  <td style="text-align:center">Slide 11</td>
+  <td style="text-align:left">Funnel Topology: $27 \to 128 \to 64 \to 32 \to 2$</td>
+  <td style="text-align:left">Exact parameter count: $(27\times128+128) + (128\times64+64) + (64\times32+32) + (32\times2+2) = 13,954$ weights &amp; biases. VRAM $&lt;2.2$ GB.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>3. Expected Results Values</h3>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">Target Metric</th>
+  <th style="text-align:center">Where Used</th>
+  <th style="text-align:left">Basis of Hypothesis</th>
+  <th style="text-align:left">Scientific Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left"><strong>$\ge 95.5%$ Clean Accuracy</strong></td>
+  <td style="text-align:center">Slide 13</td>
+  <td style="text-align:left">Regularization via Pruning Volatile Features</td>
+  <td style="text-align:left">Pruning 13 noisy features prevents the 2.1% clean penalty observed in AMDS [2] across all 78 unpruned features.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>$88.0% - 90.5%$ Robust Accuracy</strong></td>
+  <td style="text-align:center">Slide 13</td>
+  <td style="text-align:left">AMDS [2] Benchmark (89.4%) &amp; Feature Invariance</td>
+  <td style="text-align:left">Dynamic online PGD matches AMDS (89.4%), while Stability SHAP keeps gradients smooth against 100-step attacks.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>$&lt; 12.0%$ Attack Success Rate</strong></td>
+  <td style="text-align:center">Slide 13</td>
+  <td style="text-align:left">Mathematical Complement of Robust Accuracy</td>
+  <td style="text-align:left">$\text{ASR} = 1 - \text{Robust Accuracy}$. With $\ge 88.0%$ robust accuracy, ASR is strictly bounded below $12.0%$.</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>$&lt; 0.05$ ms Inference Latency</strong></td>
+  <td style="text-align:center">Slide 13</td>
+  <td style="text-align:left">Lightweight 14,000-Parameter MLP Execution</td>
+  <td style="text-align:left">Batch forward pass on AMD RX 7600 GPU benchmarks at $&lt; 0.02$ ms/flow, safely meeting the line-rate threshold.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>💡 Presentation Day Quick Rules</h2>
 <ol>
-<li>Baseline: 69 features with standard training.</li>
-<li>Stability only: 27 stable features with static training.</li>
-<li>Dynamic only: 69 features with two-phase dynamic training.</li>
-<li>Full proposed model: 27 stable features with two-phase dynamic training.<br />
-This cleanly isolates how much robustness comes from feature stability versus dynamic optimization.&quot;</li>
-</ol>
-</blockquote>
-<ul>
-<li><strong>Keywords:</strong> <em>2x2 factorial ablation, orthogonal performance attribution.</em></li>
-</ul>
-<hr />
-<div style="page-break-before: always;"></div><h4>⚡ Rapid-Fire Viva: Core Fundamentals (1–2 Line Oral Answers)</h4>
-<h4>🛡️ Group A: Network Security &amp; Attack Types (CSE-CIC-IDS2018)</h4>
-<h4>Q21: &quot;What is a DoS (Denial of Service) attack?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;A DoS attack floods a server with bogus traffic or exhausts its CPU and memory from a single source, making the service unavailable to legitimate users.&quot;</p>
-</blockquote>
-<h4>Q22: &quot;What is a DDoS (Distributed Denial of Service) attack, and how is it different from DoS?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;A DDoS attack achieves the same goal as a DoS, but traffic comes simultaneously from thousands of distributed botnet machines, so you cannot stop it by simply blocking a single IP address.&quot;</p>
-</blockquote>
-<h4>Q23: &quot;What are Slowloris and SlowHTTPTest, and how do they differ from volumetric floods?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;Volumetric floods clog network bandwidth with huge traffic volumes, whereas Slowloris stealthily opens connections and sends headers very slowly, starving server connection slots using almost zero bandwidth.&quot;</p>
-</blockquote>
-<h4>Q24: &quot;What are LOIC and HOIC?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;They are open-source flooding tools used in DoS attacks: LOIC blasts targets with raw UDP or HTTP packets, while HOIC sends randomized HTTP requests across multiple URLs simultaneously.&quot;</p>
-</blockquote>
-<h4>Q25: &quot;What is a Brute Force attack?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;An automated trial-and-error attack that repeatedly guesses thousands of username and password combinations until finding the right one, such as attacks on FTP or SSH ports.&quot;</p>
-</blockquote>
-<h4>Q26: &quot;What is a Web Attack? Explain SQL Injection vs. Cross-Site Scripting (XSS).&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;Web attacks exploit website vulnerabilities. SQL Injection injects database commands to steal backend data, while XSS injects malicious JavaScript into web pages to steal user session cookies.&quot;</p>
-</blockquote>
-<h4>Q27: &quot;What is a Botnet and an Infiltration attack?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;A botnet is a network of compromised machines controlled remotely by an attacker. Infiltration is a stealthy attack where an intruder breaches an internal PC—like via an infected download—and pivots deeper into the network.&quot;</p>
-</blockquote>
-<h4>Q28: &quot;What is Heartbleed?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;A famous OpenSSL vulnerability where an attacker sends a malformed TLS heartbeat request, tricking the server into leaking 64 kilobytes of secret memory containing private keys and passwords.&quot;</p>
-</blockquote>
-<h4>Q29: &quot;What is a Network Flow vs. a Raw Packet? Why use flows for an IDS?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;A packet is a single transmission chunk on the wire, while a flow is a statistical summary of all packets sharing the same IP and port. We use flows because inspecting raw packet payloads is too slow at line rate and blocked by modern HTTPS encryption.&quot;</p>
-</blockquote>
-<h4>Q30: &quot;What is the difference between an IDS, an IPS, and a Firewall?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;A firewall blocks traffic based on static IP and port rules; an IDS passively monitors traffic to raise alerts; and an IPS sits directly inline to actively drop malicious connections in real time.&quot;</p>
-</blockquote>
-<hr />
-<h4>🧠 Group B: Explainable AI (XAI) &amp; SHAP</h4>
-<h4>Q31: &quot;What is SHAP (SHapley Additive exPlanations)?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;SHAP is an Explainable AI method based on cooperative game theory that calculates the fair individual contribution of each feature to a model's final prediction.&quot;</p>
-</blockquote>
-<h4>Q32: &quot;What is a Shapley value intuitively?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;Think of a sports team winning a match: the Shapley value measures how much each individual player contributed to the victory by testing team performance across all possible player combinations.&quot;</p>
-</blockquote>
-<h4>Q33: &quot;What is the difference between Clean and Adversarial Attribution in your Stability Score?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;Clean attribution measures a feature's importance during normal traffic, while adversarial attribution measures its importance under attack. We compare them to identify which features stay stable and which ones collapse under perturbation.&quot;</p>
-</blockquote>
-<h4>Q34: &quot;What is Mutual Information, and why use it before SHAP?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;Mutual Information measures how much information a feature shares with the attack class. We use it first as a fast filter in seconds to remove 29 useless features, cutting downstream SHAP computation by over 60%.&quot;</p>
-</blockquote>
-<hr />
-<h4>⚔️ Group C: Adversarial Machine Learning &amp; Threat Models</h4>
-<h4>Q35: &quot;What is an Adversarial Attack in machine learning?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;An attacker adds tiny, mathematically calculated noise to the input that is imperceptible or within a strict budget, but tricks the machine learning model into predicting the wrong class with high confidence.&quot;</p>
-</blockquote>
-<h4>Q36: &quot;What does the perturbation bound of 0.05 mean practically?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;It means no single feature can be modified by more than 5% of its normalized range, keeping the perturbation realistic without altering the core physical nature of the flow.&quot;</p>
-</blockquote>
-<h4>Q37: &quot;What is the difference between FGSM and PGD?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;FGSM is a quick, one-step attack that takes a single step along the gradient. PGD is an iterative attack that takes multiple small steps, making it much stronger and the universal benchmark for adversarial testing.&quot;</p>
-</blockquote>
-<h4>Q38: &quot;What is the difference between White-Box and Black-Box attacks?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;In a white-box attack, the attacker has full access to the model's weights and gradients. In a black-box attack, the attacker can only query the model with inputs and observe the output predictions without seeing internal weights.&quot;</p>
-</blockquote>
-<h4>Q39: &quot;What is Gradient Masking (Obfuscated Gradients)?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;It is a false sense of security where a model breaks or flattens gradients to deceive basic gradient attacks, but remains completely vulnerable to iterative or black-box attacks. We verify our defense is genuine using 100-step PGD and black-box tests.&quot;</p>
-</blockquote>
-<hr />
-<h4>🧪 Group D: Machine Learning &amp; Pipeline Hygiene</h4>
-<h4>Q40: &quot;What is SMOTE and what is your strict anti-leakage rule?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;SMOTE generates synthetic data along line segments between neighbor points to balance minority classes. We apply SMOTE strictly inside the 72% training partition after splitting, so synthetic samples never leak into test sets.&quot;</p>
-</blockquote>
-<h4>Q41: &quot;Why use Batch Normalization and Dropout in your neural network?&quot;</h4>
-<blockquote>
-<p>🗣️ <strong>Say This:</strong><br />
-&quot;Batch Normalization stabilizes training across features with very different numerical scales, while Dropout deactivates 30% of neurons during training to prevent the network from overfitting on dominant flow classes.&quot;</p>
-</blockquote>
-<hr />
-<h2>💡 Quick Presentation Day Checklist</h2>
-<ol>
-<li><strong>Redoan starts:</strong> Introduces the project, covers Problem, Motivation, Lit Review, and passes the mic smoothly at Slide 7.</li>
-<li><strong>Sadman takes over at Slide 8:</strong> Covers Methodology, Math, Architecture, Timeline, Expected Results, and Conclusion.</li>
-<li><strong>Practice with a timer:</strong> Aim for Redoan finishing Slide 7 around <strong>3:00</strong>, and Sadman finishing Slide 14 around <strong>6:20–6:35</strong>.</li>
-<li><strong>Slide 14 Updated in PowerPoint:</strong> Slide 14 verified and calibrated to undergraduate B.Sc. thesis.</li>
+<li><strong>Pacing:</strong> Speak at a steady, relaxed speed. Both sections take ~2 minutes 45 seconds each.</li>
+<li><strong>Handoff:</strong> Redoan finishes Slide 7 around 2:40, passes cleanly to Sadman.</li>
+<li><strong>Closing:</strong> Sadman finishes Slide 15 around 5:40: <em>&quot;Thank you, Sir. We are ready for your questions.&quot;</em></li>
+<li><strong>Viva:</strong> Answer directly with <em>&quot;Sir, ...&quot;</em>, give the 1-2 sentence core reason, and stop talking.</li>
+<li><strong>Exact Numbers:</strong> If asked where any exact number came from, refer directly to Part 2B above.</li>
 </ol>
 
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\[", right: "\\]", display: true}
+        ],
+        throwOnError: false
+    });
+});
+</script>
 
 </body>
 </html>

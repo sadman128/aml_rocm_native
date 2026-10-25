@@ -1,4 +1,4 @@
-# Academic Board Cross-Evaluation & Defense Interrogation (14-Slide Deck)
+# Academic Board Cross-Evaluation & Defense Interrogation (15-Slide Deck)
 ## Slide-by-Slide Defense Criticisms, Viva Traps, and Winning Spoken Rebuttals
 
 > **How to Use This Document:**
@@ -207,3 +207,16 @@
   > This cleanly isolates the individual performance contribution of feature stability versus dynamic minimax optimization, proving that both pillars are essential to achieve Pareto-optimal accuracy and robustness."*
 * **📊 Board Readiness Score:** **9.9 / 10**  
   *Delivery Tip:* Describing a clean **2x2 factorial ablation** proves you understand rigorous experimental scientific methodology.
+
+---
+
+### Slide 15: References (Academic Bibliography)
+
+* **🧐 The Critic Board Member's Interrogation:**  
+  *"You cite 18 references covering foundations from 2015 to direct 2025–2026 peers. Which single reference is your theoretical foundation, and which is your direct benchmark?"*
+* **⚠️ Vulnerability / Ambiguity Exposed:**  
+  Testing if you distinguish between foundational theory and empirical baselines.
+* **🛡️ Winning Board-Proof Spoken Rebuttal (15–30 Seconds):**  
+  > *"Our direct empirical baseline is Reference 1, Holla et al. (IEEE Access 2025), which established the Static Triad benchmark on cloud NIDS. Our theoretical foundations are Madry et al. (ICLR 2018) for minimax adversarial training and Lundberg & Lee (NeurIPS 2017) for cooperative game-theoretic Shapley attribution. We also build upon Tsipras et al. (ICLR 2019) to address the accuracy-robustness trade-off, and Engelen et al. (ACM CCS 2021) for dataset hygiene and shortcut removal."*
+* **📊 Board Readiness Score:** **10.0 / 10**  
+  *Delivery Tip:* Distinctly separating your empirical baseline (`[1]`) from your theoretical foundations (`[8]`, `[11]`, `[17]`, `[18]`) demonstrates mastery of the literature.

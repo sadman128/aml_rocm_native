@@ -12,10 +12,11 @@ os.makedirs(os.path.dirname(html_path), exist_ok=True)
 with open(md_path, "r", encoding="utf-8") as f:
     md_content = f.read()
 
-# Convert markdown to html using mistune
-html_body = mistune.html(md_content)
-
 import re
+
+# Convert markdown to html using mistune with table and formatting plugins
+markdown = mistune.create_markdown(plugins=["table", "strikethrough", "url"])
+html_body = markdown(md_content)
 
 # Add clean page break before Part 1, Part 2, and Rapid-Fire Viva
 html_body = re.sub(r'(<h1[^>]*>.*?Part 1:.*?</h1\s*>)', r'<div style="page-break-before: always;"></div>\1', html_body)
@@ -28,6 +29,12 @@ html_full = f"""<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <title>Pre-Defense Presentation Script & Viva Defense Strategy</title>
+
+<!-- KaTeX support for math rendering -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
 <style>
   @page {{
     size: A4;
@@ -251,6 +258,20 @@ html_full = f"""<!DOCTYPE html>
 
 {html_body}
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {{
+    renderMathInElement(document.body, {{
+        delimiters: [
+            {{left: "$$", right: "$$", display: true}},
+            {{left: "$", right: "$", display: false}},
+            {{left: "\\\\(", right: "\\\\)", display: false}},
+            {{left: "\\\\[", right: "\\\\]", display: true}}
+        ],
+        throwOnError: false
+    }});
+}});
+</script>
+
 </body>
 </html>
 """
@@ -264,9 +285,11 @@ print(f"Generated HTML at: {html_path}")
 edge_path = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 cmd = [
     edge_path,
-    "--headless",
+    "--headless=new",
     "--disable-gpu",
     "--no-pdf-header-footer",
+    "--run-all-compositor-stages-before-draw",
+    "--virtual-time-budget=3000",
     f"--print-to-pdf={pdf_path}",
     html_path
 ]
