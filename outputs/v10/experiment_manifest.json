@@ -1,0 +1,20 @@
+{
+  "experiment_name": "V10_PROPOSED_DEFENSE_VALIDATION_SEED42",
+  "created_at": "2026-10-11T22:53:12",
+  "seeds": [
+    42
+  ],
+  "status": "COMPLETE",
+  "output_dir": "F:\\PythonProjects\\aml_rocm_native\\outputs\\v10",
+  "files": {
+    "final_results": "outputs\\v10\\FINAL_RESULTS.csv",
+    "final_results_mean_std": "outputs\\v10\\FINAL_RESULTS_MEAN_STD.csv",
+    "training_budget": "outputs\\v10\\training_budget.csv",
+    "data_summary": "outputs\\v10\\data_summary.json",
+    "config": "outputs\\v10\\config.json",
+    "environment": "outputs\\v10\\environment.json"
+  },
+  "per_seed": {
+    "42": "outputs\\v10\\seeds\\42"
+  }
+}

@@ -1,0 +1,4 @@
+Condition,Multiclass Acc (Mean),Multiclass Macro F1,Multiclass Weighted F1,Zero-Day Caught as Attack,Zero-Day Isolated as 'Other'
+Clean,94.90%,0.7316,0.9403,0.00%,0.00%
+FGSM,83.22%,0.5512,0.8251,0.00%,0.00%
+PGD,85.22%,0.5537,0.8488,0.00%,0.00%

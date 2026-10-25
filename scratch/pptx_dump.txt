@@ -1,0 +1,364 @@
+=== SLIDE 1 ===
+  - Adversarial Robustness in Network Intrusion Detection Systems
+  - via Attribution-Guided Feature Selection and Dynamic Multi-Stage Adversarial Training
+  - PRESENTED BY
+  - Sadman Hossain Sajid
+  - ID: 2023200000062Southeast University
+  - Redoan Islam
+  - ID: 2023200000689
+  - Southeast University
+  - SUPERVISOR
+  - Mahjabin Sultana
+  - Lecturer, Department of CSE
+  - Southeast University
+  - DATE
+  - September 10, 2026
+=== SLIDE 2 ===
+  - Presentation Outline
+  - Overview of the research structure and milestones.
+  - 01
+  - Problem Statement
+  - 02
+  - Motivation & Objectives
+  - 03
+  - Literature Review
+  - 04
+  - Comparative Analysis
+  - 05
+  - Proposed Methodology
+  - 06
+  - Dataset & Environment
+  - 07
+  - Target Architecture
+  - 08
+  - Research Timeline
+  - 09
+  - Expected Results
+  - 10
+  - Conclusion
+  - 02
+=== SLIDE 3 ===
+  - Problem Statement
+  - Modern Deep NIDS achieve >95% accuracy on normal traffic, but collapse to ~30% under tiny, undetectable packet tweaks.
+  - System Performance
+  - Clean vs. Robust
+  - 95%
+  - CLEAN ACC
+  - ~30%
+  - ROBUST ACC
+  - The Adversarial Evasion Mechanism
+  - Attackers slightly alter flow timing and packet sizes.
+  - Consequence: The AI is tricked into classifying dangerous attacks as normal benign traffic.
+  - Gradient-Volatile Features
+  - Fragile Features: Classifiers rely on weak traffic clues that attackers can easily disguise.
+  - Transient Socket Shortcuts
+  - Shortcut Cheating: Models memorize port numbers and IP addresses instead of learning real attack behavior.
+  - Defensive Hardening Trade-Offs
+  - Stale Defenses: Existing defenses train once on old attacks, making them helpless against adaptive, modern attackers.
+  - 03
+=== SLIDE 4 ===
+  - Motivation & Objectives
+  - Building fast, accurate, and honest AI defense for live enterprise networks
+  - 01
+  - Real-Time Speed
+  - High-speed networks cannot wait: slow detection drops valid packets.
+  - Goal: Keep inference under 0.05 ms per flow for line-rate speed.
+  - 02
+  - Accuracy vs Robustness
+  - Defending models usually causes a 2% to 6% drop in normal accuracy.
+  - Goal: Stop attacks without hurting normal accuracy by removing noisy features.
+  - 03
+  - Benchmark Hygiene
+  - Goal: Completely remove all port and IP shortcuts so the AI learns real attack behavior.
+  - Enforce strict partitioning and class balancing.
+  - 04
+=== SLIDE 5 ===
+  - Literature Review
+  - Published defense paradigms, benchmark methods, and operational trade-offs.
+  - REF
+  - PUBLISHED METHOD
+  - DEFENSE PARADIGM
+  - BENCHMARK RESULT
+  - CRITICAL BOTTLENECK
+  - [1]
+  - Static Triad Augmentation
+  - Offline Static Augmentation
+  - 88.0% Defended
+  - Offline attack staleness; retained port shortcuts
+  - [2]
+  - AMDS (Adaptive Multi-Stage)
+  - Dynamic Minimax PGD Hardening
+  - 89.4% PGD₂₀
+  - 2.1% clean drop; unpruned 78-dim overhead (+140% GPU)
+  - [3]
+  - XAI-Centroid Gate
+  - Runtime Attribution (SHAP)
+  - 88.5% Detection
+  - Severe latency (85–220 ms); violates line-rate
+  - [4]
+  - CSAGC-IDS
+  - Channel-Spatial Graph Attention
+  - 76.2% Robust
+  - Buffering delay (>2.4 ms); graph topology spoofing
+  - [7]
+  - Randomized Smoothing
+  - Certified Provable L₂ Radius
+  - Provable Limit
+  - Clean accuracy crash: 94.5% → 76.2% (-18.3%)
+  - Key Literature Finding
+  - Existing defenses force an unresolved trade-off: offline methods suffer attack staleness, runtime defenses violate line-rate throughput, and certified methods severely penalize clean traffic.
+=== SLIDE 6 ===
+  - Literature Review
+  - Three structural vulnerabilities identified across existing NIDS defenses.
+  - 01
+  - Perturbation Staleness
+  - Offline Augment. [1]
+  - MECHANISM
+  - Defenses like Static Triad inject pre-computed static attack samples once before retraining.
+  - VULNERABILITY
+  - As neural weights evolve during training, the decision boundary shifts away from static samples, allowing dynamic adaptive attacks to easily evade the model (16%–20% evasion rate).
+  - 02
+  - Line-Rate Latency Barrier
+  - Runtime Defense [3, 4]
+  - MECHANISM
+  - Complex runtime verifications like real-time SHAP gates (85–220 ms) [3] and graph batch buffering (>2.4 ms) [4] introduce heavy computational overhead.
+  - VULNERABILITY
+  - High-speed cloud switches operate on microsecond scales (<0.05 ms); multi-millisecond per-flow processing causes buffer overflow and packet drops.
+  - 03
+  - Shortcut Learning Bias
+  - Feature Selection [1, 18]
+  - MECHANISM
+  - Conventional feature selection evaluates feature importance exclusively on benign, nominal traffic.
+  - VULNERABILITY
+  - Models retain ephemeral socket shortcuts (Src/Dst Port, IP) and gradient-volatile features that attackers trivially manipulate to bypass detection.
+=== SLIDE 7 ===
+  - Comparative Analysis
+  - State-of-the-art benchmark frontiers: Every published defense faces a critical trade-off.
+  - BENCHMARK FRONTIER
+  - METHOD & REF
+  - BEST RESULT
+  - DEFENSE MECHANISM
+  - LIMITATION
+  - Best Clean Accuracy
+  - Deep MLP [5] /
+  - CSAGC-IDS [4]
+  - 98.2%Clean
+  - Standard Deep MLP /Graph Attention
+  - Zero Defense: Collapses to <32% under white-box PGD attacks; or incurs 2.4 ms graph delay.
+  - Best White-Box Robustness
+  - AMDS [2]
+  - 89.4%PGD₂₀
+  - Multi-Stage Dynamic PGD
+  - Clean Drop & Overhead: Suffers 2.1% penalty; keeps 78 dimensions (+140% GPU cost).
+  - Best Static Defense
+  - (Base Paper)
+  - Static Triad [1]
+  - 88.0%Defended
+  - Static Triad Augmentation
+  - Staleness & Shortcuts: Offline attacks go stale (16–20% evasion); retained port shortcuts.
+  - Best Black-Box Robustness
+  - Query Anomaly [6]
+  - 88.6%Black-Box
+  - Query Perturbation &Anomaly Tracking
+  - High Complexity: Stateful query tracking required; vulnerable to adaptive white-box transfer.
+  - Best Certified Defense
+  - Rand. Smoothing [7]
+  - Provable L₂Radius
+  - Randomized Smoothing
+  - Severe Accuracy Crash: Clean accuracy drops from 94.5% → 76.2% (-18.3% penalty).
+  - The Literature Dilemma
+  - Across published literature, no existing system achieves high robustness without suffering a severe penalty in clean accuracy, latency, or computational complexity.
+=== SLIDE 8 ===
+  - Proposed Methodology
+  - Data Sanitization and Screening
+  - 01
+  - Sanitization
+  - Feature Drop
+  - Data Sanitization
+  - Permanently remove non-generalizable shortcuts: Src/Dst IP, Ports, Timestamp, Flow ID.
+  - Result: 69 continuous features remain.
+  - 02
+  - Partitioning
+  - Train/Val/Test
+  - Strict Partitioning
+  - 80% Dev Set (5M flows) / 20% Test Set (1.2M flows) locked Day 0.
+  - Dev split: 72% Train / 8% Val.
+  - Parameters fitted strictly on 72% Train.
+  - 03
+  - MI Screening
+  - Shannon MI
+  - Feature Selection
+  - Mutual Information filters 69 down to top 40 candidates.
+  - Accelerates Shapley computation by >60%.
+  - 04
+  - SMOTE
+  - Balancing
+  - Oversampling
+  - Continuous-Only SMOTE applied strictly within D train (72% Train).
+  - Balances minority attacks without interpolating discrete flags.
+  - 08
+=== SLIDE 9 ===
+  - Proposed Methodology: SHAP
+  - Our Approach: Measure feature stability under attack to keep only the most reliable features.
+  - 01 Clean-Only Vulnerability
+  - Why Normal Feature Selection Fails:
+  - Features that look important on normal traffic are often the easiest for attackers to manipulate.
+  - 02 Dual-State Attribution Auditing
+  - Train baseline canary MLP on clean data using 40 candidates.
+  - Attack a baseline model with PGD, then compare feature importance on normal vs. attacked traffic.
+  - 03 Exact Mathematical Stability Score (S_j)
+  - Quantifying individual feature robustness under perturbation:
+  - 04 80% Cumulative Stability-Mass Selection
+  - Rank features descending and select minimal subset m satisfying:
+  - 27 STABLE FEATURES SELECTED
+  - 13 VOLATILE FEATURES PRUNED
+  - 09
+=== SLIDE 10 ===
+  - Proposed Methodology : Two-Phase Dynamic Training
+  - Curriculum training to mitigate static attack staleness.
+  - Curriculum Optimization Rationale:
+  - Why Two Phases? Attacking a brand-new model from day one ruins its learning. It must learn normal traffic patterns first before facing attacks.
+  - PHASE 1
+  - Representation Warmup (Epochs 1-10)
+  - Phase 1 (Epochs 1–10): Train on normal traffic first so the model builds solid, accurate foundations.
+  - Train exclusively on clean data using standard cross-entropy loss.
+  - PHASE 2
+  - Dynamic Online Training (Epochs 11-50)
+  - Phase 2 (Epochs 11–50): Generate live, fresh attacks for every training batch to defeat evolving attacks without hurting normal accuracy.
+  - Updates model parameters via a balanced joint objective.
+  - Joint Objective:
+  - Result: Mitigates static attack staleness while preserving benign representation anchors.
+  - 10
+=== SLIDE 11 ===
+  - Dataset & Environment
+  - Experimental configuration and technical architecture parameters
+  - 1. Benchmark Dataset
+  - CSE-CIC-IDS 2018 (Hugging Face: dhoogla/csecicids2018): 14 attack classes across 7 profiles; curated Parquet flows replace raw 250 GB dataset
+  - Total Valid Flow Volume:
+  - 6,320,003
+  - flows (post-sanitization).
+  - Partition Breakdown:
+  - 72% Core Train: 4.55M flows
+  - 8% Validation: 505K flows
+  - 20% Frozen Test: 1.26M flows
+  - 2. Platform & Stack
+  - GPU Platform:AMD Radeon RX 7600 (8 GB VRAM, RDNA 3 architecture).
+  - Software Stack:Python 3.12, PyTorch, ROCm Windows, Adversarial Robustness Toolbox.
+  - Batch Optimization:Vectorized GPU tensor operations (Batch Size = 2048), mixed-precision (~70 min for 50 epochs).
+  - 3. Target Architecture
+  - Topology:4-Layer Multi-Layer Perceptron (MLP).
+  - Layer Design:Linear → Batch Normalization → ReLU Activation → Dropout (p = 0.30).
+  - Complexity:Compact feed-forward pass (~14,000 parameters) ensuring high GPU throughput.
+  - 27
+  - →
+  - 128
+  - →
+  - 64
+  - →
+  - 32
+  - →
+  - 2
+  - 11
+=== SLIDE 12 ===
+  - Weekly Research Timeline & Gantt Chart
+  - Project Execution Timeline (Weeks 1-14)
+  - Current Status (September 10, 2026)
+  - Tasks 1 through 7 are complete (Theoretical formulation, literature audit, data ingestion pipeline, and GPU environment verified). The Pre-Defense Milestone has been successfully achieved.
+  - Immediate Transitions & Next Steps
+  - Immediately transitioning to multi-threat evaluation (Weeks 11–12) and final manuscript submission (Weeks 13–14).
+  - W1
+  - W2
+  - W3
+  - W4
+  - W5
+  - W6
+  - W7
+  - W8
+  - W9
+  - W10
+  - W11
+  - W12
+  - W13
+  - W14
+  - ★ PRE-DEFENSE (SEP 10)
+  - 1. Topic Selection
+  - 2. Literature Review
+  - 3. Base Paper Selection
+  - 4. Methodology Study
+  - 5. Limitation Identify
+  - 6. Environment Setup
+  - 7. Pre-Defense Prep
+  - 8. Implementation
+  - 9. Empirical Evaluation
+  - 10. Result Analysis & Comparison
+  - 11. Thesis Manuscript Drafting
+  - 12. Supervisor Review & Revisions
+  - 13. Final Thesis Defense
+  - 12
+=== SLIDE 13 ===
+  - Expected Results & Research Hypotheses
+  - Comprehensive multi-threat evaluation protocol and performance targets.
+  - Clean Accuracy
+  - ≥95%
+  - Pruning 13 unstable features mitigates degradation.
+  - Robust Accuracy
+  - 88.0% – 90%
+  - PGD-100 (ε=0.05) vs. undefended baselines.
+  - Attack Success Rate
+  - < 12.0%
+  - Under iterative white-box gradient attacks.
+  - Inference Speed
+  - < 0.05 ms
+  - Amortized per flow (preliminary: <0.02 ms).
+  - Multi-Threat Evaluation Suite
+  - First-Order Gradient Attacks
+  - FGSM, PGD20, PGD100, BIM
+  - Parameter-Free & Optimization Attacks
+  - Auto-PGD (APGD-CE), Carlini-Wagner (l∞)
+  - Decision-Based & Black-Box Attacks
+  - Square Attack (query-based), Surrogate Model Transferability
+  - VERIFICATION
+  - Gradient Obfuscation Safeguards
+  - Validate that robustness is genuine and not caused by gradient masking (verifying non-zero input gradients and evaluating black-box transferability).
+  - 13
+=== SLIDE 14 ===
+  - Conclusion & Immediate Next Steps
+  - Summary of proposed contributions and immediate project execution roadmap
+  - PROPOSED CONTRIBUTIONS
+  - Summary of Key Innovations
+  - Theoretical Contribution
+  - Identifies 27 stable, attack-resistant features using our Adversarial Stability SHAP method.
+  - Architectural Contribution
+  - Introduces two-phase dynamic training to stop attack staleness without sacrificing normal traffic accuracy.
+  - Methodological Hygiene
+  - Permanently removes socket shortcut leakage and enforces strict 72/8/20 partitioning on 6.32M valid flows.
+  - SEPT 11 – OCT 11
+  - Immediate Next Milestones
+  - 01
+  - Execute 3-seed experimental runs across all 9 adversarial threat models.
+  - 02
+  - Conduct ablation studies: (1) Full 69D vs. 40D MI vs. 27D Stable; (2) Static Triad vs. Dynamic PGD.
+  - 03
+  - Complete and submit the final thesis manuscript for final defense.
+  - 14
+=== SLIDE 15 ===
+  - References
+  - [1] Holla, Polepalli, & Sasikumar, "Adversarial Threats to Cloud IDS: Robust Defense With Adversarial Training and Feature Selection," IEEE Access, vol. 13, 2025.
+  - [2] Olukola & Rahimi, "Adversarial Hardening of Deep Neural Network-Based Network Intrusion Detection Systems," IEEE Transactions on Information Forensics and Security, vol. 21, 2026.
+  - [3] Güvenç Paltun et al., "Real-Time Explainable AI Gate for Detecting Adversarial Perturbations in Network Intrusion Detection," IEEE Transactions on Reliability, 2025.
+  - [4] Zeng et al., "CSAGC-IDS: Channel-Spatial Attention Graph Convolutional Network for Intrusion Detection," IEEE Internet of Things Journal, 2025.
+  - [5] Roshan et al., "Empirical Robustness Limits of Deep Learning Network Intrusion Detection Systems," IEEE Access, 2023.
+  - [6] Ennaji et al., "Black-Box Adversarial Detection via Stateful Query Profiling in Deep IDS," IEEE Transactions on Information Forensics and Security, 2025.
+  - [7] Zhou et al., "Provable Certified Robustness Guarantees for Deep Tabular Anomaly Detectors," IEEE Transactions on Dependable and Secure Computing, 2023.
+  - [8] Madry, Makelov, Schmidt, Tsipras, & Vladu, "Towards Deep Learning Models Resistant to Adversarial Attacks," in International Conference on Learning Representations (ICLR), 2018.
+  - [9] Goodfellow, Shlens, & Szegedy, "Explaining and Harnessing Adversarial Examples," in International Conference on Learning Representations (ICLR), 2015.
+  - [10] Zhang, Yu, Jiao, Xing, El Ghaoui, & Jordan, "Theoretically Principled Trade-off between Robustness and Accuracy (TRADES)," in International Conference on Machine Learning (ICML), 2019.
+  - [11] Lundberg & Lee, "A Unified Approach to Interpreting Model Predictions (SHAP)," in Advances in Neural Information Processing Systems (NeurIPS), 2017.
+  - [12] Athalye, Carlini, & Wagner, "Obfuscated Gradients Give a False Sense of Security: Circumventing Defenses to Adversarial Examples," in International Conference on Machine Learning (ICML), 2018.
+  - [13] Andriushchenko, Croce, Flammarion, & Hein, "Square Attack: A Query-Efficient Black-Box Adversarial Attack via Random Search," in European Conference on Computer Vision (ECCV), 2020.
+  - [14] Brendel, Rauber, & Bethge, "Decision-Based Adversarial Attacks: Reliable Attacks Against Black-Box Models," in International Conference on Learning Representations (ICLR), 2018.
+  - [15] Chawla, Bowyer, Hall, & Kegelmeyer, "SMOTE: Synthetic Minority Over-Sampling Technique," Journal of Artificial Intelligence Research, vol. 16, 2002.
+  - [16] Sharafaldin, Lashkari, & Ghorbani, "Toward Generating a New Intrusion Detection Dataset and Intrusion Traffic Characterization (CSE-CIC-IDS2018)," in Proc. ICISSP, 2018.
+  - [17] Tsipras, Santurkar, Engstrom, Turner, & Madry, "Robustness May Be at Odds with Accuracy," in International Conference on Learning Representations (ICLR), 2019.
+  - [18] Engelen et al., "Troubleshooting the Flaws of Machine Learning in Network Intrusion Detection," in ACM Conference on Computer and Communications Security (CCS), 2021.
+  - 15

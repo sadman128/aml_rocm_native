@@ -1,0 +1,161 @@
+{
+  "experiment_name": "V10_MULTICLASS_PROPOSED_DEFENSE",
+  "data_dir": "data",
+  "output_dir": "outputs/v10_multy_class",
+  "v9_reference_dir": "outputs/v9_final",
+  "v10_reference_dir": "outputs/v10",
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "data_seed": 42,
+  "test_size": 0.2,
+  "dev_fraction_of_train": 0.1,
+  "rejection_threshold": 0.5,
+  "mi_variance_threshold": 1e-05,
+  "mi_sample_size": 100000,
+  "paper_mi_top_k": 40,
+  "paper_pfi_top_k": 15,
+  "extension_pfi_cumulative": 0.8,
+  "pfi_eval_samples": 10000,
+  "pfi_repeats": 3,
+  "class_weighting": "balanced",
+  "hidden_layers": [
+    128,
+    64,
+    32
+  ],
+  "wider_layers": [
+    256,
+    128,
+    64
+  ],
+  "dropout": 0.3,
+  "learning_rate": 0.001,
+  "batch_size": 2048,
+  "baseline_epochs": 50,
+  "paper_epochs": 50,
+  "v10_clean_epochs": 10,
+  "v10_online_epochs": 40,
+  "attack_classifier_epochs": 30,
+  "attack_epsilon": 0.05,
+  "pgd_steps_eval": 100,
+  "pgd_steps_online": 5,
+  "pgd_step_ratio": 0.1,
+  "pgd_restarts": 1,
+  "deepfool_steps": 30,
+  "deepfool_eval_n": 500,
+  "eval_n": 2000,
+  "square_eval_n": 1000,
+  "square_iterations": 100,
+  "square_init_frac": 0.3,
+  "online_adv_weight": 0.5,
+  "online_clean_weight": 0.5,
+  "transfer_n": 1000,
+  "surrogate_epochs": 30,
+  "pgd_sweep_steps": [
+    20,
+    50,
+    100,
+    200
+  ],
+  "eps_sweep": [
+    0.01,
+    0.03,
+    0.05,
+    0.1
+  ],
+  "boundary_n": 300,
+  "boundary_init_trials": 30,
+  "boundary_refine_steps": 30,
+  "min_disk_free_gb": 5.0,
+  "min_ram_free_gb": 2.0,
+  "v9_final_benchmarks": {
+    "Clean": {
+      "Baseline": {
+        "accuracy": 0.9282,
+        "std": 0.0007,
+        "asr": 0.0
+      },
+      "Paper Defense": {
+        "accuracy": 0.9397,
+        "std": 0.0109,
+        "asr": 0.0
+      },
+      "V9 Defense": {
+        "accuracy": 0.9619,
+        "std": 0.0003,
+        "asr": 0.0
+      }
+    },
+    "FGSM": {
+      "Baseline": {
+        "accuracy": 0.842,
+        "std": 0.033,
+        "asr": 0.0891
+      },
+      "Paper Defense": {
+        "accuracy": 0.8432,
+        "std": 0.0335,
+        "asr": 0.0991
+      },
+      "V9 Defense": {
+        "accuracy": 0.9267,
+        "std": 0.0156,
+        "asr": 0.0362
+      }
+    },
+    "PGD": {
+      "Baseline": {
+        "accuracy": 0.739,
+        "std": 0.0243,
+        "asr": 0.2014
+      },
+      "Paper Defense": {
+        "accuracy": 0.797,
+        "std": 0.0545,
+        "asr": 0.1523
+      },
+      "V9 Defense": {
+        "accuracy": 0.9013,
+        "std": 0.012,
+        "asr": 0.0605
+      }
+    },
+    "Square-style Attack": {
+      "Baseline": {
+        "accuracy": 0.82,
+        "std": 0.0089,
+        "asr": 0.1808
+      },
+      "Paper Defense": {
+        "accuracy": 0.854,
+        "std": 0.0416,
+        "asr": 0.1363
+      },
+      "V9 Defense": {
+        "accuracy": 0.9183,
+        "std": 0.0107,
+        "asr": 0.0527
+      }
+    },
+    "DeepFool (unconstrained)": {
+      "Baseline": {
+        "accuracy": 0.2187,
+        "std": 0.0543,
+        "asr": 0.8473
+      },
+      "Paper Defense": {
+        "accuracy": 0.2927,
+        "std": 0.0319,
+        "asr": 0.756
+      },
+      "V9 Defense": {
+        "accuracy": 0.1053,
+        "std": 0.082,
+        "asr": 0.9307
+      }
+    }
+  }
+}

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Viva Defense Master Rapid-Fire Cheat Sheet</title>
+<style>
+  @page {
+    size: A4;
+    margin: 12mm 14mm 12mm 14mm;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 8.8pt;
+    line-height: 1.44;
+    color: #1e293b;
+    background-color: #ffffff;
+  }
+  h1 {
+    color: #0f2440;
+    font-size: 13.5pt;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 3px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    page-break-after: avoid;
+  }
+  h2 {
+    color: #1e3a8a;
+    font-size: 10pt;
+    margin-top: 2px;
+    margin-bottom: 6px;
+  }
+  h4 {
+    color: #1e40af;
+    font-size: 9pt;
+    margin-top: 7px;
+    margin-bottom: 2px;
+    page-break-after: avoid;
+  }
+  p {
+    margin: 2px 0 6px 0;
+  }
+  blockquote {
+    background-color: #f8fafc;
+    border-left: 3px solid #3b82f6;
+    margin: 3px 0 8px 0;
+    padding: 4px 8px;
+    font-style: normal;
+    color: #0f172a;
+    border-radius: 0 3px 3px 0;
+  }
+  hr {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 8px 0;
+  }
+</style>
+</head>
+<body>
+<h1>🎓 Master Viva Defense Rapid-Fire Cheat Sheet (56 Simple Q&amp;As)</h1>
+<h2>Adversarial Robustness in NIDS via Attribution-Guided Feature Selection &amp; Dynamic Multi-Stage Adversarial Training</h2>
+<blockquote>
+<p><strong>Viva Rules:</strong></p>
+<ol>
+<li><strong>No filler words:</strong> Do not say &quot;Sir&quot;, &quot;Thank you&quot;, or &quot;In our paper&quot;. Start directly with the answer.</li>
+<li><strong>Super short &amp; simple:</strong> 1 to 2 plain sentences. Say the core fact and stop talking.</li>
+<li><strong>Non-CS friendly:</strong> Clear, intuitive logic that anyone on the committee can understand immediately.</li>
+</ol>
+</blockquote>
+<hr />
+<h1>🏛️ Theme 1: Architecture &amp; Model Choices</h1>
+<h4>1. Why didn't you use CNNs, LSTMs, or Transformers instead of a 4-layer MLP?</h4>
+<p>Network traffic is simple tabular numbers, not images or text. Transformers and CNNs are too slow and drop packets, while an MLP classifies traffic in under 0.02 milliseconds.</p>
+<h4>2. Why not XGBoost or Random Forest?</h4>
+<p>Tree models make sharp step-by-step decisions, so you cannot use gradients to train them against attacks. They crash under adversarial attacks, while neural networks have smooth math that we can harden with live PGD.</p>
+<h4>3. Why only 4 layers in your MLP? Why not deeper?</h4>
+<p>Our dataset only has 27 features, so a deeper network would overfit and run slower. 4 layers is fast, lightweight, and takes only 70 minutes to train on our GPU.</p>
+<h4>4. Why the funnel shape (27 -&gt; 128 -&gt; 64 -&gt; 32 -&gt; 2)?</h4>
+<p>Halving the layers step-by-step compresses the data, throwing away random attack noise while keeping the true pattern of normal and malicious traffic.</p>
+<h4>5. Why use ReLU instead of Sigmoid or Tanh?</h4>
+<p>Network traffic like packet counts and duration can never be negative, which matches ReLU's 0 to positive range. Sigmoid and Tanh squash numbers and introduce negative values that don't fit traffic data.</p>
+<h4>6. Why use Dropout (p=0.30) and Batch Normalization?</h4>
+<p>Dropout stops the model from relying on a single feature, so tweaking one clue won't fool it. Batch Normalization keeps the data steady when mixing clean and attacked traffic.</p>
+<h4>7. Why binary classification (Benign vs. Malicious) instead of 14 attack classes?</h4>
+<p>A firewall's immediate job is binary: allow the packet or block it. Once we prove the firewall can block attacks at line-rate speed, classifying specific attack types can be added later.</p>
+<hr />
+<h1>🧬 Theme 2: Feature Selection &amp; SHAP</h1>
+<h4>8. Why use SHAP?</h4>
+<p>SHAP is mathematically fair and consistent. It tells us exactly how much each feature's importance changes when an attacker starts manipulating traffic.</p>
+<h4>9. Why use Mutual Information (MI)?</h4>
+<p>Mutual Information quickly checks which features actually share useful information with attack labels, catching complex non-linear patterns that simple correlation misses.</p>
+<h4>10. Why use Mutual Information BEFORE SHAP?</h4>
+<p>Testing all combinations of 69 features with SHAP is too slow for 6.3 million rows. Mutual Information drops 29 useless features in seconds so SHAP can quickly focus on the top 40.</p>
+<h4>11. Why threshold 0.85 in Mutual Information?</h4>
+<p>It keeps the top features holding 95% of the useful information, while cutting out the noisy bottom features that don't help detect attacks.</p>
+<h4>12. Why not PCA for feature selection?</h4>
+<p>PCA mixes all features into messy math formulas, so we can no longer tell which real packet features are safe. It also ignores whether traffic is under attack.</p>
+<h4>13. Why not LIME instead of SHAP?</h4>
+<p>LIME tests random guesses around each sample, giving different explanations every time you run it. SHAP gives exact, repeatable math every time.</p>
+<h4>14. Why not Random Forest feature importance?</h4>
+<p>Random Forest only checks what features look good on normal, quiet traffic. It doesn't see that an attacker can easily fake those same features.</p>
+<h4>15. Why not simple correlation (Pearson/Spearman)?</h4>
+<p>Correlation only spots simple straight-line trends. Hackers change packet timing in complex, non-linear ways that only Mutual Information and SHAP can catch.</p>
+<h4>16. What is the Stability Score in simple words?</h4>
+<p>It compares a feature's importance on normal traffic versus attacked traffic. If the importance stays the same, the score is 1 (robust); if it swings wildly, the score is 0 (fragile).</p>
+<h4>17. Why keep 80% stability mass (27 features)?</h4>
+<p>The 80/20 rule: the top 27 features hold 80% of all stable clues. The remaining 13 features are unstable traps that attackers easily manipulate, so we drop them.</p>
+<h4>18. How does removing 13 unstable features protect normal accuracy?</h4>
+<p>Unstable features give conflicting signals during training, confusing the model. Dropping them removes the noise, so the model learns normal traffic cleanly without losing accuracy.</p>
+<hr />
+<h1>⚔️ Theme 3: Attacks &amp; PGD Dynamics</h1>
+<h4>19. Why 20-step PGD for the canary SHAP test?</h4>
+<p>20 attack steps is thorough enough to see if a feature's importance breaks under pressure, without taking forever to compute.</p>
+<h4>20. Why 5-step PGD during training instead of 20-step?</h4>
+<p>5 steps creates strong attack samples in just 2 milliseconds per batch. Using 20 steps per batch would quadruple training time from 70 minutes to 5 hours for almost no extra benefit.</p>
+<h4>21. Why train with PGD instead of FGSM?</h4>
+<p>FGSM only takes one single blind guess, which makes the model falsely think it's safe. PGD takes multiple steps to find the worst-case attack, building real defense.</p>
+<h4>22. Why not train with Carlini-Wagner (CW)?</h4>
+<p>Carlini-Wagner is an intense optimization attack that takes seconds per sample, which would take weeks to train on 4.5 million flows. We use it only as a benchmark test on the final model.</p>
+<h4>23. Why not train with DeepFool?</h4>
+<p>DeepFool calculates how to cross the boundary with minimal effort, whereas PGD guarantees attacks stay within a realistic packet-size box (epsilon = 0.05).</p>
+<h4>24. Why step size 0.005 with epsilon 0.05 in PGD?</h4>
+<p>Taking small steps of 0.005 ensures the attack moves smoothly toward the worst vulnerability without overshooting or bouncing around.</p>
+<h4>25. What does epsilon = 0.05 mean physically in network traffic?</h4>
+<p>It means an attacker can alter packet timing or byte sizes by at most 5%. That is small enough to keep network connections working without corrupting the protocol.</p>
+<h4>26. What is Attack Staleness?</h4>
+<p>If you generate fake attacks once before training, the model's brain shifts as it learns, making those old attacks useless and leaving a 20% security hole.</p>
+<h4>27. How does live mini-batch PGD stop attack staleness?</h4>
+<p>We create brand-new attacks on the fly right before every training batch, so the attacks always match the model's newest decision boundary.</p>
+<hr />
+<h1>🔄 Theme 4: Training Curriculum &amp; Two-Phase Hardening</h1>
+<h4>28. Why warm up for 10 epochs? Why not 20 or 5?</h4>
+<p>At the start, the model knows nothing. 10 epochs gives it enough time to learn normal traffic patterns first; 5 is too rushed, and 20 wastes time before hardening begins.</p>
+<h4>29. Why not attack from Epoch 1?</h4>
+<p>If you attack on Day 1 while the model has random weights, it gets overwhelmed by chaos and never learns what normal traffic even looks like.</p>
+<h4>30. Why 50 total epochs? Why not 100?</h4>
+<p>The model stops improving after epoch 45. Running 100 epochs would waste GPU time and risk memorizing attack noise.</p>
+<h4>31. Why a 50-50 balance between clean and attack data?</h4>
+<p>It treats normal traffic and attack traffic with equal importance, preventing the model from becoming paranoid or overly lenient.</p>
+<h4>32. Why use the Adam optimizer?</h4>
+<p>Adam automatically adjusts the learning speed for each feature, which keeps training smooth when dealing with both clean and attacked samples.</p>
+<h4>33. Why batch size 2048?</h4>
+<p>2048 samples at once fully utilizes our AMD graphics card, speeding up training to just 70 minutes while keeping memory usage under 2.2 GB.</p>
+<h4>34. What is the total loss function in Phase 2?</h4>
+<p>Half cross-entropy loss on clean traffic plus half cross-entropy loss on live PGD attacks.</p>
+<hr />
+<h1>📦 Theme 5: Dataset, Preprocessing &amp; Leakage</h1>
+<h4>35. Why use CSE-CIC-IDS2018?</h4>
+<p>It is the most realistic modern benchmark, created on an enterprise AWS network across 500 servers with 6.3 million flows and 14 modern attacks.</p>
+<h4>36. Why not KDD99 or NSL-KDD?</h4>
+<p>They are over 25 years old and use simulated 1990s traffic that has nothing in common with modern internet protocols or threats.</p>
+<h4>37. Why not CIC-IDS2017?</h4>
+<p>The 2017 dataset has broken timestamps, missing traffic labels, and syntax errors. The 2018 version fixed these issues and is much larger.</p>
+<h4>38. Why D'hooge's curation instead of raw UNB CSVs?</h4>
+<p>The raw university CSVs have broken headers on Day 4 and missing values that crash programs. D'hooge cleaned them into standardized Parquet files while keeping all 6.3 million flows.</p>
+<h4>39. Why remove IP addresses and port numbers?</h4>
+<p>Attackers change IPs and ports in seconds. If we keep them, the AI simply memorizes 'Port 80 is good', which looks great on paper but fails against real hackers.</p>
+<h4>40. Why SMOTE instead of simple undersampling?</h4>
+<p>Undersampling deletes 75% of our normal traffic data, throwing away valuable training. SMOTE creates synthetic attack examples so we keep all our normal data.</p>
+<h4>41. Why SMOTE instead of class weights?</h4>
+<p>Class weights just multiply the loss number without creating new examples. SMOTE actually fills the empty space with synthetic attack points, drawing a better boundary.</p>
+<h4>42. Why apply SMOTE only inside the training split?</h4>
+<p>If you use SMOTE before splitting, synthetic test data leaks into the training set, which is cheating. Applying it only inside training keeps the test set 100% honest and unseen.</p>
+<h4>43. Why a 72-8-20 split?</h4>
+<p>On 6.3 million flows, 20% locks away 1.26 million real flows for a bulletproof final test, while 8% validation makes sure training doesn't overfit.</p>
+<hr />
+<h1>🔍 Theme 6: Verification Against Fake Defenses</h1>
+<h4>44. What is Gradient Masking?</h4>
+<p>A fake defense where a model hides or flattens its math gradients. It tricks basic gradient attacks into failing, but black-box attacks easily break it.</p>
+<h4>45. How do you prove your model doesn't have gradient masking?</h4>
+<p>First, 100 attack steps must do more damage than 20 steps. Second, black-box attacks cannot be stronger than white-box attacks. If both hold, the defense is real.</p>
+<h4>46. What is DeepFool and why test it?</h4>
+<p>DeepFool finds the shortest distance needed to push a packet across the border. It proves whether our training actually pushed the enemy boundary further away.</p>
+<h4>47. What is Carlini-Wagner (CW) and why test it?</h4>
+<p>Carlini-Wagner is a famous attack built specifically to defeat fake, masked defenses. If our model resists CW on the test set, our robustness is genuine.</p>
+<h4>48. What is Square Attack and why test it?</h4>
+<p>Square Attack is a blind black-box attack that uses zero gradients. If a model survives white-box attacks but fails Square Attack, its defense is fake.</p>
+<h4>49. What is Auto-PGD (APGD) and why test it?</h4>
+<p>Auto-PGD automatically tunes its own step size to find the best attack path, ensuring our evaluation doesn't rely on poorly tuned attacks.</p>
+<h4>50. Why test 9 different attack types?</h4>
+<p>Real attackers won't use the same attack we trained on. Testing 9 diverse attacks proves our defense works against unexpected threats, not just our own training method.</p>
+<h4>51. What is surrogate model transferability?</h4>
+<p>An attacker trains their own clone model, creates attacks on it, and sends them to our model. Testing this proves we can block attacks even when the hacker doesn't have our code.</p>
+<hr />
+<h1>📊 Theme 7: Expected Results &amp; Hardware Feasibility</h1>
+<h4>52. How did you come up with 95.5% clean and 88-90% robust accuracy?</h4>
+<p>Published peer papers reached 88% with static training and 89.4% with dynamic training. Because we eliminate attack staleness and prune 13 noisy features, we expect to match and beat that frontier without losing normal accuracy.</p>
+<h4>53. What does Attack Success Rate &lt;12% mean practically?</h4>
+<p>It means less than 12 out of 100 attacks manage to sneak past our firewall. Undefended models let 70 out of 100 attacks sneak through.</p>
+<h4>54. Why is line-rate speed defined as &lt;0.05 ms per flow?</h4>
+<p>Data center switches process millions of packets per second. If our AI takes more than 0.05 milliseconds per flow, network traffic backs up and drops packets.</p>
+<h4>55. How can an 8 GB AMD GPU train 6.3 million flows in 70 minutes?</h4>
+<p>Our model has only 27 inputs and 14,000 parameters, which takes under 2.2 GB of VRAM. PyTorch ROCm runs large batches of 2048 flows completely in parallel.</p>
+<h4>56. What if your final experiments get 84% instead of 88%?</h4>
+<p>84% is still a huge leap over the 30% undefended baseline. If needed, we can increase the attack loss weight or train with 7 PGD steps to strengthen the boundary.</p>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "seed": 42,
+  "indicators": [
+    {
+      "test": "PGD_step_decay",
+      "verdict": "EVIDENCE CONSISTENT WITH ROBUSTNESS",
+      "detail": "acc_drop=0.0100"
+    },
+    {
+      "test": "Transfer_vs_whitebox",
+      "verdict": "EVIDENCE CONSISTENT WITH ROBUSTNESS",
+      "detail": "whitebox=0.074 >> transfer=0.015"
+    }
+  ],
+  "verdict": "NO_OBVIOUS_MASKING"
+}

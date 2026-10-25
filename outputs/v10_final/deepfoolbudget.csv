@@ -1,0 +1,64 @@
+method,perturbation_budget_linf,seed,pct_fooled
+Baseline,0.01,42,0.0
+Baseline,0.02,42,0.0
+Baseline,0.03,42,0.0
+Baseline,0.05,42,0.0
+Baseline,0.08,42,0.0
+Baseline,0.1,42,0.0
+Baseline,0.15,42,0.0
+Paper Defense,0.01,42,0.0
+Paper Defense,0.02,42,0.0
+Paper Defense,0.03,42,0.0
+Paper Defense,0.05,42,0.0
+Paper Defense,0.08,42,0.0
+Paper Defense,0.1,42,0.0
+Paper Defense,0.15,42,0.0
+V10 Defense,0.01,42,0.006
+V10 Defense,0.02,42,0.006
+V10 Defense,0.03,42,0.006
+V10 Defense,0.05,42,0.006
+V10 Defense,0.08,42,0.006
+V10 Defense,0.1,42,0.006
+V10 Defense,0.15,42,0.006
+Baseline,0.01,123,0.0
+Baseline,0.02,123,0.0
+Baseline,0.03,123,0.0
+Baseline,0.05,123,0.0
+Baseline,0.08,123,0.0
+Baseline,0.1,123,0.0
+Baseline,0.15,123,0.0
+Paper Defense,0.01,123,0.012
+Paper Defense,0.02,123,0.012
+Paper Defense,0.03,123,0.012
+Paper Defense,0.05,123,0.012
+Paper Defense,0.08,123,0.012
+Paper Defense,0.1,123,0.012
+Paper Defense,0.15,123,0.014
+V10 Defense,0.01,123,0.008
+V10 Defense,0.02,123,0.008
+V10 Defense,0.03,123,0.008
+V10 Defense,0.05,123,0.008
+V10 Defense,0.08,123,0.008
+V10 Defense,0.1,123,0.008
+V10 Defense,0.15,123,0.008
+Baseline,0.01,2024,0.0
+Baseline,0.02,2024,0.0
+Baseline,0.03,2024,0.0
+Baseline,0.05,2024,0.0
+Baseline,0.08,2024,0.0
+Baseline,0.1,2024,0.0
+Baseline,0.15,2024,0.0
+Paper Defense,0.01,2024,0.0
+Paper Defense,0.02,2024,0.0
+Paper Defense,0.03,2024,0.0
+Paper Defense,0.05,2024,0.0
+Paper Defense,0.08,2024,0.0
+Paper Defense,0.1,2024,0.0
+Paper Defense,0.15,2024,0.0
+V10 Defense,0.01,2024,0.0
+V10 Defense,0.02,2024,0.0
+V10 Defense,0.03,2024,0.0
+V10 Defense,0.05,2024,0.0
+V10 Defense,0.08,2024,0.0
+V10 Defense,0.1,2024,0.0
+V10 Defense,0.15,2024,0.0

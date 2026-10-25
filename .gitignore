@@ -18,31 +18,17 @@ __pycache__/
 *.py[cod]
 *$py.class
 .ipynb_checkpoints/
-scratch/
 
-# Large binaries, models & data formats (>100MB)
+# Big files from output & backups
+outputs/*/artifacts/
+outputs/**/artifacts/
+bkp/*/artifacts/
+bkp/**/artifacts/
+bkp/v6_transferbility check with cuda/seed_42/checkpoints/
 *.parquet
-*.pkl
-*.tar
-*.zip
-*.7z
 
-# Artifacts & Checkpoints
-bkp/*/artifacts
-bkp/**/artifacts
-outputs/*/artifacts
-outputs/**/artifacts
-bkp/v6_transferbility check with cuda/seed_42/checkpoints
-
-# Intermediate experiment runs
-outputs/v10/
-outputs/v10_multy_class/
-adversarial_cloud_ids_defense_v10.ipynb
-v10_multi_class.ipynb
-deepfoolbudget.csv
-
-# Thesis & Books (tracked in external document repos)
-/thesis book/
-/SEU Research Final Template/
-/final book/
-/paper/
+# Ignored document directories
+thesis book/
+SEU Research Final Template/
+final book/
+paper/

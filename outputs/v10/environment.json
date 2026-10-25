@@ -1,0 +1,8 @@
+{
+  "python": "3.12.13 (main, Aug  7 2026, 02:26:41) [MSC v.1944 64 bit (AMD64)]",
+  "torch": "2.9.1+rocm7.2.1",
+  "device": "cuda",
+  "gpu": "AMD Radeon RX 7600",
+  "os": "Windows-11-10.0.26200-SP0",
+  "created": "2026-10-11T22:53:12"
+}
